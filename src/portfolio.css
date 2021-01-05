@@ -1,0 +1,890 @@
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: rgb(50,50,50);
+    --bg-image: url(img/LowPolyBackgroundY3.png);
+    --heading-color: #292922;
+    --linear-gradient-underline-first: rgb(221, 221, 221);
+    --linear-gradient-underline-second: rgb(255, 255, 255);
+    --modal-body-background: url(img/invLowPolyBackgroundCtoG2.png);
+    --modal-header-background: linear-gradient(to left, rgba(33,33,33,0.9), rgba(33,33,33,0.9));
+    --modal-footer-background: linear-gradient(to left, rgb(33,33,33), rgb(33,33,33));
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-image: url(img/LowPolyBackgroundBlack.png);
+    --bg-color: #161625;
+    --heading-color: #818cab;
+    --linear-gradient-underline-first: rgb(0, 221, 255);
+    --linear-gradient-underline-second: rgb(0, 115, 255);
+    --modal-body-background: url(img/LowPolyBackground-darkBlue2.png);
+    --modal-header-background: linear-gradient(to left, rgba(33,33,33,0.9), rgba(33,33,33,0.8));
+    --modal-footer-background: linear-gradient(to left, rgba(33,33,33,0.9), rgba(33,33,33,0.8));
+}
+
+body
+{
+    background: var(--bg-image) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: var(--font-color);
+}
+
+/* Menu */
+.navbar 
+{
+    font-family: 'Martel Sans', sans-serif;
+    overflow: hidden;
+    background-color: rgba(33,33,33,0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    
+}
+
+.navbar:hover
+{
+        zoom: 1;
+        filter: alpha(opacity=50);
+        opacity: 1;
+        -webkit-transition: opacity .15s ease-in-out;
+        -moz-transition: opacity .15s ease-in-out;
+        -ms-transition: opacity .15s ease-in-out;
+        -o-transition: opacity .15s ease-in-out;
+        transition: opacity .15s ease-in-out;
+}
+
+.navbar a 
+{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.navbar a:after
+{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navbar div
+{
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar a:hover:after
+{
+    width: 100%; 
+    left: 0; 
+}
+
+.active-page
+{
+    text-decoration: underline;
+    color: black;
+    text-shadow: 1px 1px 2px rgba(100,100,255,0.7);
+}
+
+header
+{
+    margin-top: 100px;
+    display: flex;
+    height: 150px;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.title
+{   
+    display: block;
+    color: var(--font-color);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.intro
+{
+    text-align: center;
+    color: var(--font-color);
+}
+
+.parag1
+{
+    color: --font-color;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+    
+    background-color: rgb(50,50,50,0.1);
+    
+    margin-bottom: 30px;
+}
+
+.title-img
+{
+    height: 92px;
+    
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.title-info:last-child > span { margin-left: auto;  }
+
+a
+{
+    color: var(--primary-color);
+    text-decoration: none;
+    text-underline-position: alphabetic;
+}
+
+hr
+{
+    color: var(--font-color);
+}
+
+h1
+{
+    font-family: 'Play', sans-serif;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(100,100,255,0.7);
+}
+
+h2
+{
+    font-family: 'Cambay', sans-serif;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(100,100,255,0.7);
+}
+
+.active
+{
+    font-family: 'Cambay', sans-serif;
+    text-align: center;
+    display: block;
+    margin-left: 12px;
+    background-color: rgba(20,20,20,0.3);
+    color: var(--font-color);
+}
+
+.active-expanded
+{
+    font-family: 'Cambay', sans-serif;
+    text-align: center;
+    display: block;
+    margin-left: 12px;
+    background-color: rgba(20,20,20,0.3);
+}
+
+.active:after
+{
+    padding: 10px;
+    font-family: "Font Awesome 5 Free";
+    content: "\f107";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    color: var(--font-color);
+}
+
+.active-expanded:after
+{
+    padding: 10px;
+    font-family: "Font Awesome 5 Free";
+    content: "\f106";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    color: var(--font-color);
+}
+
+.active:hover
+{
+    background-color: rgba(100,180,255,0.4);
+    cursor: pointer;
+    
+}
+
+.descriptif
+{
+    font-family: 'Cambay', sans-serif;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(100,100,255,0.7);
+    margin-bottom: 20px;
+}
+
+h3
+{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    padding: 2px;
+}
+
+h4
+{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+}
+
+p
+{
+    font-family: 'ASAP', sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    text-align-last: center;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: var(--font-color);
+}
+
+span
+{
+    font-family: 'ASAP', sans-serif;
+    font-size: 20px;
+    color: var(--font-color);
+}
+
+button
+{
+    color: var(--font-color);
+    font-family: 'ASAP', sans-serif;
+    font-size: 20px;
+    border: 0px;
+    text-align: left;
+    cursor: pointer;
+    display: block;
+    background: none;
+    align-content: center;
+    text-align: center;
+}
+
+
+.photo-block
+{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background-color: rgb(50,50,50,0.25);
+    margin-bottom: 20px;
+}
+
+.picture
+{
+    position: relative;
+    height: 200px;
+    /*width: 200px;*/
+}
+
+.img-layer
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background: rgba(36, 62, 206, 0.6);*/
+    border: 1px;
+    border-radius: 25px;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+
+.picture:hover .img-layer
+{
+    visibility: visible;
+    opacity: 1;
+}
+
+.img-ext-lnk
+{
+    transition: .2s;
+    transform: translateY(1em);
+}
+
+.picture:hover .img-ext-lnk
+{
+    transform: translateY(0);
+}
+
+.pp-fb
+{
+    height: 200px;
+    border: 1px;
+    border-radius: 25px;
+}
+
+.pic-slides
+{
+    height: 200px;
+    border: 1px;
+    border-radius: 25px;
+    display: block;
+    margin: auto;
+    align-content: center;
+    background-color: rgba(50,50,50,.6);
+}
+
+.pp-slides
+{
+    height: 200px;
+    width: 200px;
+    border: 1px;
+    border-radius: 25px;
+    display: block;
+    margin: auto;
+    align-content: center;
+    background-color: rgba(50,50,50,.6);
+}
+
+.pp-fb:hover
+{
+    -webkit-filter: grayscale(0.5) blur(2px);
+    transition: 1s ease;
+}
+
+.description-gaming
+{
+    color: --font-color;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0.10em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    
+    background-color: rgb(50,50,50,0.25);
+}
+
+.description-video
+{
+    text-decoration: none;
+    letter-spacing: 0.10em;
+    line-height: 2.20em;
+    font-size: 16px;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    margin-left: auto;
+    margin: auto;
+}
+
+.hla-videos
+{
+    display: block;
+    margin: 10px;
+}
+
+player
+{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.blndpics
+{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    height: 360px;
+    width: 640px;
+}
+
+.video-block
+{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background-color: rgb(50,50,50,0.25);
+    margin-bottom: 20px;
+}
+
+.id
+{
+
+}
+
+.frm-desc
+{
+    background-image: linear-gradient(to right, rgba(20,20,20,0.1), rgba(50,50,50,0.2));
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ex-video
+{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    background-image: linear-gradient(to right, rgba(20,20,20,0.1), rgba(50,50,50,0.2));
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ex-video:nth-child(1)
+{
+    align-self: flex-start;
+}
+
+.hobby-desc
+{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    background-image: linear-gradient(to right, rgba(20,20,20,0.1), rgba(50,50,50,0.2));
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.amnesty
+{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    background-image: linear-gradient(to right, rgba(20,20,20,0.1), rgba(50,50,50,0.2));
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.exp-content
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+}
+
+.ltdn-logo
+{
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ltdn-logo:hover
+{
+    -webkit-filter: grayscale(0.5) blur(2px);
+    transition: 1s ease;
+    content: "Cliquer pour accéder au site";
+}
+
+.epitech-logo
+{
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+}
+
+.epitech-logo:hover
+{
+    -webkit-filter: grayscale(0.5) blur(2px);
+    transition: 1s ease;
+}
+
+section
+{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height ease;
+    transition-duration: 1s;
+}
+
+.competences
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.games
+{
+    text-align: justify;
+    margin: auto;
+    display: flex;
+    flex-direction: column; 
+}
+
+.soft-skills
+{
+    text-align: justify;
+    margin: auto;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+.langues
+{
+    text-align: justify;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+span.collapsible
+{
+    cursor: pointer;
+}
+
+.collapsible 
+{
+    color: --font-color;
+    font-family: fantasy;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.15em;
+    font-family: "Font Awesome 5 Free";
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+    
+    background-color: rgba(50,50,50,0.5);
+}
+
+.collapsible:after
+{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background-image: linear-gradient(to right, var(--linear-gradient-underline-first), var(--linear-gradient-underline-second));
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    color: var(--font-color);
+}
+.collapsible:hover:after
+{
+    width: 100%; 
+    left: 0; 
+}
+
+.active-info:after {
+    content: "";
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background-image: linear-gradient(to right, var(--linear-gradient-underline-first), var(--linear-gradient-underline-second));
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.content {
+    padding-top: 15px;
+    padding-right: 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
+    background-image: linear-gradient(to right, rgba(20,20,20,0.1), rgba(50,50,50,0.2));
+}
+
+.selector-lng
+{
+    margin-top: 0.5px;
+    display: block;
+    align-items: center;
+    padding-right: 20px;
+}
+
+footer
+{
+    
+}
+
+/* Code CSS du mode sombre */
+.theme-switch-wrapper {
+    display: block;
+    align-items: center;
+    padding-top: 16px;
+    padding-right: 20px; 
+}
+.theme-switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 50px;
+    margin-left: 10px; 
+    margin-right: 10px; 
+}
+
+.theme-switch-wrapper:before
+{
+    font-family: "Font Awesome 5 Free";
+    font-style: solid;
+    content: '\f185';
+    color: white;
+}
+.theme-switch-wrapper:after
+{
+    font-family: "Font Awesome 5 Free";
+    font-style: solid;
+    content: '\f186';
+    color: white;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 12px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 12px;
+}
+
+input:checked + .slider {
+  background-color: rgb(56, 115, 186);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* Fin du CSS du mode sombre */
+
+/*Modals*/
+/* The Modal (background) */
+.modal 
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content 
+{
+    position: relative;
+    background-image: var(--modal-body-background);
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    text-align: center;
+    align-content: center;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close 
+{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus 
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header 
+{
+    padding: 2px 16px;
+    background-image: var(--modal-header-background);
+    color: white;
+}
+
+.modal-body 
+{  
+    padding: 2px 16px;
+}
+
+.modal-footer 
+{
+    padding: 2px 16px;
+    background-image: var(--modal-footer-background);
+    color: white;
+}
+
+.gamedev-pic-left:hover
+{
+    transition: all .2s ease-in-out;
+    transform: scale(1.5); /*translate(50%, 50%);*/
+}
+
+.gamedev-pic-center:hover
+{
+    transition: all .2s ease-in-out;
+    transform: scale(1.5); /*translateY(50%);*/
+}
+.gamedev-pic-right:hover
+{
+    transition: all .2s ease-in-out;
+    transform: scale(1.5); /*translate(-50%, 50%);*/
+}
+
+.modal-button
+{
+    font-family: 'Khand', sans-serif;
+    font-style: oblique;
+}
+
+button.modal-button
+{
+    font-family: 'ASAP', sans-serif;
+    font-size: 15px;
+    text-align: justify;
+    text-align-last: center;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: var(--font-color);
+}
+
+.mySlides
+{
+    display: block;
+    margin: auto;
+    height: 360px;
+    width: 640px;
+    align-content: center;
+    background-color: rgba(50,50,50,.6);
+}
+
+.mySlides-2
+{
+    display: block;
+    margin: auto;
+    height: 360px;
+    width: 640px;
+    align-content: center;
+    background-color: rgba(50,50,50,.6);
+}
+
+.Slides-ue
+{
+    display: block;
+    margin: auto;
+    height: 360px;
+    width: 640px;
+    align-content: center;
+    background-color: rgba(50,50,50,.6);
+}
+
+.galerie
+{
+    font-family: 'Cambay', sans-serif;
+    text-align: center;
+    display: block;
+    margin-left: 12px;
+    background-color: rgba(20,20,20,0.3);
+    border: 0;
+    border-radius: 25px;
+    color: var(--font-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
