@@ -1,0 +1,26 @@
+/* Variables des éléments graphiques du site */
+$primary-color: #0099ff;
+$secondary-color: #0059ff;
+$terciary-color: #ffe550;
+
+$primary-font: "Khand", sans-serif;
+$secondary-font: "Roboto Condensed", sans-serif;
+$terciary-font: "Rubik", sans-serif;
+
+$font-size-regular-mobile: 1rem;
+$font-size-regular-desktop: 2rem;
+
+$primary-blurry-backrgound: url("/public/img/LowPolyBackground-dark-Blurry.png");
+
+$bg--light: #f2f2f2;
+$bg--dark: linear-gradient(-127deg,#333333,#080f1b);
+
+$text--light: #222222;
+$text--dark: #f2f2f2;
+
+/* Animation variables */
+$standard-transition: 250ms ease;
+
+$prog-bar-dur: 2000ms;
+$prog-bar-delay: 150ms;
+$loading-screen-delay: $prog-bar-dur + $prog-bar-delay * 2;

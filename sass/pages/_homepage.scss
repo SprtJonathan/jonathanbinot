@@ -1,0 +1,27 @@
+h1 {
+  margin-top: 100px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-family: $secondary-color;
+  text-align: justify;
+}
+
+p {
+  font-family: $terciary-font;
+  text-align: justify;
+}
+
+.intro {
+    width: 90vw;
+    margin: auto;
+    li {
+        font-family: $secondary-font;
+    }
+    mark {
+        background-color: transparent;
+        padding-bottom: 3px;
+        border-bottom: 3px solid $primary-color;
+    }
+}
