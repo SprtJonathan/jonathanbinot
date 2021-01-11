@@ -23,7 +23,7 @@
 
 .loading-spinner {
     display: flex;
-    height: vw;
+    height: 10vw;
     justify-content: center;
     align-items: center;
   }
@@ -40,4 +40,27 @@
   .loading-logo {
     font-family: $terciary-font;
     color: $secondary-color;
+  }
+
+  @media (min-width: 1024px) {
+    .loading-spinner {
+        display: flex;
+        height: 10vw;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .spinner {
+        height: 5vw;
+        width: 5vw;
+        border: 10px solid $primary-color;
+        border-top-color: $secondary-color;
+        border-radius: 100%;
+        animation: spinner-rotation 0.6s infinite ease 0.25s;
+      }
+      
+      .loading-logo {
+        font-family: $terciary-font;
+        color: $secondary-color;
+      }
   }

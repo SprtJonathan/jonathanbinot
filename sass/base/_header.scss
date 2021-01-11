@@ -13,6 +13,7 @@ header.header--classic {
   background-color: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(2px);
   box-shadow: rgba(10, 10, 10, 0.7) 1px 2px 5px;
+  z-index: 500;
   ul {
     height: 20%;
     display: flex;
@@ -28,16 +29,20 @@ header.header--classic {
         text-decoration: none;
         color: $text--dark;
         font-size: $font-size-regular-mobile;
-        transition: $standard-transition;;
+        transition: $standard-transition;
         i {
-          font-size: $font-size-regular-mobile;
+          font-size: $font-size-regular-mobile - 0.2;
+          margin-left: 5px;
         }
       }
       a.active-page {
-        color: $secondary-color;
+        color: $primary-color;
+        font-weight: 600;
       }
       a:hover {
-        color: $primary-color;
+        color: $terciary-color;
+        font-weight: 600;
+        text-shadow: $terciary-color 0px 0px 5px;
       }
     }
   }
@@ -49,8 +54,8 @@ header.header--classic {
   }
 }
 
-@media (min-width: 1024px) {
-  header {
+@media (min-width: 768px) {
+  header.header--classic {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -66,37 +71,65 @@ header.header--classic {
     backdrop-filter: blur(2px);
     box-shadow: rgba(10, 10, 10, 0.7) 1px 2px 5px;
     ul {
-        min-width: 40%;
-        justify-content: space-around;
+      min-width: 40%;
+      justify-content: space-around;
       li {
         a {
-          font-size: $font-size-regular-desktop;
+          font-size: $font-size-regular-desktop - 0.5;
           i {
-            font-size: $font-size-regular-desktop;
+            font-size: $font-size-regular-desktop - 0.7;
+            margin-left: 5px;
           }
         }
       }
     }
     section {
-        flex-wrap: wrap;
-        min-width: 20%;
-        max-width: 40%;
-        .fr-flag {
-            width: 2.5rem;
-            height: auto;
-            transition: $standard-transition;
-            &:hover {
-                transform: scale(1.3);
-            }
+      flex-wrap: wrap;
+      min-width: 20%;
+      max-width: 40%;
+      .fr-flag {
+        width: 2.5rem;
+        height: auto;
+        transition: $standard-transition;
+        &:hover {
+          transform: scale(1.3);
         }
-        .en-flag {
-            width: 2.5rem;
-            height: auto;
-            transition: $standard-transition;
-            &:hover {
-                transform: scale(1.3);
-            }
+      }
+      .en-flag {
+        width: 2.5rem;
+        height: auto;
+        transition: $standard-transition;
+        &:hover {
+          transform: scale(1.3);
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  header.header--classic {
+    ul {
+      min-width: 40%;
+      justify-content: space-around;
+      li {
+        a {
+          font-size: $font-size-regular-desktop - 0.5;
+          i {
+            font-size: $font-size-regular-desktop - 0.7;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    section {
+      .fr-flag {
+        width: 2rem;
+      }
+      .en-flag {
+        width: 2rem;
+        height: auto;
+      }
     }
   }
 }
