@@ -1,4 +1,4 @@
-.lg-selector {
+header.header--lg-selector {
   display: flex;
   margin: 25px;
   text-align: center;
@@ -12,8 +12,10 @@
   padding: 5%;
   width: 90%;
   border-radius: 25px;
-  overflow: scroll;
   color: $text--dark;
+  h2.change-lg {
+    text-align: center;
+  }
   .homepage-selector-lang {
     display: flex;
     flex-direction: column;
