@@ -1,0 +1,22 @@
+{
+  "name": "jonathanbinot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./Sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SprtJonathan/jonathanbinot.com.git"
+  },
+  "author": "Jonathan Binot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SprtJonathan/jonathanbinot.com/issues"
+  },
+  "homepage": "https://github.com/SprtJonathan/jonathanbinot.com#readme",
+  "dependencies": {
+    "sass": "^1.32.5"
+  }
+}
