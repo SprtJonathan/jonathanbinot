@@ -5,6 +5,7 @@ header.header--lg-selector {
   h1 {
     margin: auto;
     color: $primary-color;
+    text-shadow: $secondary-color 1px 1px 3px;
   }
 }
 .language-selection-section {

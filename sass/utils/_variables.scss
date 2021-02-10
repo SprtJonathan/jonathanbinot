@@ -3,7 +3,7 @@ $primary-color: #0099ff;
 $secondary-color: #0059ff;
 $terciary-color: #ffe550;
 
-$primary-font: "Khand", sans-serif;
+$primary-font: 'Khand', sans-serif;
 $secondary-font: "Roboto Condensed", sans-serif;
 $terciary-font: "Rubik", sans-serif;
 
@@ -26,3 +26,7 @@ $prog-bar-delay: 150ms;
 $loading-screen-delay: $prog-bar-dur + $prog-bar-delay * 2;
 
 $header-margin: 100px;
+
+/* Z-index values */
+$menu-zindex: 10;
+$loading-zindex: 50;

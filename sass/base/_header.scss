@@ -13,7 +13,7 @@ header.header--classic {
   background-color: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(2px);
   box-shadow: rgba(10, 10, 10, 0.7) 1px 2px 5px;
-  z-index: 500;
+  z-index: $menu-zindex;
   ul {
     height: 20%;
     display: flex;
@@ -24,6 +24,7 @@ header.header--classic {
     li {
       list-style: none;
       font-family: $primary-font;
+      letter-spacing: 2px;
       margin-left: 15px;
       a {
         text-decoration: none;
