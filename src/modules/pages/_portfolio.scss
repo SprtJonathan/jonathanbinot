@@ -1,0 +1,30 @@
+.portfolio {
+  &--intro {
+    text-align: center;
+  }
+  &--description-video {
+    text-align: center;
+  }
+}
+
+.pic-slides {
+  width: 90%;
+}
+
+.splide {
+  margin: auto;
+  &--photo {
+    width:90%
+  }
+}
+
+@media (min-width: 720px) {
+  .pic-slides {
+    width: 40%;
+  }
+  .splide {
+    &--photo {
+      width:30%
+    }
+  }
+}
