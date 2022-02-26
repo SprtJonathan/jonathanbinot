@@ -1,0 +1,22 @@
+{
+  "name": "jonathanbinot",
+  "version": "2.0.0",
+  "description": "Site web personnel (Jonathan Binot) contenant des informations sur mes compétences, mes capacités, ainsi que de mes centres d'intérêts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SprtJonathan/jonathanbinot.git"
+  },
+  "author": "Jonathan Binot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SprtJonathan/jonathanbinot/issues"
+  },
+  "homepage": "https://github.com/SprtJonathan/jonathanbinot#readme",
+  "dependencies": {
+    "fontawesome-free": "^1.0.4"
+  }
+}

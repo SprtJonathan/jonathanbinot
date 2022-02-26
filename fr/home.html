@@ -1,6 +1,15 @@
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <script src="/node_modules/fontawesome-free/js/all.js"></script>
+    <script src="/node_modules/fontawesome-free/js/brands.js"></script>
+    <script src="/node_modules/fontawesome-free/js/solid.js"></script>
+    <script src="/node_modules/fontawesome-free/js/fontawesome.js"></script>
+  </head>
   <body>
+    <header><website-menu></website-menu></header>
+    <span id="page-marker">homepage</span>
+    <h1 class="nom">Bienvenue sur mon site web personnel.</h1>
     <section class="intro">
       <h2>
         Diverses pages vous sont ici proposées, vous y trouverez mon CV en
@@ -71,5 +80,29 @@
         de la page. Bonne visite.
       </p>
     </section>
+    <div id="contact-form-block" class="contact-form--background">
+      <form class="contact-form" ref="form" @submit.prevent="sendEmail">
+        <h2>Me contacter</h2>
+        <div class="contact-form--category contact-form--name">
+          <label for="name">Name</label>
+          <input type="text" name="name" />
+        </div>
+        <div class="contact-form--category contact-form--email">
+          <label for="email">Email</label>
+          <input type="email" name="email" />
+        </div>
+        <div class="contact-form--category contact-form--object">
+          <label for="object">Objet</label>
+          <input type="text" name="object" />
+        </div>
+        <div class="contact-form--category contact-form--message">
+          <label for="message">Message</label>
+          <textarea name="message"></textarea>
+        </div>
+        <input class="button" type="submit" value="Envoyer" />
+      </form>
+    </div>
   </body>
+  <script src="../js/components/menu.js" type="text/javascript"></script>
+  <script src="../js/home.js" type="text/javascript"></script>
 </html>

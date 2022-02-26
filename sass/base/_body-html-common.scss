@@ -1,0 +1,181 @@
+:root {
+  --background-color: #f2f2f2;
+  --text-color: $text-color;
+  --marked-color: $text-color;
+  --background-image: linear-gradient(-127deg, #ffffff, #f5f5f5);
+  --color-links: #0099ff;
+  --inverted-links: #ffe550;
+}
+
+[data-theme="darkMode"] {
+  --background-color: rgb(10, 10, 10);
+  --text-color: #f2f2f2;
+  --marked-color: #f2f2f2;
+  --background-image: linear-gradient(-127deg, #0b1424, #080f1b);
+  --color-links: #ffe550;
+  --inverted-links: #0099ff;
+}
+
+html {
+  height: auto;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: $primary-font;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-color);
+}
+
+h2 {
+  font-family: $secondary-font;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+h3 {
+  font-family: $terciary-font;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+a.link {
+  color: var(--color-links);
+  text-decoration: none;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.button {
+  border: transparent;
+  height: 3rem;
+  color: whitesmoke;
+  @include button-base-style;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.collapsing {
+  transform: translateY(200px) scaleY(0.5);
+  opacity: 0;
+}
+
+.collapsible {
+  transition: 300ms ease-in-out;
+  @include background-shadow-default;
+  width: 98%;
+  margin: auto;
+  padding: 2rem 0rem;
+  &--button {
+    padding: 8px 2rem;
+    margin: 1rem;
+    border: 0px transparent;
+    @include background-shadow-default;
+    &:focus {
+      color: var(--text-color);
+    }
+    &:hover {
+      color: var(--color-links);
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+  &--content {
+    padding: 1rem;
+  }
+  &--text {
+    text-align: left;
+  }
+  section {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+mark {
+  margin: 0px;
+  padding: 0px;
+  &.blue-undeline {
+    background-color: transparent;
+    padding-bottom: 3px;
+    border-bottom: 3px solid $primary-color;
+    color: var(--marked-color);
+  }
+}
+
+.modal-content {
+  width: fit-content;
+}
+
+.modal-button {
+  color: var(--color-links);
+  background-color: transparent;
+  border: 0px;
+  margin: 0px;
+  &:hover {
+    background-color: rgba(14, 14, 14, 0.25);
+    color: var(--inverted-links);
+  }
+}
+
+#page-marker {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+  .collapsible {
+    &--button {
+      h2 {
+        text-align: left;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 35px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}

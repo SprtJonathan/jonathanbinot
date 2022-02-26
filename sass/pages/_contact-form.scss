@@ -1,0 +1,41 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  @include background-shadow-default;
+  border-radius: 10px;
+  min-width: 50%;
+  height: 90%;
+  padding: 1rem;
+  margin: auto;
+  &--background {
+    display: flex;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: $contact-zindex;
+  }
+  &--category {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    input,
+    textarea {
+      border: 0px transparent;
+      border-radius: 5px;
+      min-height: 3rem;
+      box-shadow: $classic-box-shadow-low-opacity;
+      resize: none;
+    }
+    textarea {
+      height: 10rem;
+    }
+  }
+}
