@@ -1,116 +1,142 @@
 /* Fichier dédié à la gestion du composant menu du site */
 
+// const websiteLang = localStorage.getItem("lang"); // Variable dédiée utilisée pour connaître la langue du site
+// console.log(websiteLang)
+
+// Nom de pages (langue par défaut)
+let pageNames = [
+  `<i class="fa-solid fa-house"></i>`,
+  "Mon CV",
+  "Portfolio",
+  "Contact",
+]; // Ajouter autant de pages que souhaité en ajoutant un nom dans le tableau
+// Nom de pages (langue supplémentaire)
+// let pageNamesSecondaryLanguage = ["Homepage", "Page 2"]
+
+let pageLinks = ["../index.html", "./resume.html", "./portfolio.html", "isContactPressed()"]; // Links to the different pages (has to be in order)
+
 class Menu extends HTMLElement {
-  constructor(theme, navbarExpanded, contactPressed) {
+  constructor(theme, navbarExpanded) {
     super();
     this.theme = "";
     this.navbarExpanded = false;
-    this.contactPressed = false;
   }
 
   connectedCallback() {
-    this.innerHTML = `
-    <header class="header--classic">
-      <button id="menu-button" class="open-menu" onclick="expandNavbar()">
-      <i class="fa fa fa-solid fa-chevron-left"></i>
-      </button>
-      <ul id="navbar" class="navbar--folded">
-        <li>
-          <a id="menu-page-homepage" href="" class="active"
-            >HOMEPAGE</a
-          >
-        </li>
-        <li>
-          <a id="menu-page-resume"  href="./resume.html" class="cv-page"
-            >MY RESUME</a
-          >
-        </li>
-        <li>
-          <a id="menu-page-portfolio" href="./portfolio.html" class="portfolio-page"
-            >MY PORTFOLIO</a
-          >
-        </li>
-        <li>
-          <a id="menu-page-contact" href="#contact" class="contact-page" onclick="isContactPressed()">
-            CONTACT
-          </a>
-        </li>
-        <li>
-          <button onclick="setLanguageFr()" class="flag fr">
-            <img
-              src="/public/assets/images/FR.png"
-              alt="version FR"
-              class="fr-flag"
-              height="32"
-              width="32"
-            />
-          </button>
-        </li>
-        <li class="dark-mode-button">
-        <i class="fa fa-solid fa-sun"></i>
-          <!-- Rounded switch -->
-          <label class="switch">
-            <input type="checkbox" id="dark-mode-button" onclick="toggleTheme()" aria-label="Toggle themes"/>
-            <span class="slider round"></span>
-            <i class="fa fa-solid fa-moon"></i>
-          </label>
-          <i class="fa fa-solid fa-moon"></i>
-        </li>
-      </ul>
-    </header>
-  `;
+    const navbar = createHTMLCode("nav", ["id", "class"], ["navbar", "navbar"]);
+    const navbarUl = createHTMLCode(
+      "ul",
+      ["id", "class"],
+      ["navbar-buttons-block", "navbar--block"],
+      navbar
+    );
+
+    //if (websiteLang == "fr") { // Commenté par défaut. A décommenter si plusieurs langues sont utiliées
+
+    for (i = 0; i < pageNames.length; i++) {
+      let navbarLi = createHTMLCode("li", "class", "navbar--li", navbarUl);
+
+      let navbarLink = createHTMLCode(
+        "a",
+        "class",
+        "navbar--button",
+        navbarLi,
+        pageNames[i]
+      );
+      navbarLink.setAttribute("id", pageNames[i].toLowerCase() + "-button");
+      if (pageLinks[i]) {
+        if (!pageLinks[i].startsWith(".") && pageLinks[i]) {
+          navbarLink.setAttribute("href", "#" + pageNames[i]);
+          navbarLink.setAttribute("onclick", pageLinks[i]);
+        } else if (pageLinks[i].startsWith(".")) {
+          navbarLink.setAttribute("href", pageLinks[i]);
+        }
+      }
+    }
+    //}
+    /*if (websiteLang == "en") { // Commenté par défaut. A décommenter si plusieurs langues sont utiliées
+      for (i = 0; i < pageNamesSecondaryLanguage.length; i++) {
+        createHTMLCode(
+          "li",
+          "class",
+          "navbar--button",
+          navbarUl,
+          pageNamesSecondaryLanguage[i]
+        );
+      }
+    }*/
+
+    /* const nightmodeLi = createHTMLCode( // Button supplémentaire du menu pour changer le thème du site (si mode sombre)
+      "li",
+      "class",
+      "dark-mode-button",
+      navbarUl
+    );
+    
+     const nightmodeSunIcon = createHTMLCode(
+      "i",
+      "class",
+      "fa fa-solid fa-sun",
+      nightmodeLi
+    );
+
+    const nightmodeLabel = createHTMLCode(
+      "label",
+      "class",
+      "switch",
+      nightmodeLi
+    );
+    createHTMLCode(
+      "input",
+      ["type", "id", "onclick", "aria-label"],
+      [
+        "checkbox",
+        "dark-mode-button",
+        "toggleTheme()",
+        "Changer le thème de la page",
+      ],
+      nightmodeLabel
+    );
+
+    createHTMLCode("span", "class", "slider round", nightmodeLabel);
+
+    const nightmodeMoonIcon = createHTMLCode(
+      "i",
+      "class",
+      "fa fa-solid fa-moon",
+      nightmodeLi
+    );
+    */
+
+    let componentTag = document.getElementsByTagName("website-menu");
+    console.log(componentTag);
+    componentTag[0].appendChild(navbar);
   }
 }
-
 customElements.define("website-menu", Menu);
 
-/* Reste des fonctions associées au menu */
+// élément présent sur chaque page permettant d'identifier la page actuelle
+let pageName = document.getElementById("page-marker").innerHTML;
 
-if (!localStorage.getItem("theme")) {
-  localStorage.setItem("theme", "");
-}
-Menu.theme = localStorage.getItem("theme");
-
-document.documentElement.setAttribute("data-theme", Menu.theme); // sets the data-theme attribute
-
-let darkModeButton = document.getElementById("dark-mode-button");
-
-if (Menu.theme == "darkMode") {
-  darkModeButton.setAttribute("checked", "");
-}
-
-let pageName = document.getElementById("page-marker").textContent;
-
-let homepageMenuButton = document.getElementById("menu-page-homepage");
-let resumeMenuButton = document.getElementById("menu-page-resume");
-let portfolioMenuButton = document.getElementById("menu-page-portfolio");
-let contactMenuButton = document.getElementById("menu-page-contact");
-
+// La fonction suivante permet de changer le style des boutons du menu afin de donner un retour visuel sur la page actuelle
 setActivePage();
 
 function setActivePage() {
-  switch (pageName) {
-    case "homepage":
-      homepageMenuButton.className = "active menu--button homepage";
-      resumeMenuButton.className = "menu--button cv-page";
-      portfolioMenuButton.className = "menu--button portfolio-page";
-      contactMenuButton.className = "menu--button contact-page";
-      break;
-    case "resume":
-      homepageMenuButton.className = "menu--button homepage";
-      resumeMenuButton.className = "active menu--button cv-page";
-      portfolioMenuButton.className = "menu--button portfolio-page";
-      contactMenuButton.className = "menu--button contact-page";
-      break;
-    case "portfolio":
-      homepageMenuButton.className = "menu--button homepage";
-      resumeMenuButton.className = "menu--button cv-page";
-      portfolioMenuButton.className = "active menu--button portfolio-page";
-      contactMenuButton.className = "menu--button contact-page";
-      break;
+  for (i = 0; i < pageNames.length; i++) {
+    if (pageName == pageNames[i]) {
+      document.getElementById(
+        pageNames[i].toLowerCase() + "-button"
+      ).className = "active navbar--button";
+    } else {
+      document.getElementById(
+        pageNames[i].toLowerCase() + "-button"
+      ).className = "navbar--button";
+      console.log(pageNames[i] == pageName);
+    }
   }
 }
 
+/* // Fonction permettant de changer le thème du site (en cas de mode sombre)
 function toggleTheme() {
   Menu.theme = localStorage.getItem("theme");
   if (Menu.theme == "darkMode") {
@@ -125,42 +151,16 @@ function toggleTheme() {
     darkModeButton.setAttribute("checked", "");
   }
 }
+*/
+
+/* // Changer la langue du site
 function setLanguageFr() {
   localStorage.setItem("language", "fr");
   location.reload();
 }
 
-function expandNavbar() {
-  let navbarElement = document.getElementById("navbar");
-  let openMenuButton = document.getElementById("menu-button");
-  Menu.navbarExpanded = !Menu.navbarExpanded;
-  if (Menu.navbarExpanded) {
-    navbarElement.className = "navbar--expanded";
-    openMenuButton.className = "open-menu--opened";
-    openMenuButton.innerHTML = `<svg data-v-5c998570="" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-chevron-right"><path data-v-5c998570="" fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z" class=""></path></svg>`;
-
-    console.log(Menu.navbarExpanded);
-  } else {
-    navbarElement.className = "navbar--folded";
-    openMenuButton.className = "open-menu";
-    openMenuButton.innerHTML = `<svg data-v-5c998570="" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-chevron-left"><path data-v-5c998570="" fill="currentColor" d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z" class=""></path></svg>`;
-  }
+function setLanguageEn() {
+  localStorage.setItem("language", "en");
+  location.reload();
 }
-
-let contactFormBlock = document.getElementById("contact-form-block");
-contactFormBlock.style.display = "none";
-
-function isContactPressed() {
-  Menu.contactPressed = !Menu.contactPressed;
-  if (Menu.contactPressed) {
-    contactFormBlock.style.display = "flex";
-    homepageMenuButton.className = "menu--button homepage";
-    resumeMenuButton.className = "menu--button cv-page";
-    portfolioMenuButton.className = "menu--button portfolio-page";
-    contactMenuButton.className = "active menu--button contact-page";
-  } else {
-    contactFormBlock.style.display = "none";
-    setActivePage();
-  }
-  console.log(Menu.contactPressed);
-}
+*/

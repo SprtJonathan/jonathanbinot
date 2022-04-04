@@ -1,0 +1,81 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  flex-direction: row;
+}
+
+@media (min-width: 720px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    height: 3.5rem;
+
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  .navbar--block {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar--li {
+    min-width: 3rem;
+    width: auto;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: color 250ms;
+  }
+
+  .navbar--li:nth-child(1) .navbar--button {
+    border-right: 1px solid var(--primary-color);
+  }
+
+  .navbar--li:focus {
+    border: 1px black solid;
+  }
+
+  .navbar--button {
+    font-family: "Lato", sans-serif;
+    text-decoration: none;
+    text-align: center;
+    color: #252525;
+    font-weight: 900;
+    font-size: 1.5vw;
+    margin-bottom: 0;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 500ms ease;
+    padding: 1rem 2rem;
+
+    background: linear-gradient(-45deg, white 50%, var(--primary-color) 50%);
+    background-size: 400% 200%;
+    background-position: right bottom;
+  }
+
+  .navbar--li:hover .navbar--button {
+    color: white;
+    background-position: left bottom;
+  }
+
+  .active {
+    background: var(--primary-color);
+    color: white;
+  }
+}
