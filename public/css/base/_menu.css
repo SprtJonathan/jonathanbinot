@@ -37,7 +37,7 @@
   line-height: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 500ms ease;
+  transition: all 500ms ease-in-out;
   height: 100%;
 }
 
@@ -83,7 +83,7 @@
   }
 
   .navbar--button {
-    font-size: 1.5vw;
+    font-size: 1vw;
     height: 100%;
     padding: 0.5rem 2rem;
 
@@ -104,5 +104,14 @@
 @media (min-width: 720px) {
   .active {
     width: auto;
+  }
+}
+
+@media (min-width: 2140px) {
+  .navbar {
+    height: 2.8rem;
+  }
+  .navbar--button {
+    font-size: 0.8vw;
   }
 }
