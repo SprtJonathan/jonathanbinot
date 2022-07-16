@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Titre de la page</title>
+    <title>CV | Jonathan Binot</title>
     <meta name="description" content="Description du site" />
     <meta name="author" content="Jonathan Binot" />
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="src/assets/images/" type="image/svg+xml" />
 
-    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="/src/css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -27,11 +27,29 @@
     </div>
     -->
     <!-- your content here... -->
-    <span hidden id="page-marker">Mon CV</i></span>
+    <span hidden id="page-marker">Mon CV</span>
 
     <header>
       <website-menu id="menu"></website-menu>
     </header>
+
+    <modal-element>Classique</modal-element>
+    <modal-element
+      ><article class="title">
+        <img
+          src="../public/img/PPCV.png"
+          alt="Ma photo"
+          class="title-img"
+          height="92"
+        />
+        <h1>JONATHAN BINOT</h1>
+        <h2 class="descriptif">
+          Alternant développeur web<br />
+          Disponible immédiatement
+        </h2>
+        <p class="descriptif">3 jours en entreprise par semaine pendant 1 an</p>
+      </article></modal-element
+    >
 
     <section class="resume-header">
       <article class="title">
@@ -398,10 +416,20 @@
     </section>
 
     <footer></footer>
-    
-    <script src="./js/base/basicFunctions.js" type="text/javascript"></script>
-    <script src="./js/components/menu.js" type="text/javascript"></script>
-    
+
+    <script
+      src="./src/js/base/basicFunctions.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="./src/js/components/menu/menu.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="./src/js/components/collapsible/collapsible.js"
+      type="text/javascript"
+    ></script>
+
     <script src="./js/index.js" type="text/javascript"></script>
   </body>
 </html>

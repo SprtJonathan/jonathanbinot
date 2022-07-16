@@ -51,7 +51,7 @@
   .navbar {
     display: flex;
     flex-direction: row;
-    height: 2.5rem;
+    height: 3.5rem;
   }
   .navbar--block {
     height: 100%;
@@ -71,6 +71,8 @@
   }
 
   .navbar--li .navbar--button {
+    display: flex;
+    align-items: center;
     border-right: 0.5px solid var(--primary-color);
   }
 
