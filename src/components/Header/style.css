@@ -26,6 +26,7 @@
 }
 
 .navbar--button {
+  cursor: pointer;
   font-family: "Lato", sans-serif;
   text-decoration: none;
   text-align: center;

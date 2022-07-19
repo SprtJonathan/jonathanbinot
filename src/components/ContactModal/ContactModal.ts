@@ -5,6 +5,7 @@ contactModal.className = "hidden";
 contactModal.id = "contact-modal";
 
 function toggleModal() {
+  console.log(contactModal);
   if (contactModal.className === "hidden") {
     contactModal.className = "modal-container";
   } else {
@@ -12,7 +13,8 @@ function toggleModal() {
   }
 }
 
-export function ContactModal() {
+function ContactModal() {
+  console.log(contactModal.className);
   contactModal.innerHTML = `
     <div class="contact-form-backrgound">
         <form class="contact-form">
@@ -35,8 +37,8 @@ export function ContactModal() {
             </div>
             <div>
                 <input class="button" type="submit" value="Envoyer" />
-                <span id="close-modal" class="button" type="submit" onclick=toggleModal>
-                )}">X</span>
+                <span id="close-modal" class="button" type="submit" onclick=${toggleModal()}>
+                X</span>
             </div>
         </form>
     </div>
@@ -44,4 +46,4 @@ export function ContactModal() {
   return contactModal;
 }
 
-export { toggleModal };
+export { toggleModal, ContactModal };

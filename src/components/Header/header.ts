@@ -15,10 +15,11 @@ export function Header() {
 
     const menuButtons: any = {
       "contact-button": toggleModal(),
+      "close-modal": toggleModal(),
     };
 
+    console.log(e.target.id);
     menuButtons[e.target.id]();
-    console.log(menuButtons[e.target.id]());
   });
 
   nav.innerHTML = `
@@ -57,6 +58,6 @@ export function Header() {
         </li>
       </ul>
   `;
-  nav.append(ContactModal(modalClassName));
+  nav.append(ContactModal());
   return nav;
 }
