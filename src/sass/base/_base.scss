@@ -20,6 +20,14 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.text-light {
+  color: $text--dark;
+}
+
+.text-dark {
+  color: $text--light;
+}
 h1 {
   font-family: $primary-font;
   font-size: 24px;
@@ -100,7 +108,6 @@ mark.blue-undeline {
   background-color: transparent;
   padding-bottom: 3px;
   border-bottom: 3px solid $primary-color;
-  color: $text--light;
 }
 .modal-content {
   width: fit-content;

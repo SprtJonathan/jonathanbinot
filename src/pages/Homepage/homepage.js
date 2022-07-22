@@ -1,6 +1,8 @@
 import { Header } from "../../components/Header/header";
 
 import Banner from "../../assets/images/homepage/homepage-bg-1.jpg";
+import JSLogo from "../../../javascript.svg";
+import OCLogo from "../../assets/images/homepage/oc-logo.png";
 
 export function Homepage() {
   let birthDate = new Date("02/14/1999");
@@ -16,7 +18,7 @@ export function Homepage() {
 
   homepage.innerHTML += `<main>
     <div class="homepage--title--block">
-      <h1 class="homepage--title">Jonathan Binot : Développeur web - Frontend - Applications JS</h1>
+      <h1 class="homepage--title"><mark class="text-light blue-undeline">Jonathan Binot</mark> <br/> Développeur web - Frontend - Applications JS</h1>
       <div class="homepage--title--background homepage--title--background--blur" style="background-image: url(${Banner})"></div>
       <div class="homepage--title--background homepage--title--background--dark"></div>
     </div>
@@ -30,8 +32,7 @@ export function Homepage() {
 
       <p>
         Je m'appelle Jonathan Binot, j'ai <span id="age">${age}</span> ans
-        et je suis actuellement en recherche d'une alternance dans le cadre de
-        ma formation dans le développement web avec OpenClassrooms.<br /><br />Depuis
+        et je suis titulaire d'un diplôme de développeur web de niveau Bac +2 mais également de développeur d'applications Javascript <img src=${JSLogo} height=18px></img>  de niveau Bac +3 obtenus avec OpenClassrooms <img src=${OCLogo} height=18px></img>.<br /><br />Depuis
         tout petit, je suis passionné d'informatique et de jeux vidéo, si bien
         que j'ai décidé de me donner les moyens de travailler dans le domaine.
         L'informatique étant très vaste, il y a deux disciplines pour
