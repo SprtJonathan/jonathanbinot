@@ -1,5 +1,7 @@
 import { Header } from "../../components/Header/header";
 
+import Banner from "../../assets/images/homepage/homepage-bg-1.jpg";
+
 export function Homepage() {
   let birthDate = new Date("02/14/1999");
   let ageOperation = Date.now() - birthDate.getTime();
@@ -13,11 +15,13 @@ export function Homepage() {
   homepage.append(Header("home"));
 
   homepage.innerHTML += `<main>
-    <div class="navbar--margin"></div>
     <div class="homepage--title--block">
-      <h1 class="homepage--title">Bienvenue sur mon site web personnel.</h1>
+      <h1 class="homepage--title">Jonathan Binot : Développeur web - Frontend - Applications JS</h1>
+      <div class="homepage--title--background homepage--title--background--blur" style="background-image: url(${Banner})"></div>
+      <div class="homepage--title--background homepage--title--background--dark"></div>
     </div>
     <section class="intro">
+      <h2>Bienvenue sur mon site web personnel.</h2>
       <h2>
         Diverses pages vous sont ici proposées, vous y trouverez mon CV en
         français et en anglais, ainsi que mon portfolio dans les deux langues
