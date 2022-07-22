@@ -4,6 +4,7 @@
 
 .modal-container {
   display: flex;
+  flex-direction: column;
 }
 
 .contact-form {
@@ -15,11 +16,15 @@
   height: 90%;
   padding: 1rem;
   margin: auto;
+}
+
+.modal-content {
   background-color: var(--background-color);
 }
 
-.contact-form-backrgound {
+.modal-backrgound {
   display: flex;
+  flex-direction: column;
   position: fixed;
   backdrop-filter: blur(2px);
   top: 0;
