@@ -1,4 +1,4 @@
-import { Header } from "../../components/Header/header";
+import { Header } from "../../components/Header/Header";
 
 import Banner from "../../assets/images/homepage/homepage-bg-1.jpg";
 import JSLogo from "../../../javascript.svg";
@@ -11,12 +11,12 @@ export function Homepage() {
   let birthYear = ageDate.getUTCFullYear();
   const age = Math.abs(birthYear - 1970);
 
-  const homepage = document.createElement("div");
+  const homepage = document.createElement("main");
   homepage.setAttribute("class", "homepage");
   homepage.setAttribute("id", "homepage");
   homepage.append(Header("home"));
 
-  homepage.innerHTML += `<main>
+  homepage.innerHTML += `
     <div class="homepage--title--block">
       <h1 class="homepage--title"><mark class="text-light blue-undeline">Jonathan Binot</mark> <br/> Développeur web - Frontend - Applications JS</h1>
       <div class="homepage--title--background homepage--title--background--blur" style="background-image: url(${Banner})"></div>
@@ -93,7 +93,7 @@ export function Homepage() {
         haut de la page. Bonne visite.
       </p>
     </section>
-  </main>`;
+  `;
 
   return homepage;
 }

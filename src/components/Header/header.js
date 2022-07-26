@@ -33,13 +33,14 @@ export function Header(activePage) {
           <a
             class="${homepageClass}"
             id='home'
-            href="../index.html"
+            href="/"
+            onclick="route()"
           >
             <i class="fa-solid fa-house"></i>
           </a>
         </li>
         <li class="navbar--li">
-          <a class="${resumeClass}" id="resume" href="./resume.html">
+          <a class="${resumeClass}" id="resume" href="/resume" onclick="route()">
             Mon CV
           </a>
         </li>
@@ -47,7 +48,8 @@ export function Header(activePage) {
           <a
             class="${portfolioClass}"
             id="portfolio"
-            href="./portfolio.html"
+            href="/portfolio"
+            onclick="route()"
           >
             Portfolio
           </a>

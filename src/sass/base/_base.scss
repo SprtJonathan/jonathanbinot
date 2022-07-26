@@ -21,6 +21,10 @@ body {
   background-repeat: no-repeat;
 }
 
+main {
+  margin-top: $navbar-mobile-margin;
+}
+
 .text-light {
   color: $text--dark;
 }
