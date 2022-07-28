@@ -7,9 +7,15 @@ export function Header(activePage) {
 
   const lang = localStorage.getItem("language");
 
-  const nav = document.createElement("nav");
+  const navbar = document.createElement("nav");
+  navbar.setAttribute("class", "navbar");
+  navbar.setAttribute("id", "navbar-container");
+
+  const nav = document.createElement("div");
   nav.setAttribute("class", "navbar");
   nav.setAttribute("id", "navbar");
+
+  navbar.append(nav);
 
   let homepageClass = "navbar--button";
   let resumeClass = "navbar--button";
@@ -111,7 +117,7 @@ export function Header(activePage) {
           </div>
       </form>
   `;
-    nav.append(Modal("contact-modal", "Contactez moi", contactForm));
+    navbar.append(Modal("contact-modal", "Contactez moi", contactForm));
   } else {
     /* English version of the header */
     nav.innerHTML = `
@@ -138,7 +144,7 @@ export function Header(activePage) {
             href="/${lang}/portfolio"
             
           >
-            My portfolio
+            Portfolio
           </a>
         </li>
         <li class="navbar--li">
@@ -152,7 +158,7 @@ export function Header(activePage) {
         </li>
         <li class="navbar--li">
           <a class="navbar--button" id="language-menu-button">
-            Langue
+            Switch language
           </a>
           <div id="language-menu" class="hidden">
             <a class="navbar--button"
@@ -193,7 +199,7 @@ export function Header(activePage) {
           </div>
       </form>
   `;
-    nav.append(Modal("contact-modal", "Contact me", contactForm));
+    navbar.append(Modal("contact-modal", "Contact me", contactForm));
   }
 
   /**
@@ -277,5 +283,5 @@ export function Header(activePage) {
     }
   }
 
-  return nav;
+  return navbar;
 }
