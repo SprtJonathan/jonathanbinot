@@ -1,3 +1,4 @@
+import { Header } from "./src/components/Header/Header";
 import { Homepage } from "./src/pages/Homepage/Homepage";
 import { Resume } from "./src/pages/Resume/Resume";
 import { Portfolio } from "./src/pages/Portfolio/Portfolio";
@@ -12,8 +13,8 @@ const lang = path.split("/")[1];
 
 const routes = {
   404: InvalidRoute(),
-  "": Homepage(),
-  "/": Homepage(),
+  "": await Homepage(),
+  "/": await Homepage(),
   "/resume": Resume(),
   "/portfolio": Portfolio(),
 };
@@ -23,12 +24,12 @@ const handleLocation = async () => {
 
   const pageName = path.split(lang)[1];
 
-  console.log(lang);
-
   const app = document.querySelector("#app");
 
   if (langList.includes(path.split("/")[1])) {
-    localStorage.setItem("language", lang);
+    if (!localStorage.getItem("language")) {
+      localStorage.setItem("language", lang);
+    }
   } else {
     return app.append(routes[404]);
   }
@@ -36,8 +37,14 @@ const handleLocation = async () => {
   if (pageName == undefined || lang == "") {
     return app.append(LanguageSelector());
   }
-
   const route = routes[pageName] || routes[404];
+
+  console.log(pageName);
+
+  if (route != routes[404]) {
+    app.append(await Header());
+  }
+
   return app.append(route);
 };
 

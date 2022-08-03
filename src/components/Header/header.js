@@ -2,7 +2,7 @@ import Modal from "../Modal/Modal";
 import flagFr from "../../assets/images/languages/FR.png";
 import flagEn from "../../assets/images/languages/EN.png";
 
-export function Header(activePage) {
+export async function Header(activePage) {
   const currentPage = activePage;
 
   const lang = localStorage.getItem("language");
@@ -43,6 +43,7 @@ export function Header(activePage) {
     /* French version of the header */
     nav.innerHTML = `
       <ul id="navbar-buttons-block" class="navbar--block">
+      <div class="modal--blur"></div>
         <li class="navbar--li">
           <a
             class="${homepageClass}"
@@ -112,7 +113,7 @@ export function Header(activePage) {
               <textarea class="contact-form--input" name="message"></textarea>
           </div>
           <div class="contact-form--buttons">
-              <input class="button button--base" type="submit" value="Envoyer" />      
+              <input type="submit" id="send-email" class="button button--base"  value="Envoyer"/>      
               <button id="close-modal-cancel" class="button button--base--inverted">Annuler</button>
           </div>
       </form>
@@ -122,6 +123,7 @@ export function Header(activePage) {
     /* English version of the header */
     nav.innerHTML = `
       <ul id="navbar-buttons-block" class="navbar--block">
+      <div class="modal--blur"></div>
         <li class="navbar--li">
           <a
             class="${homepageClass}"
@@ -194,8 +196,8 @@ export function Header(activePage) {
               <textarea class="contact-form--input" name="message"></textarea>
           </div>
           <div class="contact-form--buttons">
-              <input class="button button--base" type="submit" value="Send" />      
-              <button id="close-modal-cancel" class="button button--base--inverted">Cancel</button>
+            <input type="submit" id="send-email" class="button button--base"  value="Send"/>      
+            <button id="close-modal-cancel" class="button button--base--inverted">Cancel</button>
           </div>
       </form>
   `;
@@ -233,7 +235,7 @@ export function Header(activePage) {
    * @param value - true/false
    */
   function toggleModal(id, value) {
-    console.log(value === true);
+    // console.log(value === true);
     if (value === true) {
       document.getElementById(id).className = "modal--container";
     } else {
@@ -242,6 +244,9 @@ export function Header(activePage) {
   }
 
   // Get event listener for body query selector
+  const modalButtonTest = document.getElementById("contact-button");
+  console.log(modalButtonTest);
+
   const body = document.querySelector("body");
   body.addEventListener("click", (e) => {
     //console.log(e.target);
@@ -249,12 +254,15 @@ export function Header(activePage) {
     if (e.target.id === "contact-button") {
       toggleModal("contact-modal", true);
     } else if (e.target.id === "close-modal") {
-      toggleModal("contact-modal", false);
-    } else if (e.target.id === "close-modal-background") {
+      e.preventDefault();
       toggleModal("contact-modal", false);
     } else if (e.target.id === "close-modal-cancel") {
+      e.preventDefault();
       toggleModal("contact-modal", false);
+    } else if (e.target.id === "send-email") {
+      sendEmail();
     } else if (e.target.id === "language-menu-button") {
+      e.preventDefault();
       switchLanguageMenu();
     } else if (e.target.id === "select-fr") {
       setLang("fr");
@@ -262,25 +270,61 @@ export function Header(activePage) {
       setLang("en");
     }
 
-    // const menuButtons: any = {
+    // const menuButtons = {
     //   "contact-button": toggleModal("contact-modal", true),
-    //   "close-button": toggleModal("contact-modal", true),
+    //   "close-modal": toggleModal("contact-modal", false),
     // };
-
-    // menuButtons[e.target.id];
+    // console.log(e.target.id);
+    // return menuButtons[e.target.id];
   });
+
   window.onscroll = function () {
     retractMenu();
   };
 
+  let lastScroll = 0;
+
   function retractMenu() {
     const menuHideValue = 100;
+    console.log(window.scrollY);
+    const currentScroll = window.pageYOffset;
 
-    if (window.scrollY > menuHideValue) {
-      document.getElementById("navbar").className = "navbar--slided navbar";
-    } else {
+    if (currentScroll <= 0 || currentScroll < lastScroll) {
       document.getElementById("navbar").className = "navbar";
     }
+
+    if (currentScroll > lastScroll) {
+      document.getElementById("navbar").className = "navbar--slided navbar";
+    }
+
+    lastScroll = currentScroll;
+  }
+
+  function sendEmail() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const name = urlParams.get("name");
+    const email = urlParams.get("email");
+    const object = urlParams.get("object");
+    const message = urlParams.get("message");
+
+    const templateParams = {
+      name: name,
+      email: email,
+      object: object,
+      message: message,
+    };
+    localStorage.setItem("email", JSON.stringify(templateParams));
+    console.log(
+      "email : " +
+        templateParams.name +
+        " " +
+        templateParams.email +
+        " " +
+        templateParams.object +
+        " " +
+        templateParams.message
+    );
   }
 
   return navbar;

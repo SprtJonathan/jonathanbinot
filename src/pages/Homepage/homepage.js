@@ -4,7 +4,7 @@ import Banner from "../../assets/images/homepage/homepage-bg-1.jpg";
 import JSLogo from "../../../javascript.svg";
 import OCLogo from "../../assets/images/homepage/oc-logo.png";
 
-export function Homepage() {
+export async function Homepage() {
   const lang = localStorage.getItem("language");
 
   let birthDate = new Date("02/14/1999");
@@ -16,32 +16,51 @@ export function Homepage() {
   const homepage = document.createElement("main");
   homepage.setAttribute("class", "homepage");
   homepage.setAttribute("id", "homepage");
-  homepage.append(Header("home"));
+  //homepage.append(Header("home"));
+
+  const menuHideValue = 100;
+  console.log(document.getElementById("summary"));
+
+  if (window.scrollY > menuHideValue) {
+    document.getElementById("summary").style.transform = translateY("-80px");
+  }
 
   if (lang == "fr") {
     homepage.innerHTML += `
+  <section id="summary" class="intro--section intro--summary">
     <div class="homepage--title--block">
-    <h1 class="homepage--title">
-      <mark class="text-light blue-undeline">Jonathan Binot</mark> <br />
-      Développeur web - Frontend - Applications JS
-    </h1>
-    <div
-      class="homepage--title--background homepage--title--background--blur"
-      style="background-image: url(${Banner})"
-    ></div>
-    <div
-      class="homepage--title--background homepage--title--background--dark"
-    ></div>
-  </div>
-  <section class="intro">
-    <h2>Bienvenue sur mon site web personnel.</h2>
-    <h2>
-      Diverses pages vous sont ici proposées, vous y trouverez mon CV en
-      français et en anglais, ainsi que mon portfolio dans les deux langues
-      également.<br />Mais avant tout, qui suis-je?
-    </h2>
+      <h1 class="text-light">
+        <mark class="text-light blue-undeline">Jonathan Binot</mark> 
+        <br />
+        Développeur web - Frontend - Applications JS
+      </h1>
 
-    <p>
+      <div class="intro--inner-text--block">
+        <p class="intro--inner-text">Bienvenue sur mon site web personnel.
+          <br />
+          Diverses pages vous sont ici proposées, vous y trouverez mon CV en
+          français et en anglais, ainsi que mon portfolio dans les deux langues
+          également.
+          <br />          
+          Mais avant tout, qui suis-je?
+        </p>
+
+      </div>
+      <div
+        class="homepage--title--background homepage--title--background--blur"
+        style="background-image: url(${Banner})"
+      >
+      </div>
+      <div
+        class="homepage--title--background homepage--title--background--dark"
+      >
+      </div>
+    </div>
+  </section>
+
+  <section class="intro--section intro--introduction">
+
+    <p class="intro--inner-text">
       Je m'appelle Jonathan Binot, j'ai <span id="age">${age}</span> ans et je
       suis titulaire d'un diplôme de développeur web de niveau Bac +2 mais
       également de développeur d'applications Javascript
@@ -52,12 +71,39 @@ export function Homepage() {
       L'informatique étant très vaste, il y a deux disciplines pour lesquelles
       j'ai envie de m'investir professionnellement : <br /><br />
     </p>
-    <li><mark class="blue-undeline">Le dévelop</mark>pement web</li>
-    <br /><br />
+
+  </section>
+  
+  <section id="summary" class="intro--section intro--type webdev">
+    <div class="homepage--title--block">
+    <li class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</li>
+
+      <div class="intro--inner-text--block">
+        
+      <div
+        class="homepage--title--background homepage--title--background--blur"
+        style="background-image: url(${Banner})"
+      >
+      </div>
+      <div
+        class="homepage--title--background homepage--title--background--dark"
+      >
+      </div>
+    </div>
+  </section>
+    
+  <section class="intro--section intro--type gamedev">
+  
     <li>
       <mark class="blue-undeline">Le dévelop</mark>pement de jeux vidéo.<br /><br />
     </li>
-    <p>
+
+  </section>
+
+
+  <section class="intro--section intro--objectives--game">
+      
+    <p class="intro--objectives--text">
       Motivé pour atteindre mes objectifs, j'ai commencé très tôt à apprendre en
       autodidacte, avec mon ordinateur et les logiciels de développement à ma
       disposition. J'ai commencé sur FPS Creator (mais cette partie là ne compte
@@ -67,21 +113,17 @@ export function Homepage() {
       3 (avec UDK) puis l'Unreal Engine 4.<br /><br />J'ai également été
       intéressé par l'apprentissage de différents logiciels de montage photo et
       vidéo (comme Photoshop, Sony Vegas, Adobe Premiere etc.), que je continue
-      à utiliser régulièrement aujourd'hui. <br /><br />Plus récemment, je me
-      suis trouvé une passion dans la réalité virtuelle et j'ai enfin pu
-      investir dans du matériel de qualité grâce à l'emploi que j'avais trouvé.
+      à utiliser régulièrement aujourd'hui. <br /><br />
       Enfin, avec la sortie de Half-Life: Alyx en VR ainsi que de ses outils de
       développement, j'ai découvert le développement sur Source² Engine (qui
-      possède de fortes similitudes avec son prédécesseur de 2003) cette fois-ci
-      et j'ai également découvert les bases du développement en réalité
-      virtuelle sur Unreal Engine 4 et les bases du moteur Unity il y a moins
-      d'un mois. <br /><br />J'apprécie fortement apprendre de nouvelles
+      possède de fortes similitudes avec son prédécesseur de 2003) cette fois-ci. <br /><br />J'apprécie fortement apprendre de nouvelles
       techniques, et découvrir tout ce qu'il est possible de faire avec les
       moteurs de jeu modernes.
+      </p>
+      </section>
 
-      <br />
-      <br />
-
+      <section class="intro--section intro--objectives--web">
+    <p class="intro--objectives--text">
       Pour ce qui est du développement web, j'ai découvert cette discipline lors
       de ma première année à la fac Mathématiques-Infomratique de Lyon. Le
       cursus universitaire ne m'a malheureusement pas plu, mais l'unité

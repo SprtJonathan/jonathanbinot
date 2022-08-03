@@ -11,21 +11,20 @@ function Modal(instanceName, header, body) {
 
   modalInstance.innerHTML =
     `
-    <div class="modal--background" id="close-modal-background">
-      <div class="modal--content">
-        <div class="modal--header" >
-          <h2>` +
+  <div class="modal--container">
+    <div class="modal--content">
+    <div class="modal--blur"></div>
+      <div class="modal--header">
+        <h2>` +
     modalHeader +
-    `     </h2> 
-          <button id="close-modal" class="modal--exit">X</button>
-        </div>
-        <div class="modal--body">
-        ` +
-    modalBody +
-    `
-        </div>
+    `</h2>
+        <button id="close-modal" class="modal--exit">X</button>
       </div>
+      <div class="modal--body">` +
+    modalBody +
+    `</div>
     </div>
+  </div>
     `;
   //console.log(modalInstance);
 

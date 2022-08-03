@@ -2,7 +2,6 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: white;
 
   position: fixed;
   top: 0px;
@@ -35,6 +34,7 @@
     }
   }
   &--block {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -61,7 +61,11 @@
   width: 100%;
   justify-content: center;
 
-  background: linear-gradient(-45deg, white 50%, $text--light 50%);
+  background: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0) 50%,
+    $text--light 50%
+  );
   background-size: 400% 200%;
   background-position: right bottom;
 }
