@@ -76,7 +76,7 @@ export async function Homepage() {
   
   <section id="summary" class="intro--section intro--type webdev">
     <div class="homepage--title--block">
-    <li class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</li>
+    <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</span>
 
       <div class="intro--inner-text--block">
         
@@ -93,10 +93,16 @@ export async function Homepage() {
   </section>
     
   <section class="intro--section intro--type gamedev">
-  
-    <li>
-      <mark class="blue-undeline">Le dévelop</mark>pement de jeux vidéo.<br /><br />
-    </li>
+    
+    <img src="${Banner}" height="30%" />
+    <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo</span>
+    
+      
+    <div
+      class="homepage--title--background homepage--title--background--blur"
+      style="background-image: url(${Banner})"
+    >
+    </div>
 
   </section>
 

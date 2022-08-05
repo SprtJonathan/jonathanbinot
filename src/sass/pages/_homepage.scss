@@ -48,6 +48,12 @@ p {
   }
   &--type {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2rem;
+    text-shadow: $classic-box-shadow;
   }
   &--objectives {
     &--game {
@@ -155,11 +161,14 @@ li {
     &--inner-text {
       font-size: 30px;
     }
-    &--objectives{
-      &--game{
+    &--type {
+      flex-direction: row;
+    }
+    &--objectives {
+      &--game {
         justify-content: flex-end;
       }
-      &--web{
+      &--web {
         justify-content: flex-start;
       }
       &--text {
