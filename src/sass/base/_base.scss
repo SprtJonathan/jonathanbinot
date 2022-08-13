@@ -158,6 +158,19 @@ mark.blue-undeline {
   }
 }
 
+::-webkit-scrollbar-track {
+  filter: blur(2px);
+  background-color: grey;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  background-clip: content-box;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 30px;

@@ -4,6 +4,8 @@ import Banner from "../../assets/images/homepage/homepage-bg-1.jpg";
 import JSLogo from "../../../javascript.svg";
 import OCLogo from "../../assets/images/homepage/oc-logo.png";
 
+import HLAVideo from "../../assets/videos/HLA-short.webm";
+
 export async function Homepage() {
   const lang = localStorage.getItem("language");
 
@@ -74,29 +76,7 @@ export async function Homepage() {
 
   </section>
   
-  <section id="summary" class="intro--section intro--type webdev">
-    <div class="homepage--title--block">
-    <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</span>
-
-      <div class="intro--inner-text--block">
-        
-      <div
-        class="homepage--title--background homepage--title--background--blur"
-        style="background-image: url(${Banner})"
-      >
-      </div>
-      <div
-        class="homepage--title--background homepage--title--background--dark"
-      >
-      </div>
-    </div>
-  </section>
-    
-  <section class="intro--section intro--type gamedev">
-    
-    <img src="${Banner}" height="30%" />
-    <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo</span>
-    
+  <section class="intro--section intro--type webdev">
       
     <div
       class="homepage--title--background homepage--title--background--blur"
@@ -104,6 +84,21 @@ export async function Homepage() {
     >
     </div>
 
+    <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</span>
+    <img src="${Banner}" height="30%" />
+    
+
+  </section>
+    
+  <section class="intro--section intro--type gamedev" style="background-image: url(${HLAVideo})" />
+    
+    <img src="${Banner}" height="30%" />
+    <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo</span>
+    
+
+    <video class="gamedev--bg" autoplay muted loop id="myVideo">
+      <source class="gamedev--bg--video" src="${HLAVideo}" type="video/mp4" />
+    </video>
   </section>
 
 

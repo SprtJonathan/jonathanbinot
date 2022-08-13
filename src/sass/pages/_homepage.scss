@@ -17,8 +17,8 @@ p {
   width: 90vw;
   margin: auto;
   &--section {
-    scroll-snap-align: start;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: fit-content;
   }
   &--inner-text {
     width: 70%;
@@ -26,8 +26,11 @@ p {
     text-shadow: $classic-box-shadow;
     font-size: 20px;
     margin: 1rem;
+    text-align: justify;
     &--block {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: auto;
     }
   }
@@ -88,16 +91,28 @@ p {
 }
 
 .gamedev {
+  &--bg {
+    position: absolute;
+    z-index: -1;
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    &--video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 .webdev {
 }
 
 .homepage {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   height: 100vh;
   width: 100%;
+  background: rgb(30, 30, 30);
   &--title {
     display: flex;
     flex-direction: column;
