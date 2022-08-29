@@ -1,6 +1,9 @@
 import { Header } from "../../components/Header/Header";
 
-import Banner from "../../assets/images/homepage/homepage-bg-1.jpg";
+import { createElementFromTemplate } from "../../components/helpers.js";
+
+import hpBgOne from "../../assets/images/homepage/homepage-bg-1.jpg";
+import hpBgTwo from "../../assets/images/homepage/homepage-bg-3.png";
 import JSLogo from "../../../javascript.svg";
 import OCLogo from "../../assets/images/homepage/oc-logo.png";
 
@@ -29,7 +32,7 @@ export async function Homepage() {
 
   if (lang == "fr") {
     homepage.innerHTML += `
-  <section id="summary" class="intro--section intro--summary">
+  <section id="summary" class="intro--section intro--name">
     <div class="homepage--title--block">
       <h1 class="text-light">
         <mark class="text-light blue-undeline">Jonathan Binot</mark> 
@@ -71,13 +74,13 @@ export async function Homepage() {
   <section class="intro--section intro--type webdev">
 
     <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</span>
-    <img src="${Banner}" height="30%" />
+    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
 
   </section>
     
-  <section class="intro--section intro--type gamedev" style="background-image: url(${HLAVideo})" />
+  <section class="intro--section intro--type gamedev">
     
-    <img src="${Banner}" height="30%" />
+    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
     <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo</span>
     
   </section>
@@ -132,74 +135,93 @@ export async function Homepage() {
   `;
   } else {
     homepage.innerHTML += `
+    <section id="summary" class="intro--section intro--summary">
     <div class="homepage--title--block">
-    <h1 class="homepage--title">
-      <mark class="text-light blue-undeline">Jonathan Binot</mark> <br />
-      Développeur web - Frontend - Applications JS
-    </h1>
-    <div
-      class="homepage--title--background homepage--title--background--blur"
-      style="background-image: url(${Banner})"
-    ></div>
-    <div
-      class="homepage--title--background homepage--title--background--dark"
-    ></div>
-  </div>
-  <section class="intro">
-    <h2>Welcome to my personnal website.</h2>
-    <h2>
-      Different pages are available here, you will find my resume in English and
-      in French, as well as my portfolio in the two languages too.<br />But before
-      anything else, who am I?
-    </h2>
-  
-    <p>
+      <h1 class="text-light">
+        <mark class="text-light blue-undeline">Jonathan Binot</mark>
+        <br />
+        Web developer - Frontend - JS Apps
+      </h1>
+    </div>
+  </section>
+
+  <section class="intro--section intro--summary">
+    <div class="intro--inner-text--block">
+      <p class="intro--inner-text">
+        Welcome to my personnal website
+        <br />
+        Different pages are available here, you will find my resume in English and
+        in French, as well as my portfolio in the two languages too.
+        <br />
+        But before anything else, who am I?
+      </p>
+    </div>
+  </section>
+
+  <section class="intro--section intro--introduction">
+    <p class="intro--inner-text">
       My name is Jonathan Binot, I'm <span id="age">${age}</span> year old and I
       have a degree in web development with a level of Bachelor + 2, but also a
-      degree in Javascript <img src="${JSLogo}" height="18px" /> app development with a level of Bachelor + 3 with OpenClassrooms
+      degree in web development with a level of Bachelor +3/4 with OpenClassrooms
       <img src="${OCLogo}" height="18px" />.<br /><br />
       Since I was a child, I'm passionate about computer technology and video
-      games, that's why I decided to give myself the means to work in the sector.
-      Computer tech being a vast domain, there are two disciplins in which I would
-      like to invest professionnaly : <br /><br />
+      games, that's why I decided to give myself the means to work in the
+      sector. Computer tech being a vast domain, there are two disciplins in
+      which I would like to invest professionnaly : <br /><br />
     </p>
-    <li><mark class="blue-undeline">Web</mark> development</li>
-    <br /><br />
-    <li><mark class="blue-undeline">Gam</mark>e development.<br /><br /></li>
-    <p>
-      Motivated to achieve my goals, I started learning on my own very early, with
-      my computer and the software I had at my disposal. I started with FPS
-      Creator (but that part doesn't really count) then with the Half-Life² level
-      editor by watching video tutorials online. As the years went by, I started
-      to learn new things, by discovering Unreal Engine 3 (with UDK) then Unreal
-      Engine 4. Motivé pour atteindre mes objectifs, j'ai commencé très tôt à
-      apprendre en autodidacte, avec mon ordinateur et les logiciels de
-      développement à ma disposition. J'ai commencé sur FPS Creator (mais cette
-      partie là ne compte pas vraiment) puis avec l'éditeur de niveaux de
+  </section>
+
+  <section class="intro--section intro--type webdev">
+    <span class="text-light"
+      ><mark class="blue-undeline text-light">Web</mark>development</span
+    >
+    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
+  </section>
+
+  <section class="intro--section intro--type gamedev">
+    </section>
+    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
+    <span class="text-light"
+      ><mark class="blue-undeline text-light">Gam</mark>e development</span
+    >
+  </section>
+
+  <section class="intro--section intro--objectives--game">
+    <p class="intro--objectives--text">
+      Motivated to achieve my goals, I started learning on my own very early,
+      with my computer and the software I had at my disposal. I started with FPS
+      Creator (but that part doesn't really count) then with the Half-Life²
+      level editor by watching video tutorials online. As the years went by, I
+      started to learn new things, by discovering Unreal Engine 3 (with UDK)
+      then Unreal Engine 4. Motivé pour atteindre mes objectifs, j'ai commencé
+      très tôt à apprendre en autodidacte, avec mon ordinateur et les logiciels
+      de développement à ma disposition. J'ai commencé sur FPS Creator (mais
+      cette partie là ne compte pas vraiment) puis avec l'éditeur de niveaux de
       Half-Life² en regardant des tutoriels vidéo en ligne.
       <br /><br />More recently, I found a passion for virtual reality and I was
       finally able to invest in quality equipment thanks to the job I had found.
       Finally, with the release of Half-Life: Alyx in VR as well as its
-      development tools, I discovered the development on Source² Engine (which has
-      strong similarities with its predecessor from 2003) this time and I Also
-      discovered the basics of virtual reality development on Unreal Engine 4 and
-      the basics of the Unity engine less than a month ago. <br /><br />I really
-      enjoy learning new techniques, and discovering all that is possible to do
-      with modern game engines.
-  
-      <br />
-      <br />
-  
-      As for web development, I discovered this discipline during my first year of
-      university at the Mathematics-Computer Science high school of Lyon.
+      development tools, I discovered the development on Source² Engine (which
+      has strong similarities with its predecessor from 2003) this time and I
+      Also discovered the basics of virtual reality development on Unreal Engine
+      4 and the basics of the Unity engine less than a month ago. <br /><br />I
+      really enjoy learning new techniques, and discovering all that is possible
+      to do with modern game engines.
+    </p>
+  </section>
+
+  <section class="intro--section intro--objectives--web">
+    <p class="intro--objectives--text">${hpBgOne}
+      As for web development, I discovered this discipline during my first year
+      of university at the Mathematics-Computer Science high school of Lyon.
       Unfortunately, I did not like the way the university worked and the
-      mathematics course we were learning, but the teaching unit "Introduction to
-      networks and web dev" really interested me. Thanks to this, I discovered the
-      potential of HTML and CSS and after a year as an employee in the family
-      arcade room "La Tête dans les Nuages", I set myself the goal of creating a
-      personal website on which would be my resume and a showcase of my
-      achievements in the form of a portfolio. I started to learn on my own again
-      thanks to the free Openclassrooms lessons in particular.
+      mathematics course we were learning, but the teaching unit "Introduction
+      to networks and web dev" really interested me. Thanks to this, I
+      discovered the potential of HTML and CSS and after a year as an employee
+      in the family arcade room "La Tête dans les Nuages", I set myself the goal
+      of creating a personal website on which would be my resume and a showcase
+      of my achievements in the form of a portfolio. I started to learn on my
+      own again thanks to the free Openclassrooms lessons in particular.
       <br />
       <br />
       Today you are on the home page of this website, and if you have taken the
@@ -208,8 +230,8 @@ export async function Homepage() {
       <br />
       <br />
       You now have the choice to access my resume, my portfolio or contact me
-      directly by clicking on one of the menu links at the top of the page. Enjoy
-      your visit.
+      directly by clicking on one of the menu links at the top of the page.
+      Enjoy your visit.
     </p>
   </section>
 `;
@@ -217,29 +239,18 @@ export async function Homepage() {
 
   const homepageBackground = `
   <div id="homepage-background" class="homepage--background">
-  <div id="background-1" class="homepage--background homepage--background--bluepurple"></div>
-  <div id="background-2" class="homepage--background homepage--background--darkgrey"></div>
+  <div id="background-1" class="homepage--background homepage--background--bluepurple" style="background-image: url(${hpBgOne})"></div>
+  <div id="background-2" class="homepage--background homepage--background--darkgrey" style="background-image: url(${hpBgTwo})"></div>
   <div id="background-3" class="homepage--background homepage--background--yelloworange"></div>
   <div id="background-4" class="homepage--background homepage--background--greenblue"></div>
   <video id="background-5" class="" autoplay muted loop id="myVideo">
       <source src="${HLAVideo}" type="video/mp4" />
     </video>
-    <div id="background-6" class="homepage--background" style="background-image: url(${Banner})"></div>
+    <div id="background-6" class="homepage--background" style="background-image: url(${hpBgOne})"></div>
   </div>
   `;
 
   homepage.innerHTML += homepageBackground;
-
-  const backgroundContent = [
-    `<div id="background-1" class="homepage--background homepage--background--bluepurple"></div>`,
-    `<div id="background-2" class="hidden homepage--background homepage--background--darkgrey"></div>`,
-    `<div id="background-3" class="hidden homepage--background homepage--background--yelloworange"></div>`,
-    `<div id="background-4" class="hidden homepage--background homepage--background--greenblue"></div>`,
-    `<video id="background-5" class="hidden" autoplay muted loop id="myVideo">
-      <source src="${HLAVideo}" type="video/mp4" />
-    </video>`,
-    `<div id="background-6" class="hidden homepage--background" style="background-image: url(${Banner})"></div>`,
-  ];
 
   let backgroundIndex = 0;
 
@@ -249,100 +260,49 @@ export async function Homepage() {
 
     if (windowHeight >= window.pageYOffset) {
       document.getElementById("background-1").className =
-        "homepage--background homepage--background--bluepurple";
+        "homepage--background homepage--background--image";
       document.getElementById("background-2").className =
-        "hidden homepage--background homepage--background--darkgrey";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-3").className =
-        "hidden homepage--background homepage--background--yelloworange";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-4").className =
-        "hidden homepage--background homepage--background--greenblue";
-      document.getElementById("background-5").className = "hidden";
-      document.getElementById("background-6").className =
-        "hidden homepage--background";
-      console.log("1 fois " + window.pageYOffset);
-    } else if (
-      windowHeight * 2 >= window.pageYOffset &&
-      window.pageYOffset >= windowHeight
-    ) {
-      document.getElementById("background-1").className =
-        "hidden homepage--background homepage--background--bluepurple";
-      document.getElementById("background-2").className =
-        "homepage--background homepage--background--darkgrey";
-      document.getElementById("background-3").className =
-        "hidden homepage--background homepage--background--yelloworange";
-      document.getElementById("background-4").className =
-        "hidden homepage--background homepage--background--greenblue";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-5").className = "hidden";
       document.getElementById("background-6").className =
         "hidden homepage--background";
       console.log("1 fois " + window.pageYOffset);
     } else if (
       windowHeight * 3 >= window.pageYOffset &&
-      window.pageYOffset >= windowHeight * 2
+      window.pageYOffset >= windowHeight
     ) {
       document.getElementById("background-1").className =
-        "hidden homepage--background homepage--background--bluepurple";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-2").className =
-        "hidden homepage--background homepage--background--darkgrey";
+        "homepage--background homepage--background--image";
       document.getElementById("background-3").className =
-        "homepage--background homepage--background--yelloworange";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-4").className =
-        "hidden homepage--background homepage--background--greenblue";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-5").className = "hidden";
       document.getElementById("background-6").className =
         "hidden homepage--background";
-      console.log("2 fois " + window.pageYOffset);
+      console.log("1 fois " + window.pageYOffset);
     } else if (
-      windowHeight * 4 >= window.pageYOffset &&
+      windowHeight * 5 >= window.pageYOffset &&
       window.pageYOffset >= windowHeight * 3
     ) {
       document.getElementById("background-1").className =
-        "hidden homepage--background homepage--background--bluepurple";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-2").className =
-        "hidden homepage--background homepage--background--darkgrey";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-3").className =
-        "hidden homepage--background homepage--background--yelloworange";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-4").className =
-        "homepage--background homepage--background--greenblue";
-      document.getElementById("background-5").className = "hidden";
-      document.getElementById("background-6").className =
-        "hidden homepage--background";
-      console.log("3 fois " + window.pageYOffset);
-    } else if (
-      windowHeight * 5 >= window.pageYOffset &&
-      window.pageYOffset >= windowHeight * 4
-    ) {
-      document.getElementById("background-1").className =
-        "hidden homepage--background homepage--background--bluepurple";
-      document.getElementById("background-2").className =
-        "hidden homepage--background homepage--background--darkgrey";
-      document.getElementById("background-3").className =
-        "hidden homepage--background homepage--background--yelloworange";
-      document.getElementById("background-4").className =
-        "hidden homepage--background homepage--background--greenblue";
+        "hidden homepage--background homepage--background--image";
       document.getElementById("background-5").className = "";
       document.getElementById("background-6").className =
         "hidden homepage--background";
       console.log("4 fois " + window.pageYOffset);
-    } else if (
-      windowHeight * 6 >= window.pageYOffset &&
-      window.pageYOffset >= windowHeight * 5
-    ) {
-      document.getElementById("background-1").className =
-        "hidden homepage--background homepage--background--bluepurple";
-      document.getElementById("background-2").className =
-        "hidden homepage--background homepage--background--darkgrey";
-      document.getElementById("background-3").className =
-        "hidden homepage--background homepage--background--yelloworange";
-      document.getElementById("background-4").className =
-        "hidden homepage--background homepage--background--greenblue";
-      document.getElementById("background-5").className = "hidden";
-      document.getElementById("background-6").className =
-        "homepage--background";
-      console.log("4 fois " + window.pageYOffset);
-    } else if (window.pageYOffset > windowHeight * 7) {
-      newBackgroundIndex = 5;
-      console.log("5 fois " + window.pageYOffset);
     }
 
     if (backgroundIndex !== newBackgroundIndex) {
@@ -355,11 +315,6 @@ export async function Homepage() {
   window.onscroll = function () {
     changeBackground();
   };
-
-  function display() {
-    document.getElementById("homepage-background").innerHTML =
-      backgroundContent[backgroundIndex];
-  }
 
   return homepage;
 }

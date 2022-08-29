@@ -51,5 +51,3 @@ const handleLocation = async () => {
 window.onpopstate = handleLocation;
 
 handleLocation();
-
-// Tester avec un projet Vite vide pour voir si les getElementById fonctionnent
