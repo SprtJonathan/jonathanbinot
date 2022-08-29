@@ -45,11 +45,12 @@
 
 .navbar--button {
   cursor: pointer;
-  font-family: "Lato", sans-serif;
   text-decoration: none;
   text-align: center;
   color: #252525;
-  font-weight: 900;
+  font-family: rajdhani, sans-serif;
+  font-weight: 600;
+  font-style: normal;
   font-size: 1.5rem;
   padding: 0.5rem;
   margin-bottom: 0;
@@ -144,7 +145,7 @@
     }
     &--button {
       display: flex;
-      font-size: 1vw;
+      font-size: 20px;
       width: 100%;
       height: $navbar-desktop-height;
       padding: 0rem 2rem;

@@ -36,27 +36,19 @@ export async function Homepage() {
         <br />
         Développeur web - Frontend - Applications JS
       </h1>
+    </div>
+  </section>
 
-      <div class="intro--inner-text--block">
-        <p class="intro--inner-text">Bienvenue sur mon site web personnel.
-          <br />
-          Diverses pages vous sont ici proposées, vous y trouverez mon CV en
-          français et en anglais, ainsi que mon portfolio dans les deux langues
-          également.
-          <br />          
-          Mais avant tout, qui suis-je?
-        </p>
-
-      </div>
-      <div
-        class="homepage--title--background homepage--title--background--blur"
-        style="background-image: url(${Banner})"
-      >
-      </div>
-      <div
-        class="homepage--title--background homepage--title--background--dark"
-      >
-      </div>
+  <section class="intro--section intro--summary">
+    <div class="intro--inner-text--block">
+      <p class="intro--inner-text">Bienvenue sur mon site web personnel.
+        <br />
+        Diverses pages vous sont ici proposées, vous y trouverez mon CV en
+        français et en anglais, ainsi que mon portfolio dans les deux langues
+        également.
+        <br />          
+        Mais avant tout, qui suis-je?
+      </p>
     </div>
   </section>
 
@@ -77,16 +69,9 @@ export async function Homepage() {
   </section>
   
   <section class="intro--section intro--type webdev">
-      
-    <div
-      class="homepage--title--background homepage--title--background--blur"
-      style="background-image: url(${Banner})"
-    >
-    </div>
 
     <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</span>
     <img src="${Banner}" height="30%" />
-    
 
   </section>
     
@@ -95,10 +80,6 @@ export async function Homepage() {
     <img src="${Banner}" height="30%" />
     <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo</span>
     
-
-    <video class="gamedev--bg" autoplay muted loop id="myVideo">
-      <source class="gamedev--bg--video" src="${HLAVideo}" type="video/mp4" />
-    </video>
   </section>
 
 
@@ -232,6 +213,152 @@ export async function Homepage() {
     </p>
   </section>
 `;
+  }
+
+  const homepageBackground = `
+  <div id="homepage-background" class="homepage--background">
+  <div id="background-1" class="homepage--background homepage--background--bluepurple"></div>
+  <div id="background-2" class="homepage--background homepage--background--darkgrey"></div>
+  <div id="background-3" class="homepage--background homepage--background--yelloworange"></div>
+  <div id="background-4" class="homepage--background homepage--background--greenblue"></div>
+  <video id="background-5" class="" autoplay muted loop id="myVideo">
+      <source src="${HLAVideo}" type="video/mp4" />
+    </video>
+    <div id="background-6" class="homepage--background" style="background-image: url(${Banner})"></div>
+  </div>
+  `;
+
+  homepage.innerHTML += homepageBackground;
+
+  const backgroundContent = [
+    `<div id="background-1" class="homepage--background homepage--background--bluepurple"></div>`,
+    `<div id="background-2" class="hidden homepage--background homepage--background--darkgrey"></div>`,
+    `<div id="background-3" class="hidden homepage--background homepage--background--yelloworange"></div>`,
+    `<div id="background-4" class="hidden homepage--background homepage--background--greenblue"></div>`,
+    `<video id="background-5" class="hidden" autoplay muted loop id="myVideo">
+      <source src="${HLAVideo}" type="video/mp4" />
+    </video>`,
+    `<div id="background-6" class="hidden homepage--background" style="background-image: url(${Banner})"></div>`,
+  ];
+
+  let backgroundIndex = 0;
+
+  function changeBackground() {
+    const windowHeight = window.innerHeight;
+    let newBackgroundIndex = 0;
+
+    if (windowHeight >= window.pageYOffset) {
+      document.getElementById("background-1").className =
+        "homepage--background homepage--background--bluepurple";
+      document.getElementById("background-2").className =
+        "hidden homepage--background homepage--background--darkgrey";
+      document.getElementById("background-3").className =
+        "hidden homepage--background homepage--background--yelloworange";
+      document.getElementById("background-4").className =
+        "hidden homepage--background homepage--background--greenblue";
+      document.getElementById("background-5").className = "hidden";
+      document.getElementById("background-6").className =
+        "hidden homepage--background";
+      console.log("1 fois " + window.pageYOffset);
+    } else if (
+      windowHeight * 2 >= window.pageYOffset &&
+      window.pageYOffset >= windowHeight
+    ) {
+      document.getElementById("background-1").className =
+        "hidden homepage--background homepage--background--bluepurple";
+      document.getElementById("background-2").className =
+        "homepage--background homepage--background--darkgrey";
+      document.getElementById("background-3").className =
+        "hidden homepage--background homepage--background--yelloworange";
+      document.getElementById("background-4").className =
+        "hidden homepage--background homepage--background--greenblue";
+      document.getElementById("background-5").className = "hidden";
+      document.getElementById("background-6").className =
+        "hidden homepage--background";
+      console.log("1 fois " + window.pageYOffset);
+    } else if (
+      windowHeight * 3 >= window.pageYOffset &&
+      window.pageYOffset >= windowHeight * 2
+    ) {
+      document.getElementById("background-1").className =
+        "hidden homepage--background homepage--background--bluepurple";
+      document.getElementById("background-2").className =
+        "hidden homepage--background homepage--background--darkgrey";
+      document.getElementById("background-3").className =
+        "homepage--background homepage--background--yelloworange";
+      document.getElementById("background-4").className =
+        "hidden homepage--background homepage--background--greenblue";
+      document.getElementById("background-5").className = "hidden";
+      document.getElementById("background-6").className =
+        "hidden homepage--background";
+      console.log("2 fois " + window.pageYOffset);
+    } else if (
+      windowHeight * 4 >= window.pageYOffset &&
+      window.pageYOffset >= windowHeight * 3
+    ) {
+      document.getElementById("background-1").className =
+        "hidden homepage--background homepage--background--bluepurple";
+      document.getElementById("background-2").className =
+        "hidden homepage--background homepage--background--darkgrey";
+      document.getElementById("background-3").className =
+        "hidden homepage--background homepage--background--yelloworange";
+      document.getElementById("background-4").className =
+        "homepage--background homepage--background--greenblue";
+      document.getElementById("background-5").className = "hidden";
+      document.getElementById("background-6").className =
+        "hidden homepage--background";
+      console.log("3 fois " + window.pageYOffset);
+    } else if (
+      windowHeight * 5 >= window.pageYOffset &&
+      window.pageYOffset >= windowHeight * 4
+    ) {
+      document.getElementById("background-1").className =
+        "hidden homepage--background homepage--background--bluepurple";
+      document.getElementById("background-2").className =
+        "hidden homepage--background homepage--background--darkgrey";
+      document.getElementById("background-3").className =
+        "hidden homepage--background homepage--background--yelloworange";
+      document.getElementById("background-4").className =
+        "hidden homepage--background homepage--background--greenblue";
+      document.getElementById("background-5").className = "";
+      document.getElementById("background-6").className =
+        "hidden homepage--background";
+      console.log("4 fois " + window.pageYOffset);
+    } else if (
+      windowHeight * 6 >= window.pageYOffset &&
+      window.pageYOffset >= windowHeight * 5
+    ) {
+      document.getElementById("background-1").className =
+        "hidden homepage--background homepage--background--bluepurple";
+      document.getElementById("background-2").className =
+        "hidden homepage--background homepage--background--darkgrey";
+      document.getElementById("background-3").className =
+        "hidden homepage--background homepage--background--yelloworange";
+      document.getElementById("background-4").className =
+        "hidden homepage--background homepage--background--greenblue";
+      document.getElementById("background-5").className = "hidden";
+      document.getElementById("background-6").className =
+        "homepage--background";
+      console.log("4 fois " + window.pageYOffset);
+    } else if (window.pageYOffset > windowHeight * 7) {
+      newBackgroundIndex = 5;
+      console.log("5 fois " + window.pageYOffset);
+    }
+
+    if (backgroundIndex !== newBackgroundIndex) {
+      console.log(newBackgroundIndex);
+      backgroundIndex = newBackgroundIndex;
+      display();
+    }
+  }
+
+  window.onscroll = function () {
+    changeBackground();
+  };
+
+  function display() {
+    document.getElementById("homepage-background").innerHTML =
+      backgroundContent[backgroundIndex];
   }
 
   return homepage;

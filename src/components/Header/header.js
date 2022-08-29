@@ -245,7 +245,6 @@ export async function Header(activePage) {
 
   // Get event listener for body query selector
   const modalButtonTest = document.getElementById("contact-button");
-  console.log(modalButtonTest);
 
   const body = document.querySelector("body");
   body.addEventListener("click", (e) => {
@@ -278,15 +277,15 @@ export async function Header(activePage) {
     // return menuButtons[e.target.id];
   });
 
-  window.onscroll = function () {
+  window.addEventListener("scroll", () => {
     retractMenu();
-  };
+  });
 
   let lastScroll = 0;
 
   function retractMenu() {
     const menuHideValue = 100;
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     const currentScroll = window.pageYOffset;
 
     if (currentScroll <= 0 || currentScroll < lastScroll) {
