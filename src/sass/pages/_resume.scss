@@ -1,0 +1,14 @@
+.resume {
+  display: flex;
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  background-color: wheat;
+  &--header {
+    width: 95vw;
+    margin: auto;
+  }
+  &--description {
+    text-align: justify;
+  }
+}

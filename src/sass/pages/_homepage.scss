@@ -24,6 +24,9 @@
       margin: auto;
     }
   }
+  &--name {
+    @include dark-glass-styled-container-background;
+  }
   &--summary {
     margin: auto;
     justify-content: center;
@@ -35,6 +38,8 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    max-width: 1220px;
+    margin: auto;
     // background-image: linear-gradient(
     //   to bottom,
     //   rgba(176, 116, 255, 1),
@@ -74,7 +79,7 @@
       justify-content: center;
       align-items: center;
       background-image: linear-gradient(
-        to bottom,
+        127deg,
         rgb(53, 53, 53),
         rgb(17, 17, 17)
       );
@@ -92,6 +97,14 @@
 
 .webdev {
   background: linear-gradient(-127deg, #292929, #0b0b0b);
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border: 0;
 }
 
 .homepage {
@@ -117,6 +130,12 @@
     transition: all ease-in-out 1s;
     &--image {
       background-position: center;
+    }
+    &--video {
+      top: 0;
+      height: 100px;
+
+      position: absolute;
     }
   }
   &--title {

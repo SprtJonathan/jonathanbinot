@@ -78,3 +78,28 @@
     visibility: hidden;
   }
 }
+
+@keyframes retract-up-and-disappear {
+  0% {
+    display: flex;
+    transform: scaleY(1);
+    transform-origin: top center;
+  }
+  100% {
+    display: none;
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+}
+@keyframes appear-and-expand-down {
+  0% {
+    display: none;
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+  100% {
+    display: flex;
+    transform: scaleY(1);
+    transform-origin: top center;
+  }
+}

@@ -2,7 +2,7 @@ import Modal from "../Modal/Modal";
 import flagFr from "../../assets/images/languages/FR.png";
 import flagEn from "../../assets/images/languages/EN.png";
 
-export async function Header(activePage) {
+export function Header(activePage) {
   const currentPage = activePage;
 
   const lang = localStorage.getItem("language");
@@ -11,8 +11,13 @@ export async function Header(activePage) {
   navbar.setAttribute("class", "navbar");
   navbar.setAttribute("id", "navbar-container");
 
+  const navbarDisplayButton = document.createElement("div");
+  navbarDisplayButton.setAttribute("id", "display-menu-button");
+  navbarDisplayButton.setAttribute("class", "navbar--toggle");
+  navbarDisplayButton.innerHTML = `<i class="navbar--toggle--icon fa-solid fa-bars" id="display-menu-icon"></i>`;
+
   const nav = document.createElement("div");
-  nav.setAttribute("class", "navbar");
+  nav.setAttribute("class", "hidden navbar--menu");
   nav.setAttribute("id", "navbar");
 
   navbar.append(nav);
@@ -119,6 +124,7 @@ export async function Header(activePage) {
       </form>
   `;
     navbar.append(Modal("contact-modal", "Contactez moi", contactForm));
+    navbar.append(navbarDisplayButton);
   } else {
     /* English version of the header */
     nav.innerHTML = `
@@ -202,6 +208,7 @@ export async function Header(activePage) {
       </form>
   `;
     navbar.append(Modal("contact-modal", "Contact me", contactForm));
+    navbar.append(navbarDisplayButton);
   }
 
   /**
@@ -243,12 +250,9 @@ export async function Header(activePage) {
     }
   }
 
-  // Get event listener for body query selector
-  const modalButtonTest = document.getElementById("contact-button");
-
   const body = document.querySelector("body");
   body.addEventListener("click", (e) => {
-    //console.log(e.target);
+    // console.log(e.target);
 
     if (e.target.id === "contact-button") {
       toggleModal("contact-modal", true);
@@ -267,6 +271,11 @@ export async function Header(activePage) {
       setLang("fr");
     } else if (e.target.id === "select-en") {
       setLang("en");
+    } else if (
+      e.target.id === "display-menu-button" ||
+      e.target.id === "display-menu-icon"
+    ) {
+      toggleMenu();
     }
 
     // const menuButtons = {
@@ -277,26 +286,24 @@ export async function Header(activePage) {
     // return menuButtons[e.target.id];
   });
 
-  window.addEventListener("scroll", () => {
-    retractMenu();
-  });
+  let displayMenu = false;
 
-  let lastScroll = 0;
+  function toggleMenu() {
+    console.log(displayMenu);
+    displayMenu = !displayMenu;
+    retractMenu();
+  }
 
   function retractMenu() {
-    const menuHideValue = 100;
-    //console.log(window.scrollY);
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0 || currentScroll < lastScroll) {
-      document.getElementById("navbar").className = "navbar";
-    }
-
-    if (currentScroll > lastScroll) {
+    if (displayMenu) {
+      document.getElementById("navbar").className = "navbar--menu";
+      document.getElementById("display-menu-icon").className =
+        "navbar--toggle--icon--after fa-solid fa-bars";
+    } else {
       document.getElementById("navbar").className = "navbar--slided navbar";
+      document.getElementById("display-menu-icon").className =
+        "navbar--toggle--icon fa-solid fa-bars";
     }
-
-    lastScroll = currentScroll;
   }
 
   function sendEmail() {

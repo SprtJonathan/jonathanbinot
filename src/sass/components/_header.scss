@@ -1,15 +1,45 @@
 .navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   width: 100vw;
   padding: 0;
   margin: 0;
+  pointer-events: none;
 
   position: fixed;
   top: 0px;
 
-  justify-content: center;
-
-  animation: slide-down 0.5s ease-in-out;
   z-index: 10;
+  &--menu {
+    width: 100vw;
+    animation: slide-down 0.5s ease-in-out;
+    pointer-events: all;
+  }
+  &--toggle {
+    @include glass-styled-container-background;
+    margin: 10px;
+    position: relative;
+    padding: 10px;
+    transition: position ease-in-out 0.2s;
+    pointer-events: all;
+    &:hover {
+      @include dark-glass-styled-container-background;
+      color: white;
+      cursor: pointer;
+      transform: scale(1.1);
+      transition: all ease-in-out 0.2s;
+    }
+    &--icon {
+      transform: rotate(0deg);
+      transition: all ease-in-out 0.5s;
+      &--after {
+        transform: rotate(90deg);
+        transition: all ease-in-out 0.5s;
+      }
+    }
+  }
 
   &--slided {
     transform: translateY(-$navbar-mobile-margin);
@@ -76,6 +106,11 @@
   color: white;
   background-position: left bottom;
 }
+.navbar--toggle:hover .navbar--button,
+.navbar--toggle:focus .navbar--button {
+  color: white;
+  background-position: left bottom;
+}
 
 .fa {
   line-height: center;
@@ -87,6 +122,7 @@
 }
 
 .contact-form {
+  pointer-events: all;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -95,8 +131,6 @@
   height: 90%;
   padding: 1rem;
   margin: auto;
-  &--category {
-  }
   &--input {
     border: 1px solid $text--light;
     box-shadow: inset 0 0 3px $text--light;
@@ -167,6 +201,16 @@
 @media (min-width: 720px) {
   .active {
     width: 100%;
+  }
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    &--toggle {
+      padding: 10px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 

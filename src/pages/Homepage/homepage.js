@@ -4,10 +4,11 @@ import { createElementFromTemplate } from "../../components/helpers.js";
 
 import hpBgOne from "../../assets/images/homepage/homepage-bg-1.jpg";
 import hpBgTwo from "../../assets/images/homepage/homepage-bg-3.png";
+import webdevImage from "../../assets/images/homepage/webdev.png";
+import gamedevImage from "../../assets/images/homepage/gamedev.png";
 import JSLogo from "../../../javascript.svg";
 import OCLogo from "../../assets/images/homepage/oc-logo.png";
 
-import HLAVideo from "../../assets/videos/HLA-short.webm";
 
 export async function Homepage() {
   const lang = localStorage.getItem("language");
@@ -22,13 +23,6 @@ export async function Homepage() {
   homepage.setAttribute("class", "homepage");
   homepage.setAttribute("id", "homepage");
   //homepage.append(Header("home"));
-
-  const menuHideValue = 100;
-  console.log(document.getElementById("summary"));
-
-  if (window.scrollY > menuHideValue) {
-    document.getElementById("summary").style.transform = translateY("-80px");
-  }
 
   if (lang == "fr") {
     homepage.innerHTML += `
@@ -74,13 +68,13 @@ export async function Homepage() {
   <section class="intro--section intro--type webdev">
 
     <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement web</span>
-    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
+    <img class="intro--type--image" src="${webdevImage}" height="30%" />
 
   </section>
     
   <section class="intro--section intro--type gamedev">
     
-    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
+    <img class="intro--type--image" src="${gamedevImage}" height="30%" />
     <span class="text-light"><mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo</span>
     
   </section>
@@ -175,12 +169,12 @@ export async function Homepage() {
     <span class="text-light"
       ><mark class="blue-undeline text-light">Web</mark>development</span
     >
-    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
+    <img class="intro--type--image" src="${webdevImage}" height="30%" />
   </section>
 
   <section class="intro--section intro--type gamedev">
     </section>
-    <img class="intro--type--image" src="${hpBgOne}" height="30%" />
+    <img class="intro--type--image" src="${gamedevImage}" height="30%" />
     <span class="text-light"
       ><mark class="blue-undeline text-light">Gam</mark>e development</span
     >
@@ -239,14 +233,14 @@ export async function Homepage() {
 
   const homepageBackground = `
   <div id="homepage-background" class="homepage--background">
-  <div id="background-1" class="homepage--background homepage--background--bluepurple" style="background-image: url(${hpBgOne})"></div>
-  <div id="background-2" class="homepage--background homepage--background--darkgrey" style="background-image: url(${hpBgTwo})"></div>
-  <div id="background-3" class="homepage--background homepage--background--yelloworange"></div>
-  <div id="background-4" class="homepage--background homepage--background--greenblue"></div>
-  <video id="background-5" class="" autoplay muted loop id="myVideo">
-      <source src="${HLAVideo}" type="video/mp4" />
-    </video>
-    <div id="background-6" class="homepage--background" style="background-image: url(${hpBgOne})"></div>
+  <div id="background-1" class="hidden homepage--background homepage--background--bluepurple" style="background-image: url(${hpBgOne})"></div>
+  <div id="background-2" class="hidden homepage--background homepage--background--darkgrey" style="background-image: url(${hpBgTwo})"></div>
+  <div id="background-3" class="hidden homepage--background homepage--background--yelloworange"></div>
+  <div id="background-4" class="hidden homepage--background homepage--background--greenblue"></div>
+  <video id="background-5" class="hidden" autoplay muted loop id="myVideo">
+    <source class="mp4-source" src="//cdn-cf-east.streamable.com/video/mp4/pn1u01.mp4?Expires=1662153060&amp;Signature=Tl3u5kwsrJPMk-OH-mqkfVHrcWFnkxi~5CGA3EmHV7OztFUn7Gn~NyL97vrj7VSmsiELIJTG4RQEHeJC0su4P~vGNMhYh-vNQfi1LhBRIt1As~gVyhy0vGiWYLMwg9LIVZzI5JcdUhSqmxRuNzsK~pnemWHMUUa-ocPSxiPg89TPBISrjSy6JicoSazkh9qC1qzX0m7Hlh-p6RaaO5qzPiwLQ3mvt9QG86EIwC732RiOWlGJtBkLAaoMdX3nFesjvOMcSpwaC8yuLqzfHzzVmji5rutnNgOEd6Qqh2ZrZS-xhlYPtbQ6yC8hbOgotLYWuPPccZCHOvsVO7VREP3vlg__&amp;Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ">
+  </video>
+  <div id="background-6" class="homepage--background" style="background-image: url(${hpBgOne})"></div>
   </div>
   `;
 
@@ -299,14 +293,13 @@ export async function Homepage() {
         "hidden homepage--background homepage--background--image";
       document.getElementById("background-4").className =
         "hidden homepage--background homepage--background--image";
-      document.getElementById("background-5").className = "";
+      document.getElementById("background-5").className = "homepage--background";
       document.getElementById("background-6").className =
         "hidden homepage--background";
       console.log("4 fois " + window.pageYOffset);
     }
 
     if (backgroundIndex !== newBackgroundIndex) {
-      console.log(newBackgroundIndex);
       backgroundIndex = newBackgroundIndex;
       display();
     }

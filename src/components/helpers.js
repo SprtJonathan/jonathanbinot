@@ -8,7 +8,7 @@ const createElementFromTemplate = (
   for (const [key, value] of Object.entries(elementAttributes)) {
     newElement.setAttribute(key, value);
   }
-  newElement.innterText = textContent;
+  newElement.innerHTML = textContent;
   appendTo.appendChild(newElement);
   return newElement;
 };
