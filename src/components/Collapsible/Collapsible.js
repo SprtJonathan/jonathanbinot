@@ -1,9 +1,22 @@
-export default function Collapsible(collapsibleId, titleContent, bodyContent) {
+export default function Collapsible(
+  collapsibleId,
+  collapsibleClass,
+  titleContent,
+  bodyContent
+) {
   let collapsibleState = false;
+
+  let collapsibleClassName = collapsibleClass;
+  if (collapsibleClass == "" || collapsibleClass == null) {
+    collapsibleClassName = "collapsible";
+  }
 
   const collapsibleContainer = document.createElement("div");
   collapsibleContainer.setAttribute("id", collapsibleId);
-  collapsibleContainer.setAttribute("class", "collapsible--container");
+  collapsibleContainer.setAttribute(
+    "class",
+    collapsibleClassName + "--container"
+  );
 
   const collapsibleExpandIcon = document.createElement("span");
   collapsibleExpandIcon.setAttribute(
@@ -12,45 +25,61 @@ export default function Collapsible(collapsibleId, titleContent, bodyContent) {
   );
   collapsibleExpandIcon.setAttribute(
     "class",
-    "collapsible--title--text--chevron"
+    collapsibleClassName + "--title--text--chevron"
   );
   collapsibleExpandIcon.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
 
+  const collapsibleTitleContainer = document.createElement("div");
+  collapsibleTitleContainer.setAttribute("id", collapsibleId + "-title");
+  collapsibleTitleContainer.setAttribute(
+    "class",
+    collapsibleClassName + "--title--container"
+  );
+
   const collapsibleTitle = document.createElement("div");
-  collapsibleTitle.setAttribute("id", collapsibleId + "-title");
-  collapsibleTitle.setAttribute("class", "collapsible--title");
-  collapsibleTitle.innerHTML = `<span class="collapsible--title--text">${titleContent} </span>`;
+  collapsibleTitle.setAttribute("class", collapsibleClassName + "--title");
+
+  collapsibleTitle.innerHTML = `<span class=collapsibleClassName + "--title--text">${titleContent} </span>`;
   collapsibleTitle.append(collapsibleExpandIcon);
 
-  collapsibleContainer.appendChild(collapsibleTitle);
+  collapsibleTitleContainer.appendChild(collapsibleTitle);
+  collapsibleContainer.appendChild(collapsibleTitleContainer);
+
+  const collapsibleContentContainer = document.createElement("div");
+  collapsibleContentContainer.setAttribute(
+    "id",
+    collapsibleId + "-content-container"
+  );
+  collapsibleContentContainer.setAttribute(
+    "class",
+    collapsibleClassName + "--content--container"
+  );
 
   const collapsibleContent = document.createElement("div");
   collapsibleContent.setAttribute("id", collapsibleId + "-content");
-  collapsibleContent.setAttribute("class", "collapsible--content");
+  collapsibleContent.setAttribute("class", collapsibleClassName + "--content");
   collapsibleContent.innerHTML = bodyContent;
 
-  collapsibleContainer.appendChild(collapsibleContent);
+  collapsibleContentContainer.appendChild(collapsibleContent);
+  collapsibleContainer.appendChild(collapsibleContentContainer);
 
   //   console.log(collapsibleTitle);
 
-  collapsibleTitle.addEventListener("click", toggleCollapsible);
+  collapsibleTitleContainer.addEventListener("click", (e) => {
+    toggleCollapsible();
+  });
 
   function toggleCollapsible() {
-    // console.log(collapsibleState);
     if (collapsibleState) {
-      collapsibleContent.style.maxHeight = null;
-      collapsibleContent.style.background = "none";
-      collapsibleContent.style.boxShadow = "none"
-      collapsibleExpandIcon.classList = "collapsible--title--text--chevron";
+      collapsibleContentContainer.style.maxHeight = null;
+      collapsibleExpandIcon.classList =
+        collapsibleClassName + "--title--text--chevron";
       collapsibleState = !collapsibleState;
     } else {
-      collapsibleContent.style.maxHeight =
-        collapsibleContent.scrollHeight + "px";
-      collapsibleContent.style.background = "rgba(255, 255, 255, 0.548)";
-      collapsibleContent.style.boxShadow =
-        "0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07)";
+      collapsibleContentContainer.style.maxHeight =
+        collapsibleContentContainer.scrollHeight + "px";
       collapsibleExpandIcon.classList =
-        "collapsible--title--text--chevron--upside-down";
+        collapsibleClassName + "--title--text--chevron--upside-down";
       collapsibleState = !collapsibleState;
     }
   }

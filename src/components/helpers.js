@@ -9,6 +9,9 @@ const createElementFromTemplate = (
     newElement.setAttribute(key, value);
   }
   newElement.innerHTML = textContent;
+  if (!appendTo) {
+    return newElement;
+  }
   appendTo.appendChild(newElement);
   return newElement;
 };

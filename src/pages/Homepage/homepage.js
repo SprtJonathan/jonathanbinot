@@ -9,8 +9,7 @@ import gamedevImage from "../../assets/images/homepage/gamedev.png";
 import JSLogo from "../../../javascript.svg";
 import OCLogo from "../../assets/images/homepage/oc-logo.png";
 
-
-export async function Homepage() {
+export function Homepage() {
   const lang = localStorage.getItem("language");
 
   let birthDate = new Date("02/14/1999");
@@ -293,7 +292,8 @@ export async function Homepage() {
         "hidden homepage--background homepage--background--image";
       document.getElementById("background-4").className =
         "hidden homepage--background homepage--background--image";
-      document.getElementById("background-5").className = "homepage--background";
+      document.getElementById("background-5").className =
+        "homepage--background";
       document.getElementById("background-6").className =
         "hidden homepage--background";
       console.log("4 fois " + window.pageYOffset);
@@ -305,9 +305,11 @@ export async function Homepage() {
     }
   }
 
-  window.onscroll = function () {
-    changeBackground();
-  };
+  document.addEventListener("scroll", function () {
+    if (window.location.pathname.split("/")[2] == "") {
+      changeBackground();
+    }
+  });
 
   return homepage;
 }

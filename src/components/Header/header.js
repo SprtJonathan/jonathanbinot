@@ -101,7 +101,7 @@ export function Header(activePage) {
   `;
     const contactForm = `
       <form class="contact-form">
-          <div class="contact-form--category contact-form name">
+          <!--<div class="contact-form--category contact-form name">
               <label for="name">Nom</label>
               <input class="contact-form--input" type="text" name="name" />
           </div>
@@ -116,11 +116,15 @@ export function Header(activePage) {
           <div class="contact-form--category contact-form message">
               <label for="message">Message</label>
               <textarea class="contact-form--input" name="message"></textarea>
-          </div>
+          </div>-->
           <div class="contact-form--buttons">
-              <input type="submit" id="send-email" class="button button--base"  value="Envoyer"/>      
-              <button id="close-modal-cancel" class="button button--base--inverted">Annuler</button>
+              <!--<input type="submit" id="send-email" class="button button--base"  value="Envoyer"/>      
+              <button id="close-modal-cancel" class="button button--base--inverted">Annuler</button>-->
+              <a class="contact-form--link" href="mailto:jonathanbinot@gmail.com"
+              >Me contacter par Mail <i class="fas fa-external-link-alt"></i
+            ></a>
           </div>
+          
       </form>
   `;
     navbar.append(Modal("contact-modal", "Contactez moi", contactForm));
@@ -185,7 +189,7 @@ export function Header(activePage) {
   `;
     const contactForm = `
       <form class="contact-form">
-          <div class="contact-form--category contact-form name">
+          <!--<div class="contact-form--category contact-form name">
               <label for="name">Name</label>
               <input class="contact-form--input" type="text" name="name" />
           </div>
@@ -204,6 +208,13 @@ export function Header(activePage) {
           <div class="contact-form--buttons">
             <input type="submit" id="send-email" class="button button--base"  value="Send"/>      
             <button id="close-modal-cancel" class="button button--base--inverted">Cancel</button>
+          </div>-->
+          <div class="contact-form--buttons">
+              <!--<input type="submit" id="send-email" class="button button--base"  value="Send"/>      
+              <button id="close-modal-cancel" class="button button--base--inverted">Cancel</button>-->
+              <a class="contact-form--link" href="mailto:jonathanbinot@gmail.com"
+              >Write me an email <i class="fas fa-external-link-alt"></i
+            ></a>
           </div>
       </form>
   `;
@@ -289,7 +300,7 @@ export function Header(activePage) {
   let displayMenu = false;
 
   function toggleMenu() {
-    console.log(displayMenu);
+    // console.log(displayMenu);
     displayMenu = !displayMenu;
     retractMenu();
   }
