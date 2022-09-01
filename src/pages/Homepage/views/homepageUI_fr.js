@@ -1,11 +1,11 @@
 import { createElementFromTemplate } from "../../../components/helpers";
 
-import hpBgOne from "../../../assets/images/homepage/homepage-bg-1.jpg";
-import hpBgTwo from "../../../assets/images/homepage/homepage-bg-3.png";
 import webdevImage from "../../../assets/images/homepage/webdev.png";
 import gamedevImage from "../../../assets/images/homepage/gamedev.png";
 import JSLogo from "../../../../javascript.svg";
 import OCLogo from "../../../assets/images/homepage/oc-logo.png";
+
+import hpBgTwo from "../../../assets/images/homepage/homepage-bg-3.png";
 
 let birthDate = new Date("02/14/1999");
 let ageOperation = Date.now() - birthDate.getTime();
@@ -15,7 +15,7 @@ const age = Math.abs(birthYear - 1970);
 
 const homepageContentFR = createElementFromTemplate(
   "div",
-  { class: "hoempage--content", id: "homepage-content" },
+  { class: "homepage--content", id: "homepage-content" },
   "",
   ""
 );
@@ -44,8 +44,7 @@ homepageContentFR.innerHTML += `
   </div>
 </section>
 
-<section class="intro--section intro--introduction">
-
+<section class="intro--section intro--introduction" style="background-color: #1e1e1e">
   <p class="intro--inner-text">
     Je m'appelle Jonathan Binot, j'ai <span id="age">${age}</span> ans et je
     suis titulaire d'un diplôme de développeur web de niveau Bac +2 mais

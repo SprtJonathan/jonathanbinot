@@ -15,7 +15,7 @@ const age = Math.abs(birthYear - 1970);
 
 const homepageContentEN = createElementFromTemplate(
   "div",
-  { class: "hoempage--content", id: "homepage-content" },
+  { class: "homepage--content", id: "homepage-content" },
   "",
   ""
 );

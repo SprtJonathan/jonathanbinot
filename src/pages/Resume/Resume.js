@@ -1,4 +1,3 @@
-import { createElementFromTemplate } from "../../components/helpers";
 import { resumeHeaderFR, resumeContentFR } from "./views/resumeUI_fr";
 import { resumeHeaderEN, resumeContentEN } from "./views/resumeUI_en";
 

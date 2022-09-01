@@ -1,3 +1,4 @@
+import { createElementFromTemplate } from "../helpers";
 import Modal from "../Modal/Modal";
 import flagFr from "../../assets/images/languages/FR.png";
 import flagEn from "../../assets/images/languages/EN.png";
@@ -42,185 +43,163 @@ export function Header(activePage) {
     }
   };
 
+  let contactModal;
+
   setActivePage(currentPage);
 
-  if (lang == "fr") {
-    /* French version of the header */
-    nav.innerHTML = `
-      <ul id="navbar-buttons-block" class="navbar--block">
-      <div class="modal--blur"></div>
-        <li class="navbar--li">
-          <a
-            class="${homepageClass}"
-            id='home'
-            href="/${lang}/"
-            
-          >
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a class="${resumeClass}" id="resume" href="/${lang}/resume" >
-            Mon CV
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a
-            class="${portfolioClass}"
-            id="portfolio"
-            href="/${lang}/portfolio"
-            
-          >
-            Portfolio
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a class="navbar--button"
-             id="contact-button" 
-             data-target="contact-modal"
-             data-toggle="modal"
-          >
-            Contact
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a class="navbar--button" id="language-menu-button">
-            Langue
-          </a>
-          <div id="language-menu" class="hidden">
-            <a class="navbar--button">
-              <img id="select-fr" class="language-flag" src="${flagFr}" width=48 height=48>
-            </a>
-            <a class="navbar--button"
-            >
-              <img id="select-en" class="language-flag" src="${flagEn}" width=48 height=48>
-            </a>
-          </div>
-        </li>
-      </ul>
-  `;
-    const contactForm = `
-      <form class="contact-form">
-          <!--<div class="contact-form--category contact-form name">
-              <label for="name">Nom</label>
-              <input class="contact-form--input" type="text" name="name" />
-          </div>
-          <div class="contact-form--category contact-form email">
-              <label for="email">Email</label>
-              <input class="contact-form--input" type="email" name="email" />
-          </div>
-          <div class="contact-form--category contact-form object">
-              <label for="object">Objet</label>
-              <input class="contact-form--input" type="text" name="object" />
-          </div>
-          <div class="contact-form--category contact-form message">
-              <label for="message">Message</label>
-              <textarea class="contact-form--input" name="message"></textarea>
-          </div>-->
-          <div class="contact-form--buttons">
-              <!--<input type="submit" id="send-email" class="button button--base"  value="Envoyer"/>      
-              <button id="close-modal-cancel" class="button button--base--inverted">Annuler</button>-->
-              <a class="contact-form--link" href="mailto:jonathanbinot@gmail.com"
-              >Me contacter par Mail <i class="fas fa-external-link-alt"></i
-            ></a>
-          </div>
-          
-      </form>
-  `;
-    navbar.append(Modal("contact-modal", "Contactez moi", contactForm));
-    navbar.append(navbarDisplayButton);
-  } else {
-    /* English version of the header */
-    nav.innerHTML = `
-      <ul id="navbar-buttons-block" class="navbar--block">
-      <div class="modal--blur"></div>
-        <li class="navbar--li">
-          <a
-            class="${homepageClass}"
-            id='home'
-            href="/${lang}/"
-            
-          >
-            <i class="fa-solid fa-house"></i>
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a class="${resumeClass}" id="resume" href="/${lang}/resume" >
-            My resume
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a
-            class="${portfolioClass}"
-            id="portfolio"
-            href="/${lang}/portfolio"
-            
-          >
-            Portfolio
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a class="navbar--button"
-             id="contact-button" 
-             data-target="contact-modal"
-             data-toggle="modal"
-          >
-            Contact me
-          </a>
-        </li>
-        <li class="navbar--li">
-          <a class="navbar--button" id="language-menu-button">
-            Switch language
-          </a>
-          <div id="language-menu" class="hidden">
-            <a class="navbar--button"
-              
-            >
-              <img id="select-fr" class="language-flag" src="${flagFr}" width=48 height=48>
-            </a>
-            <a class="navbar--button"
-              
-            >
-              <img id="select-en" class="language-flag" src="${flagEn}" width=48 height=48>
-            </a>
-          </div>
-        </li>
-      </ul>
-  `;
-    const contactForm = `
-      <form class="contact-form">
-          <!--<div class="contact-form--category contact-form name">
-              <label for="name">Name</label>
-              <input class="contact-form--input" type="text" name="name" />
-          </div>
-          <div class="contact-form--category contact-form email">
-              <label for="email">Email</label>
-              <input class="contact-form--input" type="email" name="email" />
-          </div>
-          <div class="contact-form--category contact-form object">
-              <label for="object">Object</label>
-              <input class="contact-form--input" type="text" name="object" />
-          </div>
-          <div class="contact-form--category contact-form message">
-              <label for="message">Message</label>
-              <textarea class="contact-form--input" name="message"></textarea>
-          </div>
-          <div class="contact-form--buttons">
-            <input type="submit" id="send-email" class="button button--base"  value="Send"/>      
-            <button id="close-modal-cancel" class="button button--base--inverted">Cancel</button>
-          </div>-->
-          <div class="contact-form--buttons">
-              <!--<input type="submit" id="send-email" class="button button--base"  value="Send"/>      
-              <button id="close-modal-cancel" class="button button--base--inverted">Cancel</button>-->
-              <a class="contact-form--link" href="mailto:jonathanbinot@gmail.com"
-              >Write me an email <i class="fas fa-external-link-alt"></i
-            ></a>
-          </div>
-      </form>
-  `;
-    navbar.append(Modal("contact-modal", "Contact me", contactForm));
-    navbar.append(navbarDisplayButton);
+  function createMenuLi(values, elToAppend) {
+    const menuLi = createElementFromTemplate(
+      "li",
+      { class: "navbar--li" },
+      "",
+      elToAppend
+    );
+
+    const menuLink = createElementFromTemplate(
+      "a",
+      {
+        id: values.id,
+        class: values.class,
+        href: values.href,
+      },
+      values.content,
+      menuLi
+    );
+    return menuLi;
   }
+
+  /* French version of the header */
+  const menuUl = createElementFromTemplate(
+    "ul",
+    {
+      id: "navbar-buttons-block",
+      class: "navbar--block",
+    },
+    "",
+    nav
+  );
+  createElementFromTemplate("div", { class: "modal--blur" }, "", menuUl);
+
+  let menuValues, contactForm;
+
+  if (lang == "fr") {
+    menuValues = [
+      {
+        id: "home",
+        class: homepageClass,
+        href: "/" + lang + "/",
+        content: `<i class="fa-solid fa-house"></i>`,
+      },
+      {
+        id: "resume",
+        class: resumeClass,
+        href: "/" + lang + "/resume",
+        content: `Mon CV`,
+      },
+      {
+        id: "portfolio",
+        class: portfolioClass,
+        href: "/" + lang + "/portfolio",
+        content: `Portfolio`,
+      },
+      {
+        id: "contact-button",
+        class: "navbar--button",
+        href: "#contact",
+        content: `Contact`,
+      },
+      {
+        id: "language-menu-button",
+        class: "navbar--button",
+        href: "#language-selection",
+        content: `
+          Langue
+        <div id="language-menu" class="hidden">
+          <a class="navbar--button">
+            <img id="select-fr" class="language-flag" src="${flagFr}" width=48 height=48>
+          </a>
+          <a class="navbar--button"
+          >
+            <img id="select-en" class="language-flag" src="${flagEn}" width=48 height=48>
+          </a>
+        </div>`,
+      },
+    ];
+
+    contactForm = `<form class="contact-form">
+      <div class="contact-form--buttons">
+          <!--<input type="submit" id="send-email" class="button button--base"  value="Envoyer"/>      
+          <button id="close-modal-cancel" class="button button--base--inverted">Annuler</button>-->
+          <a class="contact-form--link" href="mailto:jonathanbinot@gmail.com"
+          >Me contacter par Mail <i class="fas fa-external-link-alt"></i
+        ></a>
+      </div>      
+  </form>`;
+  } else {
+    menuValues = [
+      {
+        id: "home",
+        class: homepageClass,
+        href: "/" + lang + "/",
+        content: `<i class="fa-solid fa-house"></i>`,
+      },
+      {
+        id: "resume",
+        class: resumeClass,
+        href: "/" + lang + "/resume",
+        content: `My resume`,
+      },
+      {
+        id: "portfolio",
+        class: portfolioClass,
+        href: "/" + lang + "/portfolio",
+        content: `Portfolio`,
+      },
+      {
+        id: "contact-button",
+        class: "navbar--button",
+        href: "#contact",
+        content: `Contact me`,
+      },
+      {
+        id: "language-menu-button",
+        class: "navbar--button",
+        href: "#language-selection",
+        content: `Langue
+        <div id="language-menu" class="hidden">
+          <a class="navbar--button">
+            <img id="select-fr" class="language-flag" src="${flagFr}" width=48 height=48>
+          </a>
+          <a class="navbar--button"
+          >
+            <img id="select-en" class="language-flag" src="${flagEn}" width=48 height=48>
+          </a>
+        </div>`,
+      },
+    ];
+    contactForm = `<form class="contact-form">
+      <div class="contact-form--buttons">
+          <!--<input type="submit" id="send-email" class="button button--base"  value="Envoyer"/>      
+          <button id="close-modal-cancel" class="button button--base--inverted">Annuler</button>-->
+          <a class="contact-form--link" href="mailto:jonathanbinot@gmail.com"
+          >Me contacter par Mail <i class="fas fa-external-link-alt"></i
+        ></a>
+      </div>      
+  </form>`;
+  }
+
+  for (let i = 0; i < menuValues.length; i++) {
+    createMenuLi(menuValues[i], menuUl);
+  }
+
+  contactModal = Modal("contact-modal", "Contactez moi", contactForm);
+
+  navbar.append(contactModal.htmlCode);
+  navbar.append(navbarDisplayButton);
+
+  contactModal = Modal("contact-modal", "Contactez moi", contactForm);
+  navbar.append(contactModal.htmlCode);
+  navbar.append(navbarDisplayButton);
 
   /**
    * If the class name of the element with the id "language-menu" is "hidden", then change the class
@@ -252,29 +231,25 @@ export function Header(activePage) {
    * @param id - the id of the element you want to toggle
    * @param value - true/false
    */
-  function toggleModal(id, value) {
+  function toggleModal(element, value) {
     // console.log(value === true);
     if (value === true) {
-      document.getElementById(id).className = "modal--container";
+      element.className = "modal--container";
     } else {
-      document.getElementById(id).className = "hidden";
+      element.className = "hidden";
     }
   }
+
+  contactModal.closeButton.addEventListener("click", () => {
+    toggleModal(contactModal.htmlCode, false);
+  });
 
   const body = document.querySelector("body");
   body.addEventListener("click", (e) => {
     // console.log(e.target);
 
     if (e.target.id === "contact-button") {
-      toggleModal("contact-modal", true);
-    } else if (e.target.id === "close-modal") {
-      e.preventDefault();
-      toggleModal("contact-modal", false);
-    } else if (e.target.id === "close-modal-cancel") {
-      e.preventDefault();
-      toggleModal("contact-modal", false);
-    } else if (e.target.id === "send-email") {
-      sendEmail();
+      toggleModal(contactModal.htmlCode, true);
     } else if (e.target.id === "language-menu-button") {
       e.preventDefault();
       switchLanguageMenu();

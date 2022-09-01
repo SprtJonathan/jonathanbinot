@@ -200,29 +200,12 @@ resumeContentFR.append(
   )
 );
 
-resumeContentFR.append(
-  Modal(
-    "photo-modal",
-    "En savoir plus",
-    `
-<div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>Montage Photo</h2>
-        </div>
-        <div class="modal-body">
-            <span>J'aime beaucoup manipuler des logiciels de retouches tels que photoshop. Comme exemple concret, j'ai créé toutes les images de fond de ce site web. Il m'arrive également de faire quelques retouches "fantaisistes" (exemple mes photos de profil Facebook)</span>
-            <br>
-            <br>
-            <img alt="Twitch StreamKit" src="../src/img/streamkit.png" height=112 width=200 class="pp-fb">
-            <img alt="Photo de profil facebook 2" src="../src/img/facebook-pp-2.png" height=112 width=112 class="pp-fb">
-        </div>
-        <div class="modal-footer">
-            <br>
-        </div>
-    </div>
-`
-  )
+const test = Collapsible(
+  "computers",
+  "",
+  `Informatiques`,
+  `
+  `
 );
 
 resumeContentFR.append(
