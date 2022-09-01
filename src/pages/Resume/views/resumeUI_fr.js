@@ -1,6 +1,6 @@
-import { createElementFromTemplate } from "../../components/helpers";
-import Collapsible from "../../components/Collapsible/Collapsible";
-import Modal from "../../components/Modal/Modal";
+import { createElementFromTemplate } from "../../../components/helpers";
+import Collapsible from "../../../components/Collapsible/Collapsible";
+import Modal from "../../../components/Modal/Modal";
 
 let birthDate = new Date("02/14/1999");
 let ageOperation = Date.now() - birthDate.getTime();

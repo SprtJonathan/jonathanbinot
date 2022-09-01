@@ -1,6 +1,6 @@
 import { createElementFromTemplate } from "../../components/helpers";
-import { resumeHeaderFR, resumeContentFR } from "./resumeUI_fr";
-import { resumeHeaderEN, resumeContentEN } from "./resumeUI_en";
+import { resumeHeaderFR, resumeContentFR } from "./views/resumeUI_fr";
+import { resumeHeaderEN, resumeContentEN } from "./views/resumeUI_en";
 
 export function Resume() {
   const lang = localStorage.getItem("language");
@@ -9,8 +9,7 @@ export function Resume() {
   if (lang === "fr") {
     resumeHeader = resumeHeaderFR;
     resumeContent = resumeContentFR;
-  } else{
-    
+  } else {
     resumeHeader = resumeHeaderEN;
     resumeContent = resumeContentEN;
   }
