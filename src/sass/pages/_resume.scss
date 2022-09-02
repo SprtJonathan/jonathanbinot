@@ -3,13 +3,28 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: whitesmoke;
+  transition: all ease 0.2s;
   &--header {
-    width: 95vw;
+    width: 95%;
+  }
+  &--intro {
+    &--text {
+      &--container {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &--container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+    }
   }
   &--content {
-    width: 95vw;
+    width: 95%;
   }
   &--description {
     text-align: justify;
@@ -22,4 +37,24 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .resume {
+    &--header {
+    }
+    &--intro {
+      &--text {
+        &--container {
+        }
+      }
+      &--container {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+    }
+  }
+  .skills {
+    flex-wrap: nowrap;
+  }
 }

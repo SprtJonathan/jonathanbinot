@@ -58,7 +58,7 @@ export default function Collapsible(
   const collapsibleContent = document.createElement("div");
   collapsibleContent.setAttribute("id", collapsibleId + "-content");
   collapsibleContent.setAttribute("class", collapsibleClassName + "--content");
-  collapsibleContent.innerHTML = bodyContent;
+  collapsibleContent.append(bodyContent);
 
   collapsibleContentContainer.appendChild(collapsibleContent);
   collapsibleContainer.appendChild(collapsibleContentContainer);
@@ -76,8 +76,9 @@ export default function Collapsible(
         collapsibleClassName + "--title--text--chevron";
       collapsibleState = !collapsibleState;
     } else {
-      collapsibleContentContainer.style.maxHeight =
-        collapsibleContentContainer.scrollHeight + "px";
+      collapsibleContentContainer.style.maxHeight = "100%";
+      // collapsibleContentContainer.style.maxHeight =
+      //   collapsibleContentContainer.scrollHeight + "px";
       collapsibleExpandIcon.classList =
         collapsibleClassName + "--title--text--chevron--upside-down";
       collapsibleState = !collapsibleState;

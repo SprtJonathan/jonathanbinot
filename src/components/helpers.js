@@ -16,4 +16,18 @@ const createElementFromTemplate = (
   return newElement;
 };
 
-export { createElementFromTemplate };
+/**
+ * If appendModalTo is not null, append the element to appendModalTo, otherwise remove the element.
+ * @param element - The modal element
+ * @param appendModalTo - This is the element that you want to append the modal to.
+ */
+function toggleModal(element, appendModalTo) {
+  // console.log(value === true);
+  if (appendModalTo != null) {
+    appendModalTo.append(element);
+  } else {
+    element.remove();
+  }
+}
+
+export { createElementFromTemplate, toggleModal };

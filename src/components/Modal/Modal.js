@@ -11,7 +11,7 @@ function Modal(instanceName, header, body) {
     "div",
     {
       id: modalName,
-      class: "hidden",
+      class: "modal--container",
     },
     "",
     ""

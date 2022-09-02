@@ -1,17 +1,7 @@
-import { homepageContentFR } from "./views/homepageUI_fr";
-import { homepageContentEN } from "./views/homepageUI_en";
+import { homepageContent } from "./views/homepageUI";
 import { homepageBackground } from "./views/homepageUI_background";
 
 export function Homepage() {
-  const lang = localStorage.getItem("language");
-  let homepageContent;
-
-  if (lang === "fr") {
-    homepageContent = homepageContentFR;
-  } else {
-    homepageContent = homepageContentEN;
-  }
-
   const homepage = document.createElement("main");
   homepage.setAttribute("class", "homepage");
   homepage.setAttribute("id", "homepage");
