@@ -74,7 +74,7 @@ page. Bonne visite.`,
     games, that's why I decided to give myself the means to work in the sector.
     Computer tech being a vast domain, there are two disciplins in which I would
     like to invest professionnaly : <br /><br />`,
-    homepageWebdevTitle: `<mark class="blue-undeline text-light">>Web</mark> development`,
+    homepageWebdevTitle: `<mark class="blue-undeline text-light">Web</mark> development`,
     homepageGamedevTitle: `<mark class="blue-undeline text-light">Gam</mark>e development`,
     homepageIntroObectivesGame: `Motivated to achieve my goals, I started learning on my own very early, with
     my computer and the software I had at my disposal. I started with FPS
