@@ -71,12 +71,12 @@ export default function Collapsible(
 
   function toggleCollapsible() {
     if (collapsibleState) {
-      collapsibleContentContainer.style.maxHeight = null;
+      collapsibleContentContainer.classList.remove("active");
       collapsibleExpandIcon.classList =
         collapsibleClassName + "--title--text--chevron";
       collapsibleState = !collapsibleState;
     } else {
-      collapsibleContentContainer.style.maxHeight = "100%";
+      collapsibleContentContainer.classList.add("active");
       // collapsibleContentContainer.style.maxHeight =
       //   collapsibleContentContainer.scrollHeight + "px";
       collapsibleExpandIcon.classList =
