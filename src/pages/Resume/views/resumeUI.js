@@ -428,38 +428,47 @@ resumeContent.append(charityCollapsible);
 
 /* Know More modal */
 
-function updateModal(modalContent, modalHeader) {
-  const knowMoreModalBodyContent = createElementFromTemplate(
-    "div",
-    { class: "resume--example-modal--content" },
-    modalContent,
-    ""
-  );
-  const knowMoreModal = Modal(
-    "know-more-modal",
-    modalHeader,
-    knowMoreModalBodyContent.innerHTML
-  );
-  knowMoreModal.closeButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    toggleModal(knowMoreModal.htmlCode);
-  });
-  toggleModal(knowMoreModal.htmlCode, resumeContent);
-}
+const knowMoreEditModalBodyContent = createElementFromTemplate(
+  "div",
+  { class: "resume--example-modal--content" },
+  importedContentText.hobbiesEditingModalContent,
+  ""
+);
+const knowMoreEditModal = Modal(
+  "know-more-modal",
+  importedContentText.hobbiesEditingModalTitle,
+  knowMoreEditModalBodyContent.innerHTML
+);
+knowMoreEditModal.closeButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  toggleModal(knowMoreEditModal.htmlCode);
+});
+resumeContent.append(knowMoreEditModal.htmlCode);
+
+const knowMoreGameModalBodyContent = createElementFromTemplate(
+  "div",
+  { class: "resume--example-modal--content" },
+  importedContentText.hobbiesGamesModalContent,
+  ""
+);
+const knowMoreGameModal = Modal(
+  "know-more-modal",
+  importedContentText.hobbiesGamesModalTitle,
+  knowMoreGameModalBodyContent.innerHTML
+);
+knowMoreGameModal.closeButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  toggleModal(knowMoreGameModal.htmlCode);
+});
+resumeContent.append(knowMoreGameModal.htmlCode);
 
 knowMoreEditingModalButton.addEventListener("click", (e) => {
   e.preventDefault();
-  updateModal(
-    importedContentText.hobbiesEditingModalContent,
-    importedContentText.hobbiesEditingModalTitle
-  );
+  toggleModal(knowMoreEditModal.htmlCode, true);
 });
 knowMoreGamedevModalButton.addEventListener("click", (e) => {
   e.preventDefault();
-  updateModal(
-    importedContentText.hobbiesGamesModalContent,
-    importedContentText.hobbiesGamesModalTitle
-  );
+  toggleModal(knowMoreGameModal.htmlCode, true);
 });
 /**/
 

@@ -24,9 +24,9 @@ const createElementFromTemplate = (
 function toggleModal(element, appendModalTo) {
   // console.log(value === true);
   if (appendModalTo != null) {
-    appendModalTo.append(element);
+    element.classList.add("active");
   } else {
-    element.remove();
+    element.classList.remove("active");
   }
 }
 

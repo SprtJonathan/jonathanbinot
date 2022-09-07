@@ -1,17 +1,24 @@
 import { createElementFromTemplate } from "../helpers";
 
-function Modal(instanceName, header, body) {
+function Modal(instanceName, header, body, className) {
   const modalName = instanceName;
   const modalHeader = header;
   const modalBody = body;
 
   //const modalCloseButton = props.closeButton;
+  let modalClassName;
+
+  if (!className) {
+    modalClassName = "modal";
+  } else {
+    modalClassName = className;
+  }
 
   const modalInstance = createElementFromTemplate(
     "div",
     {
       id: modalName,
-      class: "modal--container",
+      class: modalClassName + "--container--base",
     },
     "",
     ""
@@ -20,7 +27,7 @@ function Modal(instanceName, header, body) {
   const modalContainer = createElementFromTemplate(
     "div",
     {
-      class: "modal--container",
+      class: modalClassName + "--container",
     },
     "",
     modalInstance
@@ -29,7 +36,7 @@ function Modal(instanceName, header, body) {
   const modalContent = createElementFromTemplate(
     "div",
     {
-      class: "modal--content",
+      class: modalClassName + "--content",
     },
     "",
     modalContainer
@@ -39,13 +46,18 @@ function Modal(instanceName, header, body) {
 
   const modalHeaderContainer = createElementFromTemplate(
     "div",
-    { class: "modal--header" },
+    { class: modalClassName + "--header" },
     "",
     modalContent
   );
 
   if (modalHeader != "" || modalHeader != null) {
-    createElementFromTemplate("h2", "", modalHeader, modalHeaderContainer);
+    createElementFromTemplate(
+      "h2",
+      { class: modalClassName + "--header--text" },
+      modalHeader,
+      modalHeaderContainer
+    );
   }
 
   // Modal close button
@@ -59,7 +71,7 @@ function Modal(instanceName, header, body) {
   // Modal body container
   createElementFromTemplate(
     "div",
-    { class: "modal--body" },
+    { class: modalClassName + "--body" },
     modalBody,
     modalContent
   );

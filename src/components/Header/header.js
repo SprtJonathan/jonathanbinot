@@ -62,8 +62,6 @@ export function Header(activePage) {
     }
   };
 
-  let contactModal;
-
   setActivePage(currentPage);
 
   /* French version of the header */
@@ -211,13 +209,14 @@ export function Header(activePage) {
     setLang("en");
   });
 
-  contactModal = Modal(
+  const contactModal = Modal(
     "contact-modal",
     "Contactez moi",
     importedHeaderText.contactForm
   );
 
   navbar.append(navbarDisplayButton);
+  navbar.append(contactModal.htmlCode);
 
   /**
    * If the class name of the element with the id "language-menu" is "hidden", then change the class
@@ -265,33 +264,6 @@ export function Header(activePage) {
       document.getElementById("display-menu-icon").className =
         "navbar--toggle--icon fa-solid fa-bars";
     }
-  }
-
-  function sendEmail() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const name = urlParams.get("name");
-    const email = urlParams.get("email");
-    const object = urlParams.get("object");
-    const message = urlParams.get("message");
-
-    const templateParams = {
-      name: name,
-      email: email,
-      object: object,
-      message: message,
-    };
-    localStorage.setItem("email", JSON.stringify(templateParams));
-    console.log(
-      "email : " +
-        templateParams.name +
-        " " +
-        templateParams.email +
-        " " +
-        templateParams.object +
-        " " +
-        templateParams.message
-    );
   }
 
   return navbar;
