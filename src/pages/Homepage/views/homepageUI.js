@@ -48,7 +48,7 @@ const introTitle = createElementFromTemplate(
 
 createElementFromTemplate(
   "mark",
-  { class: "text-light blue-undeline" },
+  { class: "text-light blue-underline" },
   importedText.homepageIntroName,
   introTitle
 );

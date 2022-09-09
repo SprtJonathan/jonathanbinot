@@ -42,7 +42,12 @@ function Modal(instanceName, header, body, className) {
     modalContainer
   );
 
-  createElementFromTemplate("div", { class: "modal--blur" }, "", modalContent);
+  createElementFromTemplate(
+    "div",
+    { class: modalClassName + "--blur" },
+    "",
+    modalContent
+  );
 
   const modalHeaderContainer = createElementFromTemplate(
     "div",
@@ -63,7 +68,7 @@ function Modal(instanceName, header, body, className) {
   // Modal close button
   const closeButton = createElementFromTemplate(
     "button",
-    { type: "button", id: "close-modal", class: "modal--exit" },
+    { type: "button", id: "close-modal", class: modalClassName + "--exit" },
     "X",
     modalHeaderContainer
   );

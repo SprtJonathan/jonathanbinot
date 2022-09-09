@@ -1,4 +1,4 @@
-import webdevContent from "./contents/webdev/portfolioContent_webdev";
+import webdevContent from "./contents/webdev/webdev_portfolioContent";
 
 const portfolioIntro = {
   fr: "Voici mon portfolio. Vous avez ici la possibilité de cliquer sur le domaine qui vous intéresse et d'explorer les différents travaux et réalisations que j'ai pu effectuer. Pour commencer, cliquez sur l'une des tuiles ci-dessous.",

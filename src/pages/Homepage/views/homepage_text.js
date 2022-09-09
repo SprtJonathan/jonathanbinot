@@ -22,8 +22,8 @@ tout petit, je suis passionné d'informatique et de jeux vidéo, si bien que
 j'ai décidé de me donner les moyens de travailler dans le domaine.
 L'informatique étant très vaste, il y a deux disciplines pour lesquelles
 j'ai envie de m'investir professionnellement : <br /><br />`,
-    homepageWebdevTitle: `<mark class="blue-undeline text-light">Le dévelop</mark>pement web`,
-    homepageGamedevTitle: `<mark class="blue-undeline text-light">Le dévelop</mark>pement de jeux vidéo`,
+    homepageWebdevTitle: `<mark class="blue-underline text-light">Le dévelop</mark>pement web`,
+    homepageGamedevTitle: `<mark class="blue-underline text-light">Le dévelop</mark>pement de jeux vidéo`,
     homepageIntroObectivesGame: `Motivé pour atteindre mes objectifs, j'ai commencé très tôt à apprendre en
 autodidacte, avec mon ordinateur et les logiciels de développement à ma
 disposition. J'ai commencé sur FPS Creator (mais cette partie là ne compte
@@ -74,8 +74,8 @@ page. Bonne visite.`,
     games, that's why I decided to give myself the means to work in the sector.
     Computer tech being a vast domain, there are two disciplins in which I would
     like to invest professionnaly : <br /><br />`,
-    homepageWebdevTitle: `<mark class="blue-undeline text-light">Web</mark> development`,
-    homepageGamedevTitle: `<mark class="blue-undeline text-light">Gam</mark>e development`,
+    homepageWebdevTitle: `<mark class="blue-underline text-light">Web</mark> development`,
+    homepageGamedevTitle: `<mark class="blue-underline text-light">Gam</mark>e development`,
     homepageIntroObectivesGame: `Motivated to achieve my goals, I started learning on my own very early, with
     my computer and the software I had at my disposal. I started with FPS
     Creator (but that part doesn't really count) then with the Half-Life² level

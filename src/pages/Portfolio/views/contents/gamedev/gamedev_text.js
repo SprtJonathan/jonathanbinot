@@ -42,21 +42,14 @@ const webdevText = {
       "Utilisez une API pour un compte utilisateur bancaire avec React",
       "Faites passer une librairie jQuery vers React",
     ],
-    personalProjectFailed: `Je me suis également essayé à des projets plus personnels. Par exemple, en souhaitant retravailler mon site web personnel, j'ai débuté un projet que j'avais sobrement nommé <a class="link" href="https://github.com/SprtJonathan/BasicJS">BasicJS</a> 
+    personalProjectFailed: `<mark class="blue-undeline">Je me suis également essayé à des projets plus personnels.</mark> Par exemple, en souhaitant retravailler mon site web personnel, j'ai débuté un projet que j'avais sobrement nommé <a class="link" href="https://github.com/SprtJonathan/BasicJS">BasicJS</a> 
     et dont le but était de créer un projet de type starter pour tous mes projets web futurs. Je souhaitais faire en sorte de rendre possible la réutilisation de composants sans devoir réécrire leur code, à la manière d'un framework de type React/Vue, mais le tout en JS Vanilla.`,
-    personalProjectRebooted: `J'ai récemment recréé un projet du même type mais sans utiliser ce système de composants que je n'avais pas réussi à rendre viable à ce moment là. Ce projet, nommé JS Project Base 
+    personalProjectRebooted: `J'ai récemment recréé un projet du même type mais sans utiliser ce système de composants que je n'avais pas réussi à rendre viable à ce moment là. Ce projet, nommé <a class="link" href="https://github.com/SprtJonathan/js-project-base">JS Project Base</a> 
     permet, comme son nom l'indique, de débuter un projet plus rapidement. Il contient une base de projet avec un index.html, un index.js contenant une simple fonction permettant de faire tourner le logo JS au clic, une base de CSS organisée à la manière de SASS avec un fichier maître 
     important le code de tous les fichiers dépendants, ceci afin de mieux organiser l'espace de travail du style et d'optimiser au mieux le code en facilitant la cohérence stylistique des pages et en évitant de réécrire du code déjà existant sur des pages précédentes. Car après tout : 
     <blockquote>Do not repeat yourself*</blockquote>`,
-    jsBaseTitle: `<a class="link" href="https://github.com/SprtJonathan/js-project-base">JS Project Base</a>`,
-    administrativeManagerDescription: `Enfin, je travaille actuellement pendant mon temps libre sur un autre projet, débuté grâce à mon starter pack d'ailleurs. Il s'agit d'un outil en ligne permettant de créer
-    un formulaire avec des champs personnalisables puis de remplir ces champs et de retrouver les données entrées dans un tableau situé sur une autre page. 
-    L'objectif est de proposer un outil simple et complet afin de pouvoir effectuer des tâches administratives simples et de façon intuitive : Création de tableaux (avec fonctionnalité de recherche et de tri), exportation des données, importation de données pré-existantes, 
-    exportation du code html du formulaire créé afin de simplifier la création de formulaires pour des projets de site web, création de sondages avec affichage et exploitation des résulats, formulaires de type Google Form. L'idéal serait de pouvoir rendre cet outil 
-    accesible au plus grand nombre en proposant une interface simple et compréhensible, une gestion du travail en local pour chaque utilisateur ou la possibilité de synchroniser leurs appareils via un compte créé. <br/>
-    Vous pouvez explorer le site web grâce à la fenêtre intégrée ci-dessous. <br/>
-    `,
-    administrativeManagerTitle: `<a class="link" href="https://github.com/SprtJonathan/AdministrativeManager">Administrative Manager</a>`,
+    jsBaseTitle: "JS Project Base",
+    administrativeManagerDescription: `Enfin, je travaille actuellement pendant mon temps libre sur un autre projet, débuté grâce à mon starter pack d'ailleurs`,
     developperMotto:
       "*Ne vous répétez pas : une des philosophies principales du développeur.",
   },
