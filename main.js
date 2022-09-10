@@ -13,8 +13,8 @@ const lang = path.split("/")[1];
 
 const routes = {
   404: InvalidRoute(),
-  "": await Homepage(),
-  "/": await Homepage(),
+  "": Homepage(),
+  "/": Homepage(),
   "/resume": Resume(),
   "/portfolio": Portfolio(),
 };
@@ -42,7 +42,7 @@ const handleLocation = async () => {
   console.log(pageName);
 
   if (route != routes[404]) {
-    app.append(await Header());
+    app.append(Header(pageName));
   }
 
   return app.append(route);

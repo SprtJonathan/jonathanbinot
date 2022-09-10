@@ -116,7 +116,7 @@
   line-height: center;
 }
 
-.active {
+.active-page {
   color: white;
   background: $text--light;
 }
@@ -202,7 +202,7 @@
 }
 
 @media (min-width: 720px) {
-  .active {
+  .active-page {
     width: 100%;
   }
   .navbar {

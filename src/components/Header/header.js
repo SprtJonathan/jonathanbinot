@@ -47,21 +47,20 @@ export function Header(activePage) {
   let portfolioClass = "navbar--button";
 
   const setActivePage = (page) => {
-    if (page == "home") {
-      homepageClass = "navbar--button active";
+    if (page == "/home" || page == "/") {
+      homepageClass = "navbar--button active-page";
       resumeClass = "navbar--button";
       portfolioClass = "navbar--button";
-    } else if (page == "resume") {
+    } else if (page == "/resume") {
       homepageClass = "navbar--button";
-      resumeClass = "navbar--button active";
+      resumeClass = "navbar--button active-page";
       portfolioClass = "navbar--button";
-    } else if (page == "portfolio") {
+    } else if (page == "/portfolio") {
       homepageClass = "navbar--button";
       resumeClass = "navbar--button";
-      portfolioClass = "navbar--button active";
+      portfolioClass = "navbar--button active-page";
     }
   };
-
   setActivePage(currentPage);
 
   /* French version of the header */
