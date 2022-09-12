@@ -2,19 +2,22 @@ import {
   createElementFromTemplate,
   createListOfLinks,
 } from "../../../../../components/helpers";
-import webdevText from "./gamedev_text";
+import Carousel from "../../../../../components/Carousel/Carousel";
+import gamedevText from "./gamedev_text";
 
 const lang = localStorage.getItem("language");
-let importedWebdevText;
+let gamedevTitle, importedGamedevText;
 if (lang === "fr") {
-  importedWebdevText = webdevText.fr;
+  gamedevTitle = gamedevText.fr.gamedevTitle;
+  importedGamedevText = gamedevText.fr;
 } else {
-  importedWebdevText = webdevText.en;
+  gamedevTitle = gamedevText.en.gamedevTitle;
+  importedGamedevText = gamedevText.en;
 }
 
-const webdevContent = createElementFromTemplate(
+const gamedevContent = createElementFromTemplate(
   "div",
-  { id: "webdev-content", class: "portfolio--modal-content" },
+  { id: "gamedev-content", class: "portfolio--modal-content" },
   "",
   ""
 );
@@ -22,87 +25,25 @@ const webdevContent = createElementFromTemplate(
 createElementFromTemplate(
   "p",
   {},
-  importedWebdevText.modalIntroText,
-  webdevContent
+  importedGamedevText.modalIntroText,
+  gamedevContent
 );
 
-createElementFromTemplate(
-  "h3",
-  {},
-  importedWebdevText.firstFormationTitle,
-  webdevContent
-);
-
-createListOfLinks(
-  importedWebdevText.webdevLinks,
-  importedWebdevText.webdevTitles,
-  webdevContent
-);
-
-createElementFromTemplate(
-  "h3",
-  {},
-  importedWebdevText.secondFormationTitle,
-  webdevContent
-);
-
-createListOfLinks(
-  importedWebdevText.frontendLinks,
-  importedWebdevText.frontendTitles,
-  webdevContent
-);
-
-createElementFromTemplate(
-  "p",
-  {},
-  importedWebdevText.personalProjectFailed,
-  webdevContent
-);
-
-createElementFromTemplate(
-  "p",
-  {},
-  importedWebdevText.personalProjectRebooted,
-  webdevContent
-);
-
-createElementFromTemplate(
-  "h3",
-  {},
-  importedWebdevText.jsBaseTitle,
-  webdevContent
-);
-
-const jsBase = createElementFromTemplate(
-  "div",
-  { class: "iframe--wrapper" },
-  "",
-  webdevContent
-);
-
-createElementFromTemplate(
-  "iframe",
+const carouselMedias = [
   {
-    class: "iframe",
-    src: "https://sprtjonathan.github.io/js-project-base/  ",
-    frameborder: "0",
+    title: "Test",
+    link: "https://media-exp1.licdn.com/dms/image/C4D16AQHAEnDBLhruAQ/profile-displaybackgroundimage-shrink_350_1400/0/1578566742298?e=1668643200&v=beta&t=K5nDyKtpk0deYd9HpryJ9CJXObWYQohqPUbKiUnQCtU",
+    description: "BOnjour je suis ",
   },
-  "",
-  jsBase
-);
+  {
+    title: "Test2",
+    link: "https://i.imgur.com/n8dnuFB.png",
+    description: "BOnjour je suis ",
+  },
+];
 
-createElementFromTemplate(
-  "p",
-  {},
-  importedWebdevText.administrativeManagerDescription,
-  webdevContent
-);
+const carouselGames = Carousel(carouselMedias);
 
-createElementFromTemplate(
-  "p",
-  {},
-  importedWebdevText.developperMotto,
-  webdevContent
-);
+gamedevContent.append(carouselGames);
 
-export default webdevContent;
+export { gamedevTitle, gamedevContent };

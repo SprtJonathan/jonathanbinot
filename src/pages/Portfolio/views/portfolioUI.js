@@ -3,16 +3,19 @@ import {
   toggleModal,
 } from "../../../components/helpers";
 import Modal from "../../../components/Modal/Modal";
-import { portfolioIntro, tileText, tileContent } from "./portfolio_text";
+import {
+  portfolioIntro,
+  tileId,
+  tileText,
+  tileContent,
+} from "./portfolio_text";
 
 const lang = localStorage.getItem("language");
-let importedPortfolioIntro, importedTileText, importedTileContent;
+let importedPortfolioIntro;
 if (lang === "fr") {
   importedPortfolioIntro = portfolioIntro.fr;
-  importedTileText = tileText.fr;
 } else {
   importedPortfolioIntro = portfolioIntro.en;
-  importedTileText = tileText.en;
 }
 
 const portfolioContainer = createElementFromTemplate(
@@ -40,10 +43,15 @@ createElementFromTemplate(
   portfolioHeader
 );
 
-function createClickableTile(id, displayName, content) {
+function createClickableTile(id, displayName, content, className) {
+  let contentClass;
+  if (!className) {
+    contentClass = "";
+  }
+
   const tileDiv = document.createElement("div");
   tileDiv.setAttribute("id", id);
-  tileDiv.setAttribute("class", "tile--container");
+  tileDiv.setAttribute("class", className + " tile--container");
 
   const tileTitle = document.createElement("h2");
   tileTitle.setAttribute("class", "tile--title");
@@ -71,13 +79,13 @@ function createClickableTile(id, displayName, content) {
   return tileDiv;
 }
 
-console.log(importedTileText);
-for (let i = 0; i < importedTileText.length; i++) {
+for (let i = 0; i < tileContent.length; i++) {
   portfolioContent.append(
     createClickableTile(
-      "webdev",
-      importedTileText[i].tileTitle,
-      tileContent[i].innerHTML
+      tileId[i],
+      tileText[i],
+      tileContent[i].innerHTML,
+      "tile--container--" + tileId[i]
     )
   );
 }

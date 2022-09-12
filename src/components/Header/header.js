@@ -63,7 +63,7 @@ export function Header(activePage) {
   };
   setActivePage(currentPage);
 
-  /* French version of the header */
+
   const menuUl = createElementFromTemplate(
     "ul",
     {

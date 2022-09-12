@@ -1,5 +1,6 @@
 const webdevText = {
   fr: {
+    modalTitle: "Développement web",
     modalIntroText: `Durant mes deux formations avec OpenClassrooms (développeur web et développeur d'applications JS et React), 
     j'ai pu réaliser de nombreux projets, en voici la liste`,
     firstFormationTitle: `Développeur Web : `,
@@ -61,6 +62,7 @@ const webdevText = {
       "*Ne vous répétez pas : une des philosophies principales du développeur.",
   },
   en: {
+    modalTitle: "Web development",
     modalIntroText: `During my two trainings with OpenClassrooms (web developer and developer of JS and React applications),
     I was able to carry out many projects, here is the list`,
     firstFormationTitle: `Web developer : `,

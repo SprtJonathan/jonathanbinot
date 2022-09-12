@@ -5,10 +5,12 @@ import {
 import webdevText from "./webdev_text";
 
 const lang = localStorage.getItem("language");
-let importedWebdevText;
+let webdevTitle, importedWebdevText;
 if (lang === "fr") {
+  webdevTitle = webdevText.fr.modalTitle;
   importedWebdevText = webdevText.fr;
 } else {
+  webdevTitle = webdevText.en.modalTitle;
   importedWebdevText = webdevText.en;
 }
 
@@ -134,9 +136,9 @@ createElementFromTemplate(
 
 createElementFromTemplate(
   "div",
-  {class:"spacer--vertical--medium"},
+  { class: "spacer--vertical--medium" },
   "",
   webdevContent
 );
 
-export default webdevContent;
+export { webdevTitle, webdevContent };
