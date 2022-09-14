@@ -58,6 +58,7 @@ const webdevText = {
     Vous pouvez explorer le site web grâce à la fenêtre intégrée ci-dessous. <br/>
     `,
     administrativeManagerTitle: `<a class="link" href="https://github.com/SprtJonathan/AdministrativeManager">Administrative Manager</a>`,
+    administrativeManagerToggleButton: "Lancer la démo",
     developperMotto:
       "*Ne vous répétez pas : une des philosophies principales du développeur.",
   },
@@ -111,7 +112,10 @@ const webdevText = {
     allows, as its name suggests, to start a project more quickly. It contains a project base with an index.html, an index.js containing a simple function to rotate the JS logo on click, a CSS base organized like SASS with a master file
     importing the code of all the dependent files, this in order to better organize the workspace of the style and to better optimize the code by facilitating the stylistic consistency of the pages and avoiding rewriting code already existing on previous pages. Because after all:
     <blockquote>Do not repeat yourself*</blockquote>`,
+    jsBaseTitle: `<a class="link" href="https://github.com/SprtJonathan/js-project-base">JS Project Base</a>`,
     administrativeManagerDescription: `Finally, I am currently working in my free time on another project, started thanks to my starter pack by the way`,
+    administrativeManagerTitle: `<a class="link" href="https://github.com/SprtJonathan/AdministrativeManager">Administrative Manager</a>`,
+    administrativeManagerToggleButton: "Launch demo",
     developperMotto:
       "*Don't repeat yourself: one of the main philosophies of the developer.",
   },

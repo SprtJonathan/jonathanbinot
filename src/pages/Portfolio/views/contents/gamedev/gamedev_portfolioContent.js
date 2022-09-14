@@ -4,6 +4,12 @@ import {
 } from "../../../../../components/helpers";
 import Carousel from "../../../../../components/Carousel/Carousel";
 import gamedevText from "./gamedev_text";
+import HLA1 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-1.jpg";
+import HLA2 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-2.jpg";
+import HLA3 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-3.jpg";
+import HLA4 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-4.jpg";
+import HLA5 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-5.jpg";
+import HLA6 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-6.jpg";
 
 const lang = localStorage.getItem("language");
 let gamedevTitle, importedGamedevText;
@@ -29,20 +35,54 @@ createElementFromTemplate(
   gamedevContent
 );
 
+createElementFromTemplate(
+  "h3",
+  {},
+  importedGamedevText.firstCategoryName,
+  gamedevContent
+);
+
+createElementFromTemplate(
+  "p",
+  {},
+  importedGamedevText.firstCategoryDescription,
+  gamedevContent
+);
+
 const carouselMedias = [
   {
-    title: "Test",
-    link: "https://media-exp1.licdn.com/dms/image/C4D16AQHAEnDBLhruAQ/profile-displaybackgroundimage-shrink_350_1400/0/1578566742298?e=1668643200&v=beta&t=K5nDyKtpk0deYd9HpryJ9CJXObWYQohqPUbKiUnQCtU",
-    description: "BOnjour je suis ",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA1,
+    description: "dddd",
   },
   {
-    title: "Test2",
-    link: "https://i.imgur.com/n8dnuFB.png",
-    description: "BOnjour je suis ",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA2,
+    description: "",
+  },
+  {
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA3,
+    description: "",
+  },
+  {
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA4,
+    description: "",
+  },
+  {
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA5,
+    description: "",
+  },
+  {
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA6,
+    description: "",
   },
 ];
 
-const carouselGames = Carousel(carouselMedias);
+const carouselGames = Carousel("source-2", carouselMedias, "");
 
 gamedevContent.append(carouselGames);
 

@@ -63,7 +63,6 @@ export function Header(activePage) {
   };
   setActivePage(currentPage);
 
-
   const menuUl = createElementFromTemplate(
     "ul",
     {
@@ -210,7 +209,7 @@ export function Header(activePage) {
 
   const contactModal = Modal(
     "contact-modal",
-    "Contactez moi",
+    importedHeaderText.contactHeader,
     importedHeaderText.contactForm
   );
 

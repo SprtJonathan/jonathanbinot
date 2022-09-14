@@ -76,6 +76,13 @@ createElementFromTemplate(
   webdevContent
 );
 
+const demoJSBaseButton = createElementFromTemplate(
+  "button",
+  {},
+  importedWebdevText.administrativeManagerToggleButton,
+  webdevContent
+);
+
 const jsBase = createElementFromTemplate(
   "div",
   { class: "iframe--wrapper" },
@@ -83,16 +90,21 @@ const jsBase = createElementFromTemplate(
   webdevContent
 );
 
-createElementFromTemplate(
+const jsBaseDemo = createElementFromTemplate(
   "iframe",
   {
     class: "iframe",
-    src: "https://sprtjonathan.github.io/js-project-base/  ",
+    src: "",
     frameborder: "0",
   },
   "",
   jsBase
 );
+
+demoJSBaseButton.addEventListener("click", (e) => {
+  console.log(e);
+  jsBaseDemo.src = "https://sprtjonathan.github.io/js-project-base/ ";
+});
 
 createElementFromTemplate("hr", {}, "", webdevContent);
 createElementFromTemplate(
@@ -109,6 +121,13 @@ createElementFromTemplate(
   webdevContent
 );
 
+const demoAdminManagerButton = createElementFromTemplate(
+  "button",
+  {},
+  importedWebdevText.administrativeManagerToggleButton,
+  webdevContent
+);
+
 const adminManager = createElementFromTemplate(
   "div",
   { class: "iframe--wrapper" },
@@ -116,16 +135,22 @@ const adminManager = createElementFromTemplate(
   webdevContent
 );
 
-createElementFromTemplate(
+const adminManagerDemo = createElementFromTemplate(
   "iframe",
   {
     class: "iframe",
-    src: "https://sprtjonathan.github.io/AdministrativeManager/",
+    src: "",
     frameborder: "0",
   },
   "",
   adminManager
 );
+
+demoAdminManagerButton.addEventListener("click", (e) => {
+  console.log(e);
+  adminManagerDemo.src =
+    "https://sprtjonathan.github.io/AdministrativeManager/";
+});
 
 createElementFromTemplate(
   "p",

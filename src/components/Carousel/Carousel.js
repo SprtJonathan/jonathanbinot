@@ -1,7 +1,7 @@
 import { createElementFromTemplate } from "../helpers";
 
 // This Carousel component allows to create a gallery of photos and videos.
-export default function Carousel(media, className) {
+export default function Carousel(carouselId, media, className) {
   let currentIndex = 0; // The initial index of the gallery
 
   let carouselClass; // If no class is specified, the default class: carousel is set
@@ -10,76 +10,91 @@ export default function Carousel(media, className) {
   } else {
     carouselClass = className;
   }
+  const carouselSection = createElementFromTemplate(
+    "section",
+    { class: carouselClass + "--section" },
+    "",
+    ""
+  );
   const carouselContainer = createElementFromTemplate(
     "div",
     {
       class: carouselClass,
     },
     "",
-    ""
+    carouselSection
   );
 
-  const carouselMediaTitle = createElementFromTemplate(
-    "div",
-    {
-      class: carouselClass + "--media--title",
-    },
-    media[currentIndex].title,
-    carouselContainer
-  );
-
-  function displayCarousel(index) {
-    let carouselMediaContainer;
-    if (media[index].type == "video") {
-      carouselMediaContainer = createElementFromTemplate(
-        "video",
-        {
-          class: carouselClass + "--media",
-        },
-        "",
-        carouselContainer
-      );
-      createElementFromTemplate(
-        "source",
-        {
-          class: carouselClass + "--media--video",
-          src: media[index].link,
-        },
-        "",
-        carouselMediaContainer
-      );
-    } else {
-      carouselMediaContainer = createElementFromTemplate(
-        "div",
-        {
-          class: carouselClass + "--media",
-        },
-        "",
-        carouselContainer
-      );
-      createElementFromTemplate(
-        "img",
-        {
-          class: carouselClass + "--media--img",
-          src: media[index].link,
-        },
-        "",
-        carouselMediaContainer
-      );
-    }
-
-    const carouselMediaDescription = createElementFromTemplate(
+  if (media[currentIndex].title || media[currentIndex].title != "") {
+    const carouselMediaTitle = createElementFromTemplate(
       "div",
       {
-        class: carouselClass + "--media--description",
+        class: carouselClass + "--media--title",
       },
-      media[currentIndex].description,
+      media[currentIndex].title,
       carouselContainer
     );
-    return carouselMediaContainer;
   }
+  let carouselMediaContainer;
+  if (media[currentIndex].type == "video") {
+    carouselMediaContainer = createElementFromTemplate(
+      "video",
+      {
+        class: carouselClass + "--media",
+      },
+      "",
+      carouselContainer
+    );
+    createElementFromTemplate(
+      "source",
+      {
+        class: carouselClass + "--media--video",
+        src: media[currentIndex].link,
+      },
+      "",
+      carouselMediaContainer
+    );
+  } else {
+    carouselMediaContainer = createElementFromTemplate(
+      "figure",
+      {
+        class: carouselClass + "--media",
+      },
+      "",
+      carouselContainer
+    );
+    createElementFromTemplate(
+      "img",
+      {
+        class: carouselClass + "--media--img",
+        src: media[currentIndex].link,
+      },
+      "",
+      carouselMediaContainer
+    );
 
-  displayCarousel(currentIndex);
+    if (
+      media[currentIndex].description ||
+      media[currentIndex].description != ""
+    ) {
+      const carouselMediaDescription = createElementFromTemplate(
+        "figcaption",
+        {
+          class: carouselClass + "--media--description",
+        },
+        "",
+        carouselContainer
+      );
+      const carouselMediaDescriptionText = createElementFromTemplate(
+        "p",
+        {
+          class: carouselClass + "--media--description--text",
+        },
+        media[currentIndex].description,
+        carouselMediaDescription
+      );
+    }
+  }
 
   const controlsContainer = createElementFromTemplate(
     "div",
@@ -89,39 +104,61 @@ export default function Carousel(media, className) {
   );
 
   if (media.length <= 1) {
-    controlsContainer.classList.add("hidden");
+    controlsContainer.className = "hidden";
+  } else {
+    controlsContainer.className = carouselClass + "--controls--block";
   }
+
+  const buttonsContainer = createElementFromTemplate(
+    "div",
+    { class: carouselClass + "--controls--button--block" },
+    "",
+    controlsContainer
+  );
 
   const previousButton = createElementFromTemplate(
     "button",
-    { class: carouselClass + "--button", type: "button" },
-    "<",
-    controlsContainer
+    {
+      id: "previous-button-" + carouselId,
+      class: carouselClass + "--controls--button",
+      type: "button",
+    },
+    `<i class="fa-solid fa-chevron-left"></i>`,
+    buttonsContainer
   );
   const nextButton = createElementFromTemplate(
     "button",
-    { class: carouselClass + "--button", type: "button" },
-    ">",
-    controlsContainer
+    {
+      id: "next-button-" + carouselId,
+      class: carouselClass + "--controls--button",
+      type: "button",
+    },
+    `<i class="fa-solid fa-chevron-right"></i>`,
+    buttonsContainer
   );
 
   previousButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("previous");
+    console.log("click click " + e);
     changeMedia(-1);
   });
 
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(e.target);
+    console.log("click click " + e);
     changeMedia(1);
   });
 
   function changeMedia(value) {
     console.log("Change : " + value);
     currentIndex = currentIndex + value;
-    displayCarousel(currentIndex);
+    if (currentIndex < 0) {
+      currentIndex = media.length - 1;
+    }
+    if (currentIndex > media.length) {
+      currentIndex = 0;
+    }
+    console.log(currentIndex);
   }
 
-  return carouselContainer;
+  return carouselSection;
 }

@@ -29,6 +29,23 @@
   &--description {
     text-align: justify;
   }
+  &--example-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &--image {
+      max-width: 90%;
+      max-height: 250px;
+      &--container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
 }
 
 .skills {

@@ -5,6 +5,7 @@ import {
 import Collapsible from "../../../components/Collapsible/Collapsible";
 import Modal from "../../../components/Modal/Modal";
 import { resumeHeaderText, resumeContentText } from "./resume_text";
+import HLA1 from "../../../assets/images/portfolio/gamedev/source-2/hla-1.jpg";
 
 import PPCV from "../../../assets/images/resume/PPCV.png";
 
@@ -434,6 +435,33 @@ const knowMoreEditModalBodyContent = createElementFromTemplate(
   importedContentText.hobbiesEditingModalContent,
   ""
 );
+
+const knowMoreEditImgContainer = createElementFromTemplate(
+  "div",
+  { class: "resume--example-modal--image--container" },
+  "",
+  knowMoreEditModalBodyContent
+);
+
+createElementFromTemplate(
+  "img",
+  {
+    class: "resume--example-modal--image",
+    src: "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.6435-9/47196459_2290062601227752_8864858708497137664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=4CGt6pA3E8MAX-GBf06&tn=32L3dSojrsn1PSud&_nc_ht=scontent-cdt1-1.xx&oh=00_AT8mYppG0LShQDD4kYAAjlvRvgTH-6kn7aztZ0W_YfGYfw&oe=63497675",
+  },
+  "",
+  knowMoreEditImgContainer
+);
+createElementFromTemplate(
+  "img",
+  {
+    class: "resume--example-modal--image",
+    src: "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.6435-9/47320482_2290084304558915_1379622247995539456_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=zzHSjFy9ch0AX-TKaqC&_nc_ht=scontent-cdg2-1.xx&oh=00_AT_lzzw96Lcqk92Xxlp1UQKiPUqcbB82g8YoJw7kDtFJRg&oe=6346A6DB",
+  },
+  "",
+  knowMoreEditImgContainer
+);
+
 const knowMoreEditModal = Modal(
   "know-more-modal",
   importedContentText.hobbiesEditingModalTitle,
@@ -451,6 +479,24 @@ const knowMoreGameModalBodyContent = createElementFromTemplate(
   importedContentText.hobbiesGamesModalContent,
   ""
 );
+
+const knowMoreEditGameContainer = createElementFromTemplate(
+  "div",
+  { class: "resume--example-modal--image--container" },
+  "",
+  knowMoreGameModalBodyContent
+);
+
+createElementFromTemplate(
+  "img",
+  {
+    class: "resume--example-modal--image",
+    src: HLA1,
+  },
+  "",
+  knowMoreEditGameContainer
+);
+
 const knowMoreGameModal = Modal(
   "know-more-modal",
   importedContentText.hobbiesGamesModalTitle,
