@@ -2,7 +2,7 @@ import { createElementFromTemplate } from "../helpers";
 
 // This Carousel component allows to create a gallery of photos and videos.
 export default function Carousel(carouselId, media, className) {
-  let currentIndex = 0; // The initial index of the gallery
+  let currentSlide = 0; // The initial index of the gallery
 
   let carouselClass; // If no class is specified, the default class: carousel is set
   if (!className) {
@@ -25,76 +25,93 @@ export default function Carousel(carouselId, media, className) {
     carouselSection
   );
 
-  if (media[currentIndex].title || media[currentIndex].title != "") {
-    const carouselMediaTitle = createElementFromTemplate(
+  const slides = [];
+  for (let i = 0; i < media.length; i++) {
+    const slideDiv = createElementFromTemplate(
       "div",
       {
-        class: carouselClass + "--media--title",
-      },
-      media[currentIndex].title,
-      carouselContainer
-    );
-  }
-  let carouselMediaContainer;
-  if (media[currentIndex].type == "video") {
-    carouselMediaContainer = createElementFromTemplate(
-      "video",
-      {
-        class: carouselClass + "--media",
+        class: carouselClass + "--slide",
       },
       "",
       carouselContainer
-    );
-    createElementFromTemplate(
-      "source",
-      {
-        class: carouselClass + "--media--video",
-        src: media[currentIndex].link,
-      },
-      "",
-      carouselMediaContainer
-    );
-  } else {
-    carouselMediaContainer = createElementFromTemplate(
-      "figure",
-      {
-        class: carouselClass + "--media",
-      },
-      "",
-      carouselContainer
-    );
-    createElementFromTemplate(
-      "img",
-      {
-        class: carouselClass + "--media--img",
-        src: media[currentIndex].link,
-      },
-      "",
-      carouselMediaContainer
     );
 
-    if (
-      media[currentIndex].description ||
-      media[currentIndex].description != ""
-    ) {
-      const carouselMediaDescription = createElementFromTemplate(
-        "figcaption",
+    if (media[i].title || media[i].title != "") {
+      const carouselMediaTitle = createElementFromTemplate(
+        "div",
         {
-          class: carouselClass + "--media--description",
+          class: carouselClass + "--media--title",
         },
-        "",
-        carouselContainer
-      );
-      const carouselMediaDescriptionText = createElementFromTemplate(
-        "p",
-        {
-          class: carouselClass + "--media--description--text",
-        },
-        media[currentIndex].description,
-        carouselMediaDescription
+        media[i].title,
+        slideDiv
       );
     }
+    if (media[i].type == "video") {
+      const carouselMediaContainer = createElementFromTemplate(
+        "video",
+        {
+          class: carouselClass + "--media",
+        },
+        "",
+        slideDiv
+      );
+      createElementFromTemplate(
+        "source",
+        {
+          class: carouselClass + "--media--video",
+          src: media[i].link,
+        },
+        "",
+        carouselMediaContainer
+      );
+    } else {
+      const imageLink = createElementFromTemplate(
+        "a",
+        {
+          class: carouselClass + "--media--image--link",
+          href: media[i].link,
+          target: "_blank",
+        },
+        "",
+        slideDiv
+      );
+      createElementFromTemplate(
+        "img",
+        {
+          class: carouselClass + "--media--img",
+          src: media[i].link,
+        },
+        "",
+        imageLink
+      );
+
+      if (media[i].description || media[i].description != "") {
+        const carouselMediaDescription = createElementFromTemplate(
+          "figcaption",
+          {
+            class: carouselClass + "--media--description",
+          },
+          "",
+          slideDiv
+        );
+        const carouselMediaDescriptionText = createElementFromTemplate(
+          "p",
+          {
+            class: carouselClass + "--media--description--text",
+          },
+          media[currentSlide].description,
+          carouselMediaDescription
+        );
+      }
+    }
+    slides.push(slideDiv);
   }
+
+  slides.forEach((slide, indx) => {
+    slide.style.transform = `translateX(${indx * 100}%)`;
+  });
+
+  console.log(slides);
 
   const controlsContainer = createElementFromTemplate(
     "div",
@@ -150,14 +167,17 @@ export default function Carousel(carouselId, media, className) {
 
   function changeMedia(value) {
     console.log("Change : " + value);
-    currentIndex = currentIndex + value;
-    if (currentIndex < 0) {
-      currentIndex = media.length - 1;
+    currentSlide = currentSlide + value;
+    if (currentSlide < 0) {
+      currentSlide = media.length - 1;
     }
-    if (currentIndex > media.length) {
-      currentIndex = 0;
+    if (currentSlide > media.length) {
+      currentSlide = 0;
     }
-    console.log(currentIndex);
+    slides.forEach((slide, indx) => {
+      console.log("gp");
+      slide.style.transform = `translateX(${100 * (indx - currentSlide)}%)`;
+    });
   }
 
   return carouselSection;

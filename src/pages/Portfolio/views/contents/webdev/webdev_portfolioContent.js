@@ -78,7 +78,7 @@ createElementFromTemplate(
 
 const demoJSBaseButton = createElementFromTemplate(
   "button",
-  {},
+  { class: "iframe--button" },
   importedWebdevText.administrativeManagerToggleButton,
   webdevContent
 );
@@ -123,7 +123,7 @@ createElementFromTemplate(
 
 const demoAdminManagerButton = createElementFromTemplate(
   "button",
-  {},
+  { class: "iframe--button" },
   importedWebdevText.administrativeManagerToggleButton,
   webdevContent
 );

@@ -35,6 +35,8 @@ createElementFromTemplate(
   gamedevContent
 );
 
+createElementFromTemplate("hr", {}, "", gamedevContent);
+
 createElementFromTemplate(
   "h3",
   {},
@@ -86,4 +88,26 @@ const carouselGames = Carousel("source-2", carouselMedias, "");
 
 gamedevContent.append(carouselGames);
 
+createElementFromTemplate("hr", {}, "", gamedevContent);
+
+createElementFromTemplate(
+  "h3",
+  {},
+  importedGamedevText.secondCategoryName,
+  gamedevContent
+);
+
+createElementFromTemplate(
+  "p",
+  {},
+  importedGamedevText.secondCategoryDescription,
+  gamedevContent
+);
+
+createElementFromTemplate(
+  "div",
+  { class: "spacer--vertical--medium" },
+  "",
+  gamedevContent
+);
 export { gamedevTitle, gamedevContent };

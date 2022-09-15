@@ -16,7 +16,7 @@
     text-shadow: $classic-box-shadow;
     font-size: 20px;
     margin: 1rem;
-    text-align: justify;  
+    text-align: justify;
     &--block {
       display: flex;
       justify-content: center;
@@ -193,9 +193,6 @@ li {
         width: 70%;
         text-shadow: $classic-box-shadow;
       }
-    }
-    &--introduction {
-      max-width: 60%;
     }
   }
   .homepage {

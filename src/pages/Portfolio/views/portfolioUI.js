@@ -43,7 +43,13 @@ createElementFromTemplate(
   portfolioHeader
 );
 
-function createClickableTile(id, displayName, content, className) {
+function createClickableTile(
+  id,
+  displayName,
+  content,
+  className,
+  modalBackgroundName
+) {
   let contentClass;
   if (!className) {
     contentClass = "";
@@ -62,7 +68,8 @@ function createClickableTile(id, displayName, content, className) {
     id + "-modal",
     displayName,
     content,
-    "modal-fullscreen"
+    "modal-fullscreen",
+    modalBackgroundName
   );
 
   console.log(tileModal.htmlCode);
@@ -85,7 +92,8 @@ for (let i = 0; i < tileContent.length; i++) {
       tileId[i],
       tileText[i],
       tileContent[i].innerHTML,
-      "tile--container--" + tileId[i]
+      "tile--container--" + tileId[i],
+      tileId[i]
     )
   );
 }

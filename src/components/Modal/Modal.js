@@ -1,17 +1,23 @@
 import { createElementFromTemplate } from "../helpers";
 
-function Modal(instanceName, header, body, className) {
+function Modal(instanceName, header, body, className, backgroundStyle) {
   const modalName = instanceName;
   const modalHeader = header;
   const modalBody = body;
 
   //const modalCloseButton = props.closeButton;
-  let modalClassName;
+  let modalClassName, backrgoundStyleName;
 
-  if (!className) {
+  if (!className || className == "") {
     modalClassName = "modal";
   } else {
     modalClassName = className;
+  }
+
+  if (!backgroundStyle) {
+    backrgoundStyleName = "";
+  } else {
+    backrgoundStyleName = "--" + backgroundStyle;
   }
 
   const modalInstance = createElementFromTemplate(
@@ -36,18 +42,27 @@ function Modal(instanceName, header, body, className) {
   const modalContent = createElementFromTemplate(
     "div",
     {
-      class: modalClassName + "--content",
+      class: modalClassName + "--content" + backrgoundStyleName,
     },
     "",
     modalContainer
   );
 
-  createElementFromTemplate(
-    "div",
-    { class: modalClassName + "--blur" },
-    "",
-    modalContent
-  );
+  if (!backgroundStyle) {
+    createElementFromTemplate(
+      "div",
+      { class: modalClassName + "--blur" },
+      "",
+      modalContent
+    );
+  } else {
+    createElementFromTemplate(
+      "div",
+      { class: modalClassName + backrgoundStyleName },
+      "",
+      modalContent
+    );
+  }
 
   const modalHeaderContainer = createElementFromTemplate(
     "div",
@@ -68,8 +83,12 @@ function Modal(instanceName, header, body, className) {
   // Modal close button
   const closeButton = createElementFromTemplate(
     "button",
-    { type: "button", id: "close-modal", class: modalClassName + "--exit" },
-    "X",
+    {
+      type: "button",
+      id: "close-modal",
+      class: modalClassName + "--exit" + backrgoundStyleName,
+    },
+    `<i class="fa fa-close"></i>`,
     modalHeaderContainer
   );
 
