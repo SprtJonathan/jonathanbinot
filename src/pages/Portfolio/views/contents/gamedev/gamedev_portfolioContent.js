@@ -53,33 +53,45 @@ createElementFromTemplate(
 
 const carouselMedias = [
   {
+    type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA1,
     description: "dddd",
   },
   {
+    type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA2,
     description: "",
   },
   {
+    type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA3,
     description: "",
   },
   {
+    type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA4,
     description: "",
   },
   {
+    type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA5,
     description: "",
   },
   {
+    type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA6,
+    description: "",
+  },
+  {
+    type: "video",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: "https://thumbs.gfycat.com/GrossPaltryIberianlynx-mobile.mp4",
     description: "",
   },
 ];

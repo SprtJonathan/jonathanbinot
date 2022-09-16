@@ -28,7 +28,7 @@ export default function Carousel(carouselId, media, className) {
   const slides = [];
   for (let i = 0; i < media.length; i++) {
     const slideDiv = createElementFromTemplate(
-      "div",
+      "figure",
       {
         class: carouselClass + "--slide",
       },
@@ -50,7 +50,9 @@ export default function Carousel(carouselId, media, className) {
       const carouselMediaContainer = createElementFromTemplate(
         "video",
         {
-          class: carouselClass + "--media",
+          class: carouselClass + "--media--video",
+          controls: true,
+          height: "100%",
         },
         "",
         slideDiv
@@ -171,7 +173,7 @@ export default function Carousel(carouselId, media, className) {
     if (currentSlide < 0) {
       currentSlide = media.length - 1;
     }
-    if (currentSlide > media.length) {
+    if (currentSlide > media.length - 1) {
       currentSlide = 0;
     }
     slides.forEach((slide, indx) => {

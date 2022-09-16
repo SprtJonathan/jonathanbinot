@@ -497,6 +497,13 @@ createElementFromTemplate(
   knowMoreEditGameContainer
 );
 
+const testContent = createElementFromTemplate("div", {}, "", "");
+const testText = createElementFromTemplate("div", {}, "Test", testContent);
+const testButton = createElementFromTemplate("button", {}, "Test Click", testContent);
+testButton.addEventListener("click", () => {
+  console.log("Test");
+});
+
 const knowMoreGameModal = Modal(
   "know-more-modal",
   importedContentText.hobbiesGamesModalTitle,

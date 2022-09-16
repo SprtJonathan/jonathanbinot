@@ -5,6 +5,8 @@ function Modal(instanceName, header, body, className, backgroundStyle) {
   const modalHeader = header;
   const modalBody = body;
 
+  console.log(body);
+
   //const modalCloseButton = props.closeButton;
   let modalClassName, backrgoundStyleName;
 
@@ -96,7 +98,7 @@ function Modal(instanceName, header, body, className, backgroundStyle) {
   createElementFromTemplate(
     "div",
     { class: modalClassName + "--body" },
-    modalBody,
+    body,
     modalContent
   );
 
