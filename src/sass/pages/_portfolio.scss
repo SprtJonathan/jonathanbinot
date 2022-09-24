@@ -53,6 +53,24 @@
       font-weight: 500;
       font-size: 20px;
     }
+    &--photoEditing {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: white;
+      animation: pop-in 0.5s ease-in-out;
+      overflow-y: scroll;
+      background: #1e1e1e;
+    }
+    &--videoEditing {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: white;
+      animation: pop-in 0.5s ease-in-out;
+      overflow-y: scroll;
+      background: #111111;
+    }
   }
   &--webdev {
     position: fixed;
@@ -82,6 +100,32 @@
     background-size: 100% 100%;
     background-image: url("https://i.pinimg.com/originals/59/a3/b1/59a3b1dc5e52c3d732f79154e3d88cea.gif");
     z-index: -1;
+  }
+  &--photoEditing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/images/portfolio/photo-editing/photoshop_frame.png"); //linear-gradient(-45deg, white, whitesmoke);
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: 1;
+
+    pointer-events: none;
+  }
+  &--videoEditing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/images/portfolio/video-editing/Vegas_frame.png"); //linear-gradient(-45deg, white, whitesmoke);
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: 1;
+
+    pointer-events: none;
   }
   &--header {
     display: flex;
@@ -144,6 +188,60 @@
         transition: all 2s ease-in-out;
       }
     }
+    &--photoEditing {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 5%;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      border-radius: 0px 0px 5px 5px;
+      outline: none;
+      color: white;
+      background-color: #3c3c3c;
+      cursor: default;
+      transition: all 0.2s ease-in-out;
+      font-family: "Rajdhani SemiBold";
+      font-size: 20px;
+      font-weight: 600;
+      z-index: 5;
+      &:hover {
+        background-color: red;
+        color: white;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+    &--videoEditing {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 5%;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      border-radius: 0px 0px 5px 5px;
+      outline: none;
+      color: rgb(255, 255, 255);
+      background-color: #393939;
+      cursor: default;
+      transition: all 0.2s ease-in-out;
+      font-family: "Rajdhani SemiBold";
+      font-size: 20px;
+      font-weight: 600;
+      z-index: 5;
+      &:hover {
+        background-color: red;
+        color: white;
+        transition: all 0.2s ease-in-out;
+      }
+    }
   }
 }
 
@@ -186,6 +284,7 @@
       background-position: center;
       background-size: cover;
       color: whitesmoke;
+      text-shadow: #000000 0px 0px 5px;
       transition: all ease 0.2s;
     }
     &--gamedev:hover {
@@ -193,6 +292,23 @@
       background-position: center;
       background-size: cover;
       color: whitesmoke;
+      text-shadow: #000000 0px 0px 5px;
+      transition: all ease 0.2s;
+    }
+    &--photoEditing:hover {
+      background-image: url("../assets/images/portfolio/photo-editing/tile-photoshop-anim.gif");
+      background-position: center;
+      background-size: cover;
+      color: whitesmoke;
+      text-shadow: #000000 0px 0px 5px;
+      transition: all ease 0.2s;
+    }
+    &--videoEditing:hover {
+      background-image: url("../assets/images/portfolio/video-editing/sprt_background.gif");
+      background-position: center;
+      background-size: cover;
+      color: whitesmoke;
+      text-shadow: #000000 0px 0px 5px;
       transition: all ease 0.2s;
     }
   }

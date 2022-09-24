@@ -4,6 +4,7 @@ import { createElementFromTemplate } from "../helpers";
 export default function Carousel(carouselId, media, className) {
   let currentSlide = 0; // The initial index of the gallery
 
+  console.log(media);
   let carouselClass; // If no class is specified, the default class: carousel is set
   if (!className) {
     carouselClass = "carousel";
@@ -86,25 +87,24 @@ export default function Carousel(carouselId, media, className) {
         "",
         imageLink
       );
-
-      if (media[i].description || media[i].description != "") {
-        const carouselMediaDescription = createElementFromTemplate(
-          "figcaption",
-          {
-            class: carouselClass + "--media--description",
-          },
-          "",
-          slideDiv
-        );
-        const carouselMediaDescriptionText = createElementFromTemplate(
-          "p",
-          {
-            class: carouselClass + "--media--description--text",
-          },
-          media[currentSlide].description,
-          carouselMediaDescription
-        );
-      }
+    }
+    if (media[i].description || media[i].description != "") {
+      const carouselMediaDescription = createElementFromTemplate(
+        "figcaption",
+        {
+          class: carouselClass + "--media--description",
+        },
+        "",
+        slideDiv
+      );
+      const carouselMediaDescriptionText = createElementFromTemplate(
+        "p",
+        {
+          class: carouselClass + "--media--description--text",
+        },
+        media[i].description,
+        carouselMediaDescription
+      );
     }
     slides.push(slideDiv);
   }

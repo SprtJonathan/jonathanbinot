@@ -10,14 +10,6 @@ import {
   tileContent,
 } from "./portfolio_text";
 
-import Carousel from "../../../components/Carousel/Carousel";
-import HLA1 from "../../../assets/images/portfolio/gamedev/source-2/hla-1.jpg";
-import HLA2 from "../../../assets/images/portfolio/gamedev/source-2/hla-2.jpg";
-import HLA3 from "../../../assets/images/portfolio/gamedev/source-2/hla-3.jpg";
-import HLA4 from "../../../assets/images/portfolio/gamedev/source-2/hla-4.jpg";
-import HLA5 from "../../../assets/images/portfolio/gamedev/source-2/hla-5.jpg";
-import HLA6 from "../../../assets/images/portfolio/gamedev/source-2/hla-6.jpg";
-
 const lang = localStorage.getItem("language");
 let importedPortfolioIntro;
 if (lang === "fr") {

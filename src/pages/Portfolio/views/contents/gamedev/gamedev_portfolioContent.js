@@ -14,6 +14,11 @@ import HLA6 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-6.
 import projectUdemyVideo from "../../../../../assets/videos/portfolio/unreal/udemy-project.mp4";
 import poldekVideo from "../../../../../assets/videos/portfolio/unreal/poldek.mp4";
 
+import blender1 from "../../../../../assets/images/portfolio/gamedev/blender/jonathan_player-model.gif";
+import blender2 from "../../../../../assets/images/portfolio/gamedev/blender/poldek.png";
+import blender3 from "../../../../../assets/images/portfolio/gamedev/blender/vending_machine.png";
+import blender4 from "../../../../../assets/images/portfolio/gamedev/blender/trainstation_wagons.png";
+
 const lang = localStorage.getItem("language");
 let gamedevTitle, importedGamedevText;
 if (lang === "fr") {
@@ -119,27 +124,24 @@ createElementFromTemplate(
   gamedevContent
 );
 
-const imageContainer = createElementFromTemplate(
-  "aside",
-  {},
-  "",
-  gamedevContent
-);
+const carouselUnrealMedias = [
+  {
+    type: "video",
+    title: importedGamedevText.secondCategoryExamplesTitles[0],
+    link: projectUdemyVideo,
+    description: importedGamedevText.secondCategoryExamplesDescriptions[0],
+  },
+  {
+    type: "video",
+    title: importedGamedevText.secondCategoryExamplesTitles[1],
+    link: poldekVideo,
+    description: importedGamedevText.secondCategoryExamplesDescriptions[1],
+  },
+];
 
-const UnrealMediaArray = [projectUdemyVideo, poldekVideo];
+const carouselUnreal = Carousel("unreal", carouselUnrealMedias, "");
 
-// Unable to use the Carousel because of the button inside the modal bug I'm unable to resolve in time. As a workaround, every media will be displayed in a section
-
-// const carouselUnrealMedias = [
-//   {
-//     type: "video",
-//     title: "Projet réalisé avec udemy",
-//     link: projectUdemyVideo,
-//     description: "",
-//   },
-// ];
-
-// const carouselUnreal = Carousel("unreal", carouselUnrealMedias, "");
+gamedevContent.append(carouselUnreal);
 
 createElementFromTemplate("hr", {}, "", gamedevContent);
 
@@ -160,45 +162,27 @@ createElementFromTemplate(
 const carouselBlenderMedias = [
   {
     type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA1,
-    description: "dddd",
+    title: importedGamedevText.thirdCategoryExamplesTitles[0],
+    link: blender1,
+    description: importedGamedevText.thirdCategoryExamplesDescription[0],
   },
   {
     type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA2,
-    description: "",
+    title: importedGamedevText.thirdCategoryExamplesTitles[1],
+    link: blender2,
+    description: importedGamedevText.thirdCategoryExamplesDescription[1],
   },
   {
     type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA3,
-    description: "",
+    title: importedGamedevText.thirdCategoryExamplesTitles[2],
+    link: blender3,
+    description: importedGamedevText.thirdCategoryExamplesDescription[2],
   },
   {
     type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA4,
-    description: "",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA5,
-    description: "",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA6,
-    description: "",
-  },
-  {
-    type: "video",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: "https://thumbs.gfycat.com/GrossPaltryIberianlynx-mobile.mp4",
-    description: "",
+    title: importedGamedevText.thirdCategoryExamplesTitles[3],
+    link: blender4,
+    description: importedGamedevText.thirdCategoryExamplesDescription[3],
   },
 ];
 

@@ -31,18 +31,32 @@ const gamedevText = {
     faisant l'interface entre le joueur et le personnage joué, la gestion de la caméra (passage de la première à la troisième personne), l'affichage des armes et leur fonctionnement, les bases de l'IA non joueur, les widgets (permettant d'afficher le HUD par exemple).
     
     Malheureusement, je n'ai jamais réellement terminé quoi que ce soit. Chaque projet m'ayant toutefois permis d'en apprendre plus dans le domaine du développement de jeux vidéo.`,
+    secondCategoryExamplesTitles: [
+      "Projet de TPS réalisé avec Udemy",
+      "Projet de FPS également réalisé avec Udemy",
+    ],
+    secondCategoryExamplesDescriptions: [
+      "",
+      "Polonez Caro: Voiture Polonaise que j'ai intégrée à mon projet Unreal afin d'apprendre le fonctionnement des véhicules dans le moteur.",
+    ],
     thirdCategoryName: `Blender / Modélisation 3D : `,
     thirdCategoryDescription: `Lorsque j'ai étudié le développement de jeux vidéo, que ce soit sur Unreal ou Source, j'ai pu aborder certains aspects de la modélisation 3D. Plus précisemment, je me suis initié à l'utilisation de Blender (Logiciel de modélisation 3D gratuit mais puissant) 
     afin de répondre à certains besoins, tout en apprendant une discipline supplémentaire. Mes utilisations principales de Blender ont surtout été la modification de modèles pré-existants afin de les adapter à mes besoins. J'ai toutefois pu créer de toute pièce quelques modèles simples 
     pour une utilisation autre que le jeu vidéo : l'impression 3D, à laquelle je m'initie depuis fin 2021.
     
     Vous trouverez ci-dessous une nouvelle galerie contenant quelques exemple de mes travaux sur Blender. Je tiens tout de même à préciser que les modèles provenant d'autres personnes que j'ai utilisé n'ont pas vocation à être redistribués.`,
-    thirdCategoryMediaDescription: [
-      `Oui, ceci est bien ma tête ajoutée à un modèle de personnage de Half-Life². Je souhaitais faire découvrir le jeu à un ami en y jouant en coopération et je me suis dit que l'immersion n'en serait que plus grande si nos têtes étaient en jeu. (Scan des têtes réalisées avec AvatarSDK)`,
+    thirdCategoryExamplesTitles: [
+      "Ma tête dans Half-Life²",
+      "Projet de FPS également réalisé avec Udemy",
+      "Distributeur automatique",
+      "Locomotive et wagon de passagers",
+    ],
+    thirdCategoryExamplesDescription: [
+      `Oui, ceci est bien ma tête ajoutée à un modèle de personnage de Half-Life². Je souhaitais faire découvrir le jeu à un ami en y jouant en coopération et je me suis dit que l'immersion n'en serait que plus grande si nos têtes étaient en jeu. J'ai appris comment adapter le modèle afin que les animations fonctionnent toujours, je suis plutôt fier du résultat final (Scan des têtes réalisés avec AvatarSDK)`,
+      `Une FSO Polonez Caro: voiture bien connue en Pologne. Je souhaitais pouvoir utiliser cette voiture dans un projet Unreal Engine, j'ai donc adapté un modèle trouvé en ligne afin de pouvoir l'exploiter dans l'éditeur. J'ai ensuite réalisé les textures en me servant d'images réelles`,
       `Probablement un de mes modèles les plus complexes réalisés de toute pièce : Ce distributeur automatique devait servir comme objet de décor lorsque je m'amusais à recréer le premier niveau de Half-Life² sur Unreal Engine 4`,
       `J'ai également créé des modèles simples et non optimisés d'un train et d'un wagon de passagers (les modèles gris sur cette image)`,
       `Ce pistolet provient de SktechFab (bibliothèque de modèles 3D), j'ai adapté ce modèle à Half-Life: Alyx afin qu'il remplace le pistolet original du jeu`,
-      `Une FSO Polonez Caro: voiture bien connue en Pologne. Je souhaitais pouvoir utiliser cette voiture dans un projet Unreal Engine, j'ai donc adapté un modèle trouvé en ligne afin de pouvoir l'exploiter dans l'éditeur. J'ai ensuite réalisé les textures en me servant d'images réelles`,
     ],
   },
   en: {
@@ -77,14 +91,29 @@ const gamedevText = {
     making the interface between the player and the character played, the management of the camera (passage from the first to the third person), the display of weapons and their operation, the basics of the non-player AI, the widgets (allowing to display the HUD for example).
     
     Unfortunately, I never actually finished anything. Each project, however, allowed me to learn more about the field of video game development.`,
+    secondCategoryExamplesTitles: [
+      "TPS project created with Udemy",
+      "FPS project also created with Udemy",
+    ],
+    secondCategoryExamplesDescriptions: [
+      "",
+      "Polonez Caro: Polish car that I added to my Unreal project to learn how vehicles work in the engine.",
+    ],
     thirdCategoryName: `Blender / 3D Modeling: `,
     thirdCategoryDescription: `When I studied video game development, whether on Unreal or Source, I was able to approach certain aspects of 3D modeling. More specifically, I learned to use Blender (Free but powerful 3D modeling software)
     in order to meet certain needs, while learning an additional discipline. My main uses of Blender have mainly been modifying pre-existing models to adapt them to my needs. However, I was able to create a few simple models from scratch.
     for use other than video games: 3D printing, which I have been learning since the end of 2021.
     
     Below is a new gallery containing some examples of my work on Blender. I would like to point out that the models from other people that I have used are not intended to be redistributed.`,
-    thirdCategoryMediaDescription: [
+    thirdCategoryExamplesTitles: [
+      "My head in Half-Life²",
+      "FPS project also made with Udemy",
+      "Vending machine",
+      "Locomotive and Passenger Cart",
+    ],
+    thirdCategoryExamplesDescription: [
       `Yes, this is my head added to a Half-Life² character model. I wanted to show the game to a friend by playing it in cooperation and I thought that the immersion would be even greater if our heads were ingame. (Scan of the heads made with AvatarSDK)`,
+      `A FSO Polonez Caro: A well known car in Poland. I wanted to be able to use this car in an Unreal Engine project, so I adapted a model I found online so I could use it in the editor. I then made the textures using real images,`,
       `Probably one of my most complex models made from scratch: This vending machine was to be used as a prop when I was having fun recreating the first level of Half-Life² on Unreal Engine 4`,
       `I also created simple, non-optimized models of a train and a passenger wagon (the gray models in this image)`,
       `This gun is from SktechFab (3D model library), I adapted this model to Half-Life: Alyx so that it replaces the original gun in the game`,
