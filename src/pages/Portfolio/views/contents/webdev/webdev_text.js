@@ -59,6 +59,7 @@ const webdevText = {
     `,
     administrativeManagerTitle: `<a class="link" href="https://github.com/SprtJonathan/AdministrativeManager">Administrative Manager</a>`,
     administrativeManagerToggleButton: "Lancer la démo",
+    administrativeManagerExitButton: "Quitter la démo",
     developperMotto:
       "*Ne vous répétez pas : une des philosophies principales du développeur.",
   },
@@ -116,6 +117,7 @@ const webdevText = {
     administrativeManagerDescription: `Finally, I am currently working in my free time on another project, started thanks to my starter pack by the way`,
     administrativeManagerTitle: `<a class="link" href="https://github.com/SprtJonathan/AdministrativeManager">Administrative Manager</a>`,
     administrativeManagerToggleButton: "Launch demo",
+    administrativeManagerExitButton: "Close demo",
     developperMotto:
       "*Don't repeat yourself: one of the main philosophies of the developer.",
   },

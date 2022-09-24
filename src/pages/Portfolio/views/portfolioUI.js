@@ -80,7 +80,6 @@ function createClickableTile(
     modalBackgroundName
   );
 
-  console.log(tileModal.htmlCode);
   portfolioContainer.append(tileModal.htmlCode);
 
   tileDiv.addEventListener("click", () => {
@@ -93,60 +92,13 @@ function createClickableTile(
 
   return tileDiv;
 }
-const carouselMedias = [
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA1,
-    description: "dddd",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA2,
-    description: "",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA3,
-    description: "",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA4,
-    description: "",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA5,
-    description: "",
-  },
-  {
-    type: "image",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: HLA6,
-    description: "",
-  },
-  {
-    type: "video",
-    title: "Half-Life Alyx (VR) - Intro",
-    link: "https://thumbs.gfycat.com/GrossPaltryIberianlynx-mobile.mp4",
-    description: "Vidéo Half life Alyx",
-  },
-];
-
-const carouselGames = Carousel("source-2", carouselMedias, "");
-portfolioContainer.append(carouselGames);
 
 for (let i = 0; i < tileContent.length; i++) {
   portfolioContent.append(
     createClickableTile(
       tileId[i],
       tileText[i],
-      tileContent[i].innerHTML,
+      tileContent[i],
       "tile--container--" + tileId[i],
       tileId[i]
     )

@@ -113,8 +113,6 @@ export default function Carousel(carouselId, media, className) {
     slide.style.transform = `translateX(${indx * 100}%)`;
   });
 
-  console.log(slides);
-
   const controlsContainer = createElementFromTemplate(
     "div",
     { class: carouselClass + "--controls--block" },
@@ -157,18 +155,15 @@ export default function Carousel(carouselId, media, className) {
   );
 
   previousButton.addEventListener("click", (e) => {
-    console.log("click click " + e);
     changeMedia(-1);
   });
 
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("click click " + e);
     changeMedia(1);
   });
 
   function changeMedia(value) {
-    console.log("Change : " + value);
     currentSlide = currentSlide + value;
     if (currentSlide < 0) {
       currentSlide = media.length - 1;
@@ -177,7 +172,6 @@ export default function Carousel(carouselId, media, className) {
       currentSlide = 0;
     }
     slides.forEach((slide, indx) => {
-      console.log("gp");
       slide.style.transform = `translateX(${100 * (indx - currentSlide)}%)`;
     });
   }

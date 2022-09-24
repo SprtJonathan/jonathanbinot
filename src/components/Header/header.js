@@ -207,10 +207,17 @@ export function Header(activePage) {
     setLang("en");
   });
 
+  const contactModalContent = createElementFromTemplate(
+    "div",
+    {},
+    importedHeaderText.contactForm,
+    ""
+  );
+
   const contactModal = Modal(
     "contact-modal",
     importedHeaderText.contactHeader,
-    importedHeaderText.contactForm
+    contactModalContent
   );
 
   navbar.append(navbarDisplayButton);

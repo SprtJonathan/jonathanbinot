@@ -101,9 +101,40 @@ const jsBaseDemo = createElementFromTemplate(
   jsBase
 );
 
+jsBase.style.maxHeight = "0px";
+
+function enableIframe(
+  iframeWrapper,
+  iframeElement,
+  switchVariable,
+  buttonElement,
+  link
+) {
+  if (!switchVariable) {
+    iframeElement.src = link;
+    iframeWrapper.style.paddingBottom = "56.25%";
+    buttonElement.textContent =
+      importedWebdevText.administrativeManagerExitButton;
+  } else {
+    iframeElement.src = "";
+    iframeWrapper.style.paddingBottom = "0%";
+    buttonElement.textContent =
+      importedWebdevText.administrativeManagerToggleButton;
+  }
+  switchVariable = !switchVariable;
+  return switchVariable;
+}
+
+let isJSBaseIframeActive = false;
 demoJSBaseButton.addEventListener("click", (e) => {
-  console.log(e);
-  jsBaseDemo.src = "https://sprtjonathan.github.io/js-project-base/ ";
+  e.preventDefault();
+  isJSBaseIframeActive = enableIframe(
+    jsBase,
+    jsBaseDemo,
+    isJSBaseIframeActive,
+    demoJSBaseButton,
+    "https://sprtjonathan.github.io/js-project-base/"
+  );
 });
 
 createElementFromTemplate("hr", {}, "", webdevContent);
@@ -123,7 +154,10 @@ createElementFromTemplate(
 
 const demoAdminManagerButton = createElementFromTemplate(
   "button",
-  { class: "iframe--button" },
+  {
+    class: "iframe--button",
+    id: "iframe-button-1",
+  },
   importedWebdevText.administrativeManagerToggleButton,
   webdevContent
 );
@@ -146,10 +180,18 @@ const adminManagerDemo = createElementFromTemplate(
   adminManager
 );
 
+adminManager.style.maxHeight = "0px";
+
+let isAMIframeActive = false;
 demoAdminManagerButton.addEventListener("click", (e) => {
-  console.log(e);
-  adminManagerDemo.src =
-    "https://sprtjonathan.github.io/AdministrativeManager/";
+  e.preventDefault();
+  isAMIframeActive = enableIframe(
+    adminManager,
+    adminManagerDemo,
+    isAMIframeActive,
+    demoAdminManagerButton,
+    "https://sprtjonathan.github.io/AdministrativeManager/"
+  );
 });
 
 createElementFromTemplate(

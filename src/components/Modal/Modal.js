@@ -1,11 +1,9 @@
 import { createElementFromTemplate } from "../helpers";
 
-function Modal(instanceName, header, body, className, backgroundStyle) {
+function Modal(instanceName, header, bodyContent, className, backgroundStyle) {
   const modalName = instanceName;
   const modalHeader = header;
-  const modalBody = body;
-
-  console.log(body);
+  const modalBody = bodyContent;
 
   //const modalCloseButton = props.closeButton;
   let modalClassName, backrgoundStyleName;
@@ -94,13 +92,15 @@ function Modal(instanceName, header, body, className, backgroundStyle) {
     modalHeaderContainer
   );
 
-  // Modal body container
-  createElementFromTemplate(
+  // Modal bodyContent container
+  const modalBodyContent = createElementFromTemplate(
     "div",
     { class: modalClassName + "--body" },
-    body,
+    "",
     modalContent
   );
+
+  modalBodyContent.append(bodyContent);
 
   const modalResultObject = {
     htmlCode: modalInstance,

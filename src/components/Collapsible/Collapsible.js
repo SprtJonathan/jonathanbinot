@@ -72,12 +72,13 @@ export default function Collapsible(
   function toggleCollapsible() {
     if (collapsibleState) {
       collapsibleContentContainer.classList.remove("active");
+      collapsibleContentContainer.style.maxHeight = "0px";
       collapsibleExpandIcon.classList =
         collapsibleClassName + "--title--text--chevron";
       collapsibleState = !collapsibleState;
     } else {
       collapsibleContentContainer.classList.add("active");
-      // collapsibleContentContainer.style.maxHeight =
+      collapsibleContentContainer.style.maxHeight = "100vh";
       //   collapsibleContentContainer.scrollHeight + "px";
       collapsibleExpandIcon.classList =
         collapsibleClassName + "--title--text--chevron--upside-down";

@@ -2,11 +2,16 @@ const createElementFromTemplate = (
   tagName,
   elementAttributes,
   textContent,
-  appendTo
+  appendTo,
+  event,
+  callback
 ) => {
   const newElement = document.createElement(tagName);
   for (const [key, value] of Object.entries(elementAttributes)) {
     newElement.setAttribute(key, value);
+  }
+  if (event) {
+    newElement.addEventListener(event, callback);
   }
   newElement.innerHTML = textContent;
   if (!appendTo) {
@@ -47,4 +52,101 @@ function createListOfLinks(arrayOfLinks, arrayOfTitles, appendTo) {
   }
 }
 
-export { createElementFromTemplate, toggleModal, createListOfLinks };
+function createMultipleMediaSection(arrayOfMedia) {
+  const mediaSection = createElementFromTemplate(
+    "div",
+    { class: "media-block" },
+    "",
+    ""
+  );
+
+  arrayOfMedia.forEach((media) => {
+    const slideDiv = createElementFromTemplate(
+      "figure",
+      {
+        class: carouselClass + "--slide",
+      },
+      "",
+      carouselContainer
+    );
+
+    if (media.title || media.title != "") {
+      const carouselMediaTitle = createElementFromTemplate(
+        "div",
+        {
+          class: carouselClass + "--media--title",
+        },
+        media.title,
+        slideDiv
+      );
+    }
+    if (media.type == "video") {
+      const carouselMediaContainer = createElementFromTemplate(
+        "video",
+        {
+          class: carouselClass + "--media--video",
+          controls: true,
+          height: "100%",
+        },
+        "",
+        slideDiv
+      );
+      createElementFromTemplate(
+        "source",
+        {
+          class: carouselClass + "--media--video",
+          src: media.link,
+        },
+        "",
+        carouselMediaContainer
+      );
+    } else {
+      const imageLink = createElementFromTemplate(
+        "a",
+        {
+          class: carouselClass + "--media--image--link",
+          href: media.link,
+          target: "_blank",
+        },
+        "",
+        slideDiv
+      );
+      createElementFromTemplate(
+        "img",
+        {
+          class: carouselClass + "--media--img",
+          src: media.link,
+        },
+        "",
+        imageLink
+      );
+
+      if (media.description || media.description != "") {
+        const carouselMediaDescription = createElementFromTemplate(
+          "figcaption",
+          {
+            class: carouselClass + "--media--description",
+          },
+          "",
+          slideDiv
+        );
+        const carouselMediaDescriptionText = createElementFromTemplate(
+          "p",
+          {
+            class: carouselClass + "--media--description--text",
+          },
+          media[currentSlide].description,
+          carouselMediaDescription
+        );
+      }
+    }
+    mediaSection.append(slideDiv);
+  });
+}
+
+export {
+  createElementFromTemplate,
+  toggleModal,
+  createListOfLinks,
+  createMultipleMediaSection,
+};

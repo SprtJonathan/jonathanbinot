@@ -465,7 +465,7 @@ createElementFromTemplate(
 const knowMoreEditModal = Modal(
   "know-more-modal",
   importedContentText.hobbiesEditingModalTitle,
-  knowMoreEditModalBodyContent.innerHTML
+  knowMoreEditModalBodyContent
 );
 knowMoreEditModal.closeButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -499,7 +499,12 @@ createElementFromTemplate(
 
 const testContent = createElementFromTemplate("div", {}, "", "");
 const testText = createElementFromTemplate("div", {}, "Test", testContent);
-const testButton = createElementFromTemplate("button", {}, "Test Click", testContent);
+const testButton = createElementFromTemplate(
+  "button",
+  {},
+  "Test Click",
+  testContent
+);
 testButton.addEventListener("click", () => {
   console.log("Test");
 });
@@ -507,7 +512,7 @@ testButton.addEventListener("click", () => {
 const knowMoreGameModal = Modal(
   "know-more-modal",
   importedContentText.hobbiesGamesModalTitle,
-  knowMoreGameModalBodyContent.innerHTML
+  knowMoreGameModalBodyContent
 );
 knowMoreGameModal.closeButton.addEventListener("click", (e) => {
   e.preventDefault();

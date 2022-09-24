@@ -1,6 +1,6 @@
 import {
   createElementFromTemplate,
-  createListOfLinks,
+  createMultipleMediaSection,
 } from "../../../../../components/helpers";
 import Carousel from "../../../../../components/Carousel/Carousel";
 import gamedevText from "./gamedev_text";
@@ -10,6 +10,9 @@ import HLA3 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-3.
 import HLA4 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-4.jpg";
 import HLA5 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-5.jpg";
 import HLA6 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-6.jpg";
+
+import projectUdemyVideo from "../../../../../assets/videos/portfolio/unreal/udemy-project.mp4";
+import poldekVideo from "../../../../../assets/videos/portfolio/unreal/poldek.mp4";
 
 const lang = localStorage.getItem("language");
 let gamedevTitle, importedGamedevText;
@@ -51,7 +54,110 @@ createElementFromTemplate(
   gamedevContent
 );
 
-const carouselMedias = [
+const carouselGamesMedias = [
+  {
+    type: "video",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: "https://thumbs.gfycat.com/GrossPaltryIberianlynx-mobile.mp4",
+    description: "",
+  },
+  {
+    type: "image",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA1,
+    description: "dddd",
+  },
+  {
+    type: "image",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA2,
+    description: "",
+  },
+  {
+    type: "image",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA3,
+    description: "",
+  },
+  {
+    type: "image",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA4,
+    description: "",
+  },
+  {
+    type: "image",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA5,
+    description: "",
+  },
+  {
+    type: "image",
+    title: "Half-Life Alyx (VR) - Intro",
+    link: HLA6,
+    description: "",
+  },
+];
+
+const carouselGames = Carousel("source-2", carouselGamesMedias, "");
+
+gamedevContent.append(carouselGames);
+
+createElementFromTemplate("hr", {}, "", gamedevContent);
+
+createElementFromTemplate(
+  "h3",
+  {},
+  importedGamedevText.secondCategoryName,
+  gamedevContent
+);
+
+createElementFromTemplate(
+  "p",
+  {},
+  importedGamedevText.secondCategoryDescription,
+  gamedevContent
+);
+
+const imageContainer = createElementFromTemplate(
+  "aside",
+  {},
+  "",
+  gamedevContent
+);
+
+const UnrealMediaArray = [projectUdemyVideo, poldekVideo];
+
+// Unable to use the Carousel because of the button inside the modal bug I'm unable to resolve in time. As a workaround, every media will be displayed in a section
+
+// const carouselUnrealMedias = [
+//   {
+//     type: "video",
+//     title: "Projet réalisé avec udemy",
+//     link: projectUdemyVideo,
+//     description: "",
+//   },
+// ];
+
+// const carouselUnreal = Carousel("unreal", carouselUnrealMedias, "");
+
+createElementFromTemplate("hr", {}, "", gamedevContent);
+
+createElementFromTemplate(
+  "h3",
+  {},
+  importedGamedevText.thirdCategoryName,
+  gamedevContent
+);
+
+createElementFromTemplate(
+  "p",
+  {},
+  importedGamedevText.thirdCategoryDescription,
+  gamedevContent
+);
+
+const carouselBlenderMedias = [
   {
     type: "image",
     title: "Half-Life Alyx (VR) - Intro",
@@ -96,25 +202,9 @@ const carouselMedias = [
   },
 ];
 
-const carouselGames = Carousel("source-2", carouselMedias, "");
+const carouselBlender = Carousel("source-2", carouselBlenderMedias, "");
 
-gamedevContent.append(carouselGames);
-
-createElementFromTemplate("hr", {}, "", gamedevContent);
-
-createElementFromTemplate(
-  "h3",
-  {},
-  importedGamedevText.secondCategoryName,
-  gamedevContent
-);
-
-createElementFromTemplate(
-  "p",
-  {},
-  importedGamedevText.secondCategoryDescription,
-  gamedevContent
-);
+gamedevContent.append(carouselBlender);
 
 createElementFromTemplate(
   "div",
