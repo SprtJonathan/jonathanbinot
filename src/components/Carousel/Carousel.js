@@ -52,6 +52,7 @@ export default function Carousel(carouselId, media, className) {
         "video",
         {
           class: carouselClass + "--media--video",
+          title: media[i].title,
           controls: true,
           height: "100%",
         },
@@ -83,6 +84,7 @@ export default function Carousel(carouselId, media, className) {
         {
           class: carouselClass + "--media--img",
           src: media[i].link,
+          alt: media[i].title,
         },
         "",
         imageLink

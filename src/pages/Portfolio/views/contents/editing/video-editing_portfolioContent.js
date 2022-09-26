@@ -31,10 +31,12 @@ createElementFromTemplate(
 
 createElementFromTemplate("hr", {}, "", videoEditingContent);
 
+createElementFromTemplate("h3", {}, "WIP", videoEditingContent);
+
 createElementFromTemplate(
-  "h3",
-  {},
-  "WIP",
+  "div",
+  { class: "spacer--vertical--medium" },
+  "",
   videoEditingContent
 );
 
