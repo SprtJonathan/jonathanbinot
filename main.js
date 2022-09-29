@@ -6,6 +6,7 @@ import { InvalidRoute } from "./src/pages/InvalidRoute/InvalidRoute";
 import { LanguageSelector } from "./src/pages/LanguageSelector/LanguageSelector";
 
 import "./src/sass/main.scss";
+import "./src/sass/main.scss";
 
 const langList = ["", "fr", "en"];
 const path = window.location.pathname;
