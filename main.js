@@ -6,6 +6,10 @@ import { InvalidRoute } from "./src/pages/InvalidRoute/InvalidRoute";
 import { LanguageSelector } from "./src/pages/LanguageSelector/LanguageSelector";
 
 import "./src/sass/main.scss";
+<<<<<<< HEAD
+import "./src/sass/main.scss";
+=======
+>>>>>>> parent of f87e1b6 (Attempts to fix the deployment bug)
 
 const langList = ["", "fr", "en"];
 const path = window.location.pathname;
