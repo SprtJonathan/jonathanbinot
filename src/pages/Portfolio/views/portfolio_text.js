@@ -20,17 +20,7 @@ const portfolioIntro = {
   en: "This is my portfolio. Here you will be able to click on the category you want to see and to explore the different works and realizations I have done. To start, just click on one of the tiles down below.",
 };
 const tileId = ["webdev", "gamedev", "photoEditing", "videoEditing"];
-const tileText = [
-  webdevTitle,
-  gamedevTitle,
-  photoEditingTitle,
-  videoEditingTitle,
-];
-const tileContent = [
-  webdevContent,
-  gamedevContent,
-  photoEditingContent,
-  videoEditingContent,
-];
+const tileText = [webdevTitle, gamedevTitle, photoEditingTitle];
+const tileContent = [webdevContent, gamedevContent, photoEditingContent];
 
 export { portfolioIntro, tileId, tileText, tileContent };

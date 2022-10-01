@@ -86,7 +86,7 @@ export function Header(activePage) {
     {
       id: "home",
       class: homepageClass,
-      href: "/" + lang + "/",
+      href: "/",
     },
     `<i class="fa-solid fa-house"></i>`,
     homepageLi
@@ -104,7 +104,7 @@ export function Header(activePage) {
     {
       id: "resume",
       class: resumeClass,
-      href: "/" + lang + "/resume",
+      href: "/resume",
     },
     importedHeaderText.resumeTitle,
     resumeLi
@@ -122,7 +122,7 @@ export function Header(activePage) {
     {
       id: "portfolio",
       class: portfolioClass,
-      href: "/" + lang + "/portfolio",
+      href: "/portfolio",
     },
     importedHeaderText.portfolioTitle,
     portfolioLi
@@ -175,6 +175,7 @@ export function Header(activePage) {
     "a",
     {
       class: "navbar--button",
+      href: "#",
     },
     `<img id="select-fr" class="language-flag" src="${flagFr}" width=48 height=48>`,
     languageFlagContainer
@@ -184,6 +185,7 @@ export function Header(activePage) {
     "a",
     {
       class: "navbar--button",
+      href: "#",
     },
     `<img id="select-en" class="language-flag" src="${flagEn}" width=48 height=48>`,
     languageFlagContainer
@@ -241,10 +243,8 @@ export function Header(activePage) {
   function setLang(lang) {
     console.log("Changement en " + lang);
     localStorage.setItem("language", lang);
-    document.documentElement.lang;
 
-    window.location.href =
-      "/" + lang + "/" + window.location.pathname.split("/")[2];
+    location.reload();
   }
 
   contactModal.closeButton.addEventListener("click", () => {

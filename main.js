@@ -5,19 +5,11 @@ import { Portfolio } from "./src/pages/Portfolio/Portfolio";
 import { InvalidRoute } from "./src/pages/InvalidRoute/InvalidRoute";
 import { LanguageSelector } from "./src/pages/LanguageSelector/LanguageSelector";
 
-import "./src/sass/main.scss";
+import "./src/css/main.css";
 
-const langList = ["", "fr", "en"];
+console.log(window.location.pathname)
 const path = window.location.pathname;
-const lang = path.split("/")[1];
-
-const route = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  window.history.pushState({}, "", event.target.href);
-  handleLocation();
-};
-
+const lang = localStorage.getItem("language");
 const routes = {
   404: InvalidRoute(),
   "": Homepage(),
@@ -26,37 +18,16 @@ const routes = {
   "/portfolio": Portfolio(),
 };
 
-const handleLocation = async () => {
-  document.documentElement.lang = lang;
-
-  const pageName = path.split(lang)[1];
-
-  const app = document.querySelector("#app");
-
-  if (langList.includes(path.split("/")[1])) {
-    if (!localStorage.getItem("language")) {
-      localStorage.setItem("language", lang);
-    }
-  } else {
-    return app.append(routes[404]);
-  }
-
-  if (pageName == undefined || lang == "") {
+function handleLocation() {
+  if (!lang || lang == undefined) {
     return app.append(LanguageSelector());
   }
-  const route = routes[pageName] || routes[404];
 
-  console.log(pageName);
-
-  if (route != routes[404]) {
-    app.append(Header(pageName));
+  if (routes[path] == undefined) {
+    return app.append(routes[404]);
   }
-
-  return app.append(route);
-};
-
-window.onpopstate = handleLocation;
-window.route = route;
-
+  app.append(Header(path));
+  return app.append(routes[path]);
+}
 
 handleLocation();
