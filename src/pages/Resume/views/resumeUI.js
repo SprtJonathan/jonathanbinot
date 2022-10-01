@@ -160,13 +160,6 @@ createElementFromTemplate(
   formationSection
 );
 
-createElementFromTemplate(
-  "div",
-  { class: "formation--description" },
-  importedContentText.patent,
-  formationSection
-);
-
 const formationCollapsible = Collapsible(
   "formation",
   "",
@@ -400,7 +393,7 @@ hobbiesSection.append(videoGamesCollapsible);
 const hobbiesMasterCollapsible = Collapsible(
   "hobbies",
   "",
-  importedContentText.hobbieesSectionTitle,
+  importedContentText.hobbiesSectionTitle,
   hobbiesSection
 );
 
