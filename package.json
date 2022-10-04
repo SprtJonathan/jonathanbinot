@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "preview": "vite preview",
-    "start": "cd ./dist/ && live-server.cmd"
+    "start": "vite preview"
   },
   "devDependencies": {
     "sass": "^1.53.0"
