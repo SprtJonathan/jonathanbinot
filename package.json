@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "cd ./dist/ && live-server.cmd"
+    "start": "npm i -g vite && vite"
   },
   "devDependencies": {
     "sass": "^1.53.0"
