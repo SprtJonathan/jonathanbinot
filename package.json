@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "npm i -g vite && vite"
+    "start": "vite"
   },
   "devDependencies": {
     "sass": "^1.53.0"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.6.2"
+    "vite": "^3.1.4"
   }
 }
