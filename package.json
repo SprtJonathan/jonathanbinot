@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "vite --host"
+    "start": "vite"
   },
   "devDependencies": {
     "sass": "^1.53.0"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.6.2"
+    "@emailjs/browser": "^3.6.2",
+    "vite": "^3.1.4"
   }
 }
