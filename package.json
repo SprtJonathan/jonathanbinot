@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "npm install -g vite && npm install && vite --host"
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npm install -g vite && npm install && vite --host --port=80"
   },
   "devDependencies": {
     "sass": "^1.53.0",
