@@ -2,7 +2,7 @@
 export default {
   // config options
   build: {
-    target: "esnext",
     base: "/",
+    target: "esnext",
   },
 };
