@@ -1,4 +1,4 @@
-import { Header } from "./src/components/Header/Header";
+import { Header } from "./src/components/Header/Header"; // Page Header
 import { Homepage } from "./src/pages/Homepage/Homepage";
 import { Resume } from "./src/pages/Resume/Resume";
 import { Portfolio } from "./src/pages/Portfolio/Portfolio";
