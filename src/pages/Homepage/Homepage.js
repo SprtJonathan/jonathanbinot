@@ -28,7 +28,6 @@ export function Homepage() {
       document.getElementById("background-5").className = "hidden";
       document.getElementById("background-6").className =
         "hidden homepage--background";
-      console.log("1 fois " + window.pageYOffset);
     } else if (
       windowHeight * 3 >= window.pageYOffset &&
       window.pageYOffset >= windowHeight
@@ -44,7 +43,6 @@ export function Homepage() {
       document.getElementById("background-5").className = "hidden";
       document.getElementById("background-6").className =
         "hidden homepage--background";
-      console.log("1 fois " + window.pageYOffset);
     } else if (
       windowHeight * 5 >= window.pageYOffset &&
       window.pageYOffset >= windowHeight * 3
@@ -61,7 +59,6 @@ export function Homepage() {
         "homepage--background";
       document.getElementById("background-6").className =
         "hidden homepage--background";
-      console.log("4 fois " + window.pageYOffset);
     }
 
     if (backgroundIndex !== newBackgroundIndex) {
@@ -71,7 +68,7 @@ export function Homepage() {
   }
 
   document.addEventListener("scroll", function () {
-    if (window.location.pathname.split("/")[2] == "") {
+    if (window.location.pathname.split("/")[1] == "") {
       changeBackground();
     }
   });

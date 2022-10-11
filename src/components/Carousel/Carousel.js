@@ -68,6 +68,33 @@ export default function Carousel(carouselId, media, className) {
         "",
         carouselMediaContainer
       );
+    } else if (media[i].type == "iframe") {
+      const carouselMediaContainer = createElementFromTemplate(
+        "div",
+        {
+          class: carouselClass + "--media--video",
+          title: media[i].title,
+          controls: false,
+          height: "100%",
+        },
+        "",
+        slideDiv
+      );
+      createElementFromTemplate(
+        "iframe",
+        {
+          class: carouselClass + "--media--img",
+          title: media[i].title,
+          controls: true,
+          src: media[i].link,
+          frameborder: "0",
+          allow:
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+          allowfullscreen: true,
+        },
+        "",
+        carouselMediaContainer
+      );
     } else {
       const imageLink = createElementFromTemplate(
         "a",

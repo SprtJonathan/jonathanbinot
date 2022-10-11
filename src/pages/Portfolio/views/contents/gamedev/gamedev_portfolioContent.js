@@ -61,16 +61,16 @@ createElementFromTemplate(
 
 const carouselGamesMedias = [
   {
-    type: "video",
+    type: "iframe",
     title: "Half-Life Alyx (VR) - Intro",
-    link: "https://thumbs.gfycat.com/GrossPaltryIberianlynx-mobile.mp4",
+    link: "https://www.youtube.com/embed/Z2JupOt6zGw",
     description: "",
   },
   {
     type: "image",
     title: "Half-Life Alyx (VR) - Intro",
     link: HLA1,
-    description: "dddd",
+    description: "",
   },
   {
     type: "image",
@@ -126,15 +126,15 @@ createElementFromTemplate(
 
 const carouselUnrealMedias = [
   {
-    type: "video",
+    type: "iframe",
     title: importedGamedevText.secondCategoryExamplesTitles[0],
-    link: projectUdemyVideo,
+    link: "https://www.youtube.com/embed/XE7vBEb5Bfs",
     description: importedGamedevText.secondCategoryExamplesDescriptions[0],
   },
   {
-    type: "video",
+    type: "iframe",
     title: importedGamedevText.secondCategoryExamplesTitles[1],
-    link: poldekVideo,
+    link: "https://www.youtube.com/embed/fBMcEnJWfec",
     description: importedGamedevText.secondCategoryExamplesDescriptions[1],
   },
 ];
