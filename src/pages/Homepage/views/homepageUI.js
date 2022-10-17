@@ -2,10 +2,8 @@ import { createElementFromTemplate } from "../../../components/helpers.js";
 
 import { homepageText } from "./homepage_text.js";
 
-const webdevImage = "src/assets/images/homepage/webdev.png";
-const gamedevImage = "src/assets/images/homepage/gamedev.png";
-
-const hpBgTwo = "../../../assets/images/homepage/homepage-bg-3.png";
+const webdevImage = "./src/assets/images/homepage/webdev.png";
+const gamedevImage = "./src/assets/images/homepage/gamedev.png";
 
 const lang = localStorage.getItem("language");
 

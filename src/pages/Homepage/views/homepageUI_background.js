@@ -1,5 +1,5 @@
-const hpBgOne = "src/assets/images/homepage/homepage-bg-1.jpg";
-const hpBgTwoFrame = "src/assets/images/homepage/homepage-bg-3_frame.png";
+const hpBgOne = "./src/assets/images/homepage/homepage-bg-1.jpg";
+const hpBgTwoFrame = "./src/assets/images/homepage/homepage-bg-3_frame.png";
 
 const homepageBackground = `
   <div id="homepage-background" class="homepage--background">
