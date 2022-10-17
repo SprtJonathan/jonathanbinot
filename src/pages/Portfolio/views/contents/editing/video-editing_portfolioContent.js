@@ -1,9 +1,9 @@
 import {
   createElementFromTemplate,
   createListOfLinks,
-} from "../../../../../components/helpers";
-import Carousel from "../../../../../components/Carousel/Carousel";
-import videoEditingText from "./video-editing_text";
+} from "../../../../../components/helpers.js";
+import Carousel from "../../../../../components/Carousel/Carousel.js";
+import videoEditingText from "./video-editing_text.js";
 
 const lang = localStorage.getItem("language");
 let videoEditingTitle, importedVideoEditingText;

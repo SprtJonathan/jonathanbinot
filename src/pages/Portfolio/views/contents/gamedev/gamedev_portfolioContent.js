@@ -1,23 +1,24 @@
 import {
   createElementFromTemplate,
   createMultipleMediaSection,
-} from "../../../../../components/helpers";
-import Carousel from "../../../../../components/Carousel/Carousel";
-import gamedevText from "./gamedev_text";
-import HLA1 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-1.jpg";
-import HLA2 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-2.jpg";
-import HLA3 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-3.jpg";
-import HLA4 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-4.jpg";
-import HLA5 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-5.jpg";
-import HLA6 from "../../../../../assets/images/portfolio/gamedev/source-2/hla-6.jpg";
+} from "../../../../../components/helpers.js";
+import Carousel from "../../../../../components/Carousel/Carousel.js";
+import gamedevText from "./gamedev_text.js";
 
-import projectUdemyVideo from "../../../../../assets/videos/portfolio/unreal/udemy-project.mp4";
-import poldekVideo from "../../../../../assets/videos/portfolio/unreal/poldek.mp4";
+const HLA1 = "/src/assets/images/portfolio/gamedev/source-2/hla-1.jpg";
+const HLA2 = "/src/assets/images/portfolio/gamedev/source-2/hla-2.jpg";
+const HLA3 = "/src/assets/images/portfolio/gamedev/source-2/hla-3.jpg";
+const HLA4 = "/src/assets/images/portfolio/gamedev/source-2/hla-4.jpg";
+const HLA5 = "/src/assets/images/portfolio/gamedev/source-2/hla-5.jpg";
+const HLA6 = "/src/assets/images/portfolio/gamedev/source-2/hla-6.jpg";
 
-import blender1 from "../../../../../assets/images/portfolio/gamedev/blender/jonathan_player-model.gif";
-import blender2 from "../../../../../assets/images/portfolio/gamedev/blender/poldek.png";
-import blender3 from "../../../../../assets/images/portfolio/gamedev/blender/vending_machine.png";
-import blender4 from "../../../../../assets/images/portfolio/gamedev/blender/trainstation_wagons.png";
+const projectUdemyVideo = "/src/assets/videos/portfolio/unreal/udemy-project.mp4";
+const poldekVideo = "/src/assets/videos/portfolio/unreal/poldek.mp4";
+
+const blender1 = "/src/assets/images/portfolio/gamedev/blender/jonathan_player-model.gif";
+const blender2 = "/src/assets/images/portfolio/gamedev/blender/poldek.png";
+const blender3 = "/src/assets/images/portfolio/gamedev/blender/vending_machine.png";
+const blender4 = "/src/assets/images/portfolio/gamedev/blender/trainstation_wagons.png";
 
 const lang = localStorage.getItem("language");
 let gamedevTitle, importedGamedevText;

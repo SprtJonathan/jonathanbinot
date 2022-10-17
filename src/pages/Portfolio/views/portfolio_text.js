@@ -1,19 +1,19 @@
 import {
   webdevTitle,
   webdevContent,
-} from "./contents/webdev/webdev_portfolioContent";
+} from "./contents/webdev/webdev_portfolioContent.js";
 import {
   gamedevTitle,
   gamedevContent,
-} from "./contents/gamedev/gamedev_portfolioContent";
+} from "./contents/gamedev/gamedev_portfolioContent.js";
 import {
   photoEditingTitle,
   photoEditingContent,
-} from "./contents/editing/photo-editing_portfolioContent";
+} from "./contents/editing/photo-editing_portfolioContent.js";
 import {
   videoEditingTitle,
   videoEditingContent,
-} from "./contents/editing/video-editing_portfolioContent";
+} from "./contents/editing/video-editing_portfolioContent.js";
 
 const portfolioIntro = {
   fr: "Voici mon portfolio. Vous avez ici la possibilité de cliquer sur le domaine qui vous intéresse et d'explorer les différents travaux et réalisations que j'ai pu effectuer. Pour commencer, cliquez sur l'une des tuiles ci-dessous.",

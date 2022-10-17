@@ -1,89 +1,77 @@
-import { createElementFromTemplate } from "../../components/helpers";
+import { createElementFromTemplate } from "../../components/helpers.js";
 
-import flagFr from "../../assets/images/languages/FR.png";
-import flagEn from "../../assets/images/languages/EN.png";
+const flagFr = "/src/assets/images/languages/FR.png";
+const flagEn = "/src/assets/images/languages/EN.png";
 
-export function LanguageSelector() {
-  const lang = localStorage.getItem("language");
+export const selector = document.createElement("div");
+const errorDiv = createElementFromTemplate(
+  "div",
+  { class: "error-404--go-back" },
+  "",
+  selector
+);
 
-  if (lang != null && lang == "fr") {
-    window.location.href = "/";
-  } else if (lang != null && lang == "en") {
-    window.location.href = "/";
-  }
+const setLangFRLink = createElementFromTemplate(
+  "p",
+  { class: "error-404--go-back--button", href: "" },
+  "",
+  errorDiv
+);
 
-  const selector = document.createElement("main");
-  selector.innerHTML += "<h1>Choix de la langue / Select language</h1>";
+const frLinkContentDiv = createElementFromTemplate(
+  "div",
+  { class: "error-404--go-back--link" },
+  "",
+  setLangFRLink
+);
 
-  const errorDiv = createElementFromTemplate(
-    "div",
-    { class: "error-404--go-back" },
-    "",
-    selector
-  );
+createElementFromTemplate(
+  "img",
+  { class: "language-flag", src: flagFr, width: 64, height: 64 },
+  "",
+  frLinkContentDiv
+);
+createElementFromTemplate("br", {}, "", frLinkContentDiv);
+createElementFromTemplate(
+  "div",
+  { class: "error-404--go-back--text" },
+  " Site web en Français",
+  frLinkContentDiv
+);
 
-  const setLangFRLink = createElementFromTemplate(
-    "a",
-    { class: "error-404--go-back--button", href: "/" },
-    "",
-    errorDiv
-  );
+const setLangENLink = createElementFromTemplate(
+  "p",
+  { class: "error-404--go-back--button", href: "" },
+  "",
+  errorDiv
+);
 
-  const frLinkContentDiv = createElementFromTemplate(
-    "div",
-    { class: "error-404--go-back--link" },
-    "",
-    setLangFRLink
-  );
+const enLinkContentDiv = createElementFromTemplate(
+  "div",
+  { class: "error-404--go-back--link" },
+  "",
+  setLangENLink
+);
 
-  createElementFromTemplate(
-    "img",
-    { class: "language-flag", src: flagFr, width: 64, height: 64 },
-    "",
-    frLinkContentDiv
-  );
-  createElementFromTemplate("br", {}, "", frLinkContentDiv);
-  createElementFromTemplate(
-    "div",
-    { class: "error-404--go-back--text" },
-    "Retour à la page d'accueil",
-    frLinkContentDiv
-  );
+createElementFromTemplate(
+  "img",
+  { class: "language-flag", src: flagEn, width: 64, height: 64 },
+  "",
+  enLinkContentDiv
+);
 
-  const setLangENLink = createElementFromTemplate(
-    "a",
-    { class: "error-404--go-back--button", href: "/" },
-    "",
-    errorDiv
-  );
+createElementFromTemplate(
+  "div",
+  { class: "error-404--go-back--text" },
+  " Website in English",
+  enLinkContentDiv
+);
 
-  const enLinkContentDiv = createElementFromTemplate(
-    "div",
-    { class: "error-404--go-back--link" },
-    "",
-    setLangENLink
-  );
-
-  createElementFromTemplate(
-    "img",
-    { class: "language-flag", src: flagEn, width: 64, height: 64 },
-    "",
-    enLinkContentDiv
-  );
-  createElementFromTemplate("br", {}, "", setLangENLink);
-  createElementFromTemplate(
-    "div",
-    { class: "error-404--go-back--text" },
-    "Retour à la page d'accueil",
-    enLinkContentDiv
-  );
-
-  frLinkContentDiv.addEventListener("click", (e) => {
-    localStorage.setItem("language", "fr");
-  });
-  enLinkContentDiv.addEventListener("click", (e) => {
-    localStorage.setItem("language", "en");
-  });
-
-  return selector;
-}
+frLinkContentDiv.addEventListener("click", (e) => {
+  localStorage.setItem("language", "fr");
+  location.reload();
+});
+enLinkContentDiv.addEventListener("click", (e) => {
+  localStorage.setItem("language", "en");
+  location.reload();
+});

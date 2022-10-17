@@ -1,32 +1,46 @@
-import { createElementFromTemplate } from "../../../../../components/helpers";
-import Carousel from "../../../../../components/Carousel/Carousel";
-import photoEditingText from "./photo-editing_text";
+import { createElementFromTemplate } from "../../../../../components/helpers.js";
+import Carousel from "../../../../../components/Carousel/Carousel.js";
+import photoEditingText from "./photo-editing_text.js";
 
 /* Facebook pictures */
-import fb1 from "../../../../../assets/images/portfolio/photo-editing/facebook/facebook-pp-1.png";
-import fb2 from "../../../../../assets/images/portfolio/photo-editing/facebook/facebook-pp-2.png";
-import fb3 from "../../../../../assets/images/portfolio/photo-editing/facebook/facebook-pp-3.png";
-import fbBanner1 from "../../../../../assets/images/portfolio/photo-editing/facebook/facebook-banner-1.png";
-import fbBanner2 from "../../../../../assets/images/portfolio/photo-editing/facebook/facebook-banner-2.png";
+const fb1 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-pp-1.png";
+const fb2 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-pp-2.png";
+const fb3 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-pp-3.png";
+const fbBanner1 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-banner-1.png";
+const fbBanner2 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-banner-2.png";
 
 /* StreamKit pictures */
-import streamKit1 from "../../../../../assets/images/portfolio/photo-editing/stream-kit/stream-kit-1.png";
-import streamKit2 from "../../../../../assets/images/portfolio/photo-editing/stream-kit/stream-kit-2.png";
+const streamKit1 =
+  "/src/assets/images/portfolio/photo-editing/stream-kit/stream-kit-1.png";
+const streamKit2 =
+  "/src/assets/images/portfolio/photo-editing/stream-kit/stream-kit-2.png";
 
 /* Logos pictures */
-import logoDDP from "../../../../../assets/images/portfolio/photo-editing/logos/ddp-logo.png";
-import logoSeehna from "../../../../../assets/images/portfolio/photo-editing/logos/seehna-logo.png";
-import logoSpart from "../../../../../assets/images/portfolio/photo-editing/logos/spart-logo.png";
-import logoHybridus from "../../../../../assets/images/portfolio/photo-editing/logos/hybridus-logo.png";
-import logoRyzer from "../../../../../assets/images/portfolio/photo-editing/logos/ryzer-logo.png";
-import logo1stin from "../../../../../assets/images/portfolio/photo-editing/logos/1stin-logo.png";
+const logoDDP = "/src/assets/images/portfolio/photo-editing/logos/ddp-logo.png";
+const logoSeehna =
+  "/src/assets/images/portfolio/photo-editing/logos/seehna-logo.png";
+const logoSpart =
+  "/src/assets/images/portfolio/photo-editing/logos/spart-logo.png";
+const logoHybridus =
+  "/src/assets/images/portfolio/photo-editing/logos/hybridus-logo.png";
+const logoRyzer =
+  "/src/assets/images/portfolio/photo-editing/logos/ryzer-logo.png";
+const logo1stin =
+  "/src/assets/images/portfolio/photo-editing/logos/1stin-logo.png";
 
 /* Company pictures */
-import companyLogo1 from "../../../../../assets/images/portfolio/photo-editing/company/company-logo-1.png";
-import companyLogo2 from "../../../../../assets/images/portfolio/photo-editing/company/company-logo-2.png";
+const companyLogo1 =
+  "/src/assets/images/portfolio/photo-editing/company/company-logo-1.png";
+const companyLogo2 =
+  "/src/assets/images/portfolio/photo-editing/company/company-logo-2.png";
 
 const lang = localStorage.getItem("language");
-let photoEditingTitle, importedPhotoEditingText;
+export let photoEditingTitle, importedPhotoEditingText;
 if (lang === "fr") {
   photoEditingTitle = photoEditingText.fr.photoEditingTitle;
   importedPhotoEditingText = photoEditingText.fr;
@@ -35,7 +49,7 @@ if (lang === "fr") {
   importedPhotoEditingText = photoEditingText.en;
 }
 
-const photoEditingContent = createElementFromTemplate(
+export const photoEditingContent = createElementFromTemplate(
   "div",
   { id: "photoEditing-content", class: "portfolio--modal-content" },
   "",
@@ -265,5 +279,3 @@ createElementFromTemplate(
   "",
   photoEditingContent
 );
-
-export { photoEditingTitle, photoEditingContent };

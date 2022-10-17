@@ -1,11 +1,11 @@
-import { createElementFromTemplate } from "../../../components/helpers";
+import { createElementFromTemplate } from "../../../components/helpers.js";
 
-import homepageText from "./homepage_text";
+import { homepageText } from "./homepage_text.js";
 
-import webdevImage from "../../../assets/images/homepage/webdev.png";
-import gamedevImage from "../../../assets/images/homepage/gamedev.png";
+const webdevImage = "src/assets/images/homepage/webdev.png";
+const gamedevImage = "src/assets/images/homepage/gamedev.png";
 
-import hpBgTwo from "../../../assets/images/homepage/homepage-bg-3.png";
+const hpBgTwo = "../../../assets/images/homepage/homepage-bg-3.png";
 
 const lang = localStorage.getItem("language");
 
@@ -17,7 +17,7 @@ if (lang === "fr") {
   importedText = homepageText.en;
 }
 
-const homepageContent = createElementFromTemplate(
+export const homepageContent = createElementFromTemplate(
   "div",
   { class: "homepage--content", id: "homepage-content" },
   "",
@@ -198,5 +198,3 @@ createElementFromTemplate(
   webdevObjectives
 );
 /**/
-
-export { homepageContent };

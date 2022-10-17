@@ -1,4 +1,4 @@
-import { portfolioContainer } from "./views/portfolioUI";
+import { portfolioContainer } from "./views/portfolioUI.js";
 
 export function Portfolio() {
   const portfolio = document.createElement("main");

@@ -1,13 +1,19 @@
 import {
   createElementFromTemplate,
   toggleModal,
-} from "../../../components/helpers";
-import Collapsible from "../../../components/Collapsible/Collapsible";
-import Modal from "../../../components/Modal/Modal";
-import { resumeHeaderText, resumeContentText } from "./resume_text";
-import HLA1 from "../../../assets/images/portfolio/gamedev/source-2/hla-1.jpg";
+} from "../../../components/helpers.js";
+import Collapsible from "../../../components/Collapsible/Collapsible.js";
+import Modal from "../../../components/Modal/Modal.js";
+import { resumeHeaderText, resumeContentText } from "./resume_text.js";
+const PPCV = "/src/assets/images/resume/PPCV.png";
 
-import PPCV from "../../../assets/images/resume/PPCV.png";
+const fb1 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-pp-1.png";
+const fb2 =
+  "/src/assets/images/portfolio/photo-editing/facebook/facebook-pp-2.png";
+
+const HLA1 = "/src/assets/images/portfolio/gamedev/source-2/hla-1.jpg";
+const HLA2 = "/src/assets/images/portfolio/gamedev/source-2/hla-2.jpg";
 
 let importedHeaderText, importedContentText;
 const lang = localStorage.getItem("language");
@@ -440,7 +446,7 @@ createElementFromTemplate(
   "img",
   {
     class: "resume--example-modal--image",
-    src: "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.6435-9/47196459_2290062601227752_8864858708497137664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=4CGt6pA3E8MAX-GBf06&tn=32L3dSojrsn1PSud&_nc_ht=scontent-cdt1-1.xx&oh=00_AT8mYppG0LShQDD4kYAAjlvRvgTH-6kn7aztZ0W_YfGYfw&oe=63497675",
+    src: fb1,
   },
   "",
   knowMoreEditImgContainer
@@ -449,7 +455,7 @@ createElementFromTemplate(
   "img",
   {
     class: "resume--example-modal--image",
-    src: "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.6435-9/47320482_2290084304558915_1379622247995539456_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=zzHSjFy9ch0AX-TKaqC&_nc_ht=scontent-cdg2-1.xx&oh=00_AT_lzzw96Lcqk92Xxlp1UQKiPUqcbB82g8YoJw7kDtFJRg&oe=6346A6DB",
+    src: fb2,
   },
   "",
   knowMoreEditImgContainer

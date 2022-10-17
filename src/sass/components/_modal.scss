@@ -58,6 +58,8 @@
     }
   }
   &--body {
+    max-height: 80vh;
+    overflow: auto;
     width: 90%;
     margin: 1rem auto;
     font-size: 20px;

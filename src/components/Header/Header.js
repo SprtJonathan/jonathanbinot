@@ -1,10 +1,10 @@
-import { createElementFromTemplate, toggleModal } from "../helpers";
-import Modal from "../Modal/Modal";
+import { createElementFromTemplate, toggleModal } from "../helpers.js";
+import Modal from "../Modal/Modal.js";
 
-import headerText from "./views/header_text";
+import headerText from "./views/header_text.js";
 
-import flagFr from "../../assets/images/languages/FR.png";
-import flagEn from "../../assets/images/languages/EN.png";
+const flagFr = "/src/assets/images/languages/FR.png";
+const flagEn = "/src/assets/images/languages/EN.png";
 
 export function Header(activePage) {
   const currentPage = activePage;

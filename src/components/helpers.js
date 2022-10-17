@@ -1,11 +1,11 @@
-const createElementFromTemplate = (
+export function createElementFromTemplate(
   tagName,
   elementAttributes,
   textContent,
   appendTo,
   event,
   callback
-) => {
+) {
   const newElement = document.createElement(tagName);
   for (const [key, value] of Object.entries(elementAttributes)) {
     newElement.setAttribute(key, value);
@@ -19,14 +19,14 @@ const createElementFromTemplate = (
   }
   appendTo.appendChild(newElement);
   return newElement;
-};
+}
 
 /**
  * If appendModalTo is not null, append the element to appendModalTo, otherwise remove the element.
  * @param element - The modal element
  * @param appendModalTo - This is the element that you want to append the modal to.
  */
-function toggleModal(element, appendModalTo) {
+export function toggleModal(element, appendModalTo) {
   // console.log(value === true);
   if (appendModalTo != null) {
     element.classList.add("active");
@@ -37,7 +37,7 @@ function toggleModal(element, appendModalTo) {
   }
 }
 
-function createListOfLinks(arrayOfLinks, arrayOfTitles, appendTo) {
+export function createListOfLinks(arrayOfLinks, arrayOfTitles, appendTo) {
   if (!arrayOfLinks) {
     arrayOfLinks = [];
   }
@@ -52,7 +52,7 @@ function createListOfLinks(arrayOfLinks, arrayOfTitles, appendTo) {
   }
 }
 
-function createMultipleMediaSection(arrayOfMedia) {
+export function createMultipleMediaSection(arrayOfMedia) {
   const mediaSection = createElementFromTemplate(
     "div",
     { class: "media-block" },
@@ -143,10 +143,3 @@ function createMultipleMediaSection(arrayOfMedia) {
     mediaSection.append(slideDiv);
   });
 }
-
-export {
-  createElementFromTemplate,
-  toggleModal,
-  createListOfLinks,
-  createMultipleMediaSection,
-};

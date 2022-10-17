@@ -1,4 +1,4 @@
-import { createElementFromTemplate } from "../helpers";
+import { createElementFromTemplate } from "../helpers.js";
 
 function Modal(instanceName, header, bodyContent, className, backgroundStyle) {
   const modalName = instanceName;
@@ -100,7 +100,7 @@ function Modal(instanceName, header, bodyContent, className, backgroundStyle) {
     modalContent
   );
 
-  modalBodyContent.append(bodyContent);
+  modalBodyContent.append(modalBody);
 
   const modalResultObject = {
     htmlCode: modalInstance,

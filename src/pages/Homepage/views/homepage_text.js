@@ -1,5 +1,5 @@
-import JSLogo from "../../../../javascript.svg";
-import OCLogo from "../../../assets/images/homepage/oc-logo.png";
+const JSLogo = "src/assets/images/homepage/javascript.svg";
+const OCLogo = "src/assets/images/homepage/oc-logo.png";
 
 let birthDate = new Date("02/14/1999");
 let ageOperation = Date.now() - birthDate.getTime();
@@ -7,7 +7,7 @@ let ageDate = new Date(ageOperation);
 let birthYear = ageDate.getUTCFullYear();
 const age = Math.abs(birthYear - 1970);
 
-const homepageText = {
+export const homepageText = {
   fr: {
     homepageIntroName: "Jonathan Binot",
     homepageIntroJob: "Développeur web - Frontend - Applications JS",
@@ -117,5 +117,3 @@ page. Bonne visite.`,
     your visit.`,
   },
 };
-
-export default homepageText;

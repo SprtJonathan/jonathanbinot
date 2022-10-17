@@ -1,14 +1,14 @@
 import {
   createElementFromTemplate,
   toggleModal,
-} from "../../../components/helpers";
-import Modal from "../../../components/Modal/Modal";
+} from "../../../components/helpers.js";
+import Modal from "../../../components/Modal/Modal.js";
 import {
   portfolioIntro,
   tileId,
   tileText,
   tileContent,
-} from "./portfolio_text";
+} from "./portfolio_text.js";
 
 const lang = localStorage.getItem("language");
 let importedPortfolioIntro;

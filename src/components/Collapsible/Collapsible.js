@@ -78,7 +78,7 @@ export default function Collapsible(
       collapsibleState = !collapsibleState;
     } else {
       collapsibleContentContainer.classList.add("active");
-      collapsibleContentContainer.style.maxHeight = "100vh";
+      collapsibleContentContainer.style.maxHeight = "1000vh";
       //   collapsibleContentContainer.scrollHeight + "px";
       collapsibleExpandIcon.classList =
         collapsibleClassName + "--title--text--chevron--upside-down";

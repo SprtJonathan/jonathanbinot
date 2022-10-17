@@ -4,7 +4,7 @@ let ageDate = new Date(ageOperation);
 let birthYear = ageDate.getUTCFullYear();
 const age = Math.abs(birthYear - 1970);
 
-const resumeHeaderText = {
+export const resumeHeaderText = {
   fr: {
     resumeHeaderName: `JONATHAN BINOT`,
     resumeDescription: `Développeur web Frontend - Disponible immédiatement`,
@@ -45,7 +45,7 @@ const resumeHeaderText = {
   },
 };
 
-const resumeContentText = {
+export const resumeContentText = {
   fr: {
     formationTitle: `Formation`,
     openclassroomsFrontend: `
@@ -440,5 +440,3 @@ const resumeContentText = {
     </section>`,
   },
 };
-
-export { resumeHeaderText, resumeContentText };

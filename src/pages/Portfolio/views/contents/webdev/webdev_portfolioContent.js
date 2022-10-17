@@ -1,8 +1,8 @@
 import {
   createElementFromTemplate,
   createListOfLinks,
-} from "../../../../../components/helpers";
-import webdevText from "./webdev_text";
+} from "../../../../../components/helpers.js";
+import webdevText from "./webdev_text.js";
 
 const lang = localStorage.getItem("language");
 let webdevTitle, importedWebdevText;

@@ -1,4 +1,4 @@
-import { createElementFromTemplate } from "../helpers";
+import { createElementFromTemplate } from "../helpers.js";
 
 // This Carousel component allows to create a gallery of photos and videos.
 export default function Carousel(carouselId, media, className) {

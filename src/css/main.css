@@ -439,6 +439,82 @@ mark.blue-underline {
   background-clip: content-box;
 }
 
+/* language modal */
+.language-modal--container {
+  pointer-events: all;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.language-modal--container--base {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  transform: scale(0);
+  transition: all ease 0.2s;
+  opacity: 1;
+  max-height: auto;
+}
+.language-modal--container--base.active {
+  transform: scale(1);
+  transition: all ease 0.2s;
+  opacity: 1;
+  max-height: auto;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.language-modal--content {
+  position: absolute;
+  width: 85%;
+  color: black;
+}
+.language-modal--blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.548);
+  border-radius: 8px;
+  box-shadow: 0 2.8px 2.2pxrgba 0, 0, 0, 0.02, 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border: 1px solid rgba(202, 235, 247, 0.72);
+  z-index: -1;
+}
+.language-modal--header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 95%;
+  margin: auto;
+}
+.language-modal--header--text {
+  font-family: "Rajdhani semibold";
+  font-size: 25px;
+  font-weight: 600;
+}
+.language-modal--body {
+  width: 90%;
+  margin: 1rem auto;
+  font-size: 20px;
+  font-family: "Rajdhani";
+  font-weight: 500;
+}
+.language-modal--exit {
+  display: none;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 30px;
@@ -777,6 +853,8 @@ body {
   font-weight: 600;
 }
 .modal--body {
+  max-height: 80vh;
+  overflow: auto;
   width: 90%;
   margin: 1rem auto;
   font-size: 20px;
@@ -1094,6 +1172,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 .error-404--go-back--button:hover {
+  cursor: pointer;
   box-shadow: rgba(10, 10, 10, 0.7) 1px 2px 5px;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
@@ -1101,7 +1180,7 @@ textarea {
 .error-404--go-back--text {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1rem;
-  color: #09f;
+  color: black;
   text-decoration: none;
 }
 
@@ -1114,6 +1193,7 @@ textarea {
     margin: 1rem;
     padding: 2rem;
     box-shadow: rgba(10, 10, 10, 0.7) 1px 2px 5px;
+    width: 400px;
   }
   .error-404--go-back--text {
     font-size: 2rem;
